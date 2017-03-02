@@ -24,14 +24,12 @@ public class AddCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         cartModel = new CartModel();
-        int id = Integer.parseInt(request.getParameter("id"));
         int usrID = Integer.parseInt(request.getParameter("usrID"));
         int pID = Integer.parseInt(request.getParameter("productID"));
-        int q = Integer.parseInt(request.getParameter("qqq"));
+        int qaunty = Integer.parseInt(request.getParameter("qaunty"));
         car = new Cart();
-        car.setCartId(id);
         car.setProductId(pID);
-        car.setQuantity(q);
+        car.setQuantity(qaunty);
         car.setUserId(usrID);
         boolean addCart = cartModel.addCart(car);
         System.out.println(addCart);

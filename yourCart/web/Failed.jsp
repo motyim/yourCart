@@ -12,11 +12,10 @@
 
                 <div class="alert alert-danger">
                     <strong>${requestScope.message}</strong> 
-                    <p><a href="index.html">Home</a></p>
+                    <p><a href="index.jsp">Home</a></p>
                 </div>
 
             </div>
         </div>
     </section>
     <%@include file="footer.jsp" %>
-=

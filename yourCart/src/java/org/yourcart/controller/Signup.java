@@ -54,7 +54,7 @@ public class Signup extends HttpServlet {
    
         if(new UserDbModel().signUp(user)){
             request.setAttribute("message", "You signup successfully");
-            getServletContext().getRequestDispatcher("/success.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Success.jsp").forward(request, response);
         }else {
             request.setAttribute("message", "Cant't Signup <br/> Email or Cridt Card used before .. ");
             getServletContext().getRequestDispatcher("/Failed.jsp").forward(request, response);
