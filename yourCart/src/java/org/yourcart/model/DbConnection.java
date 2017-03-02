@@ -20,7 +20,6 @@ public class DbConnection {
 
             Class.forName("org.mariadb.jdbc.Driver");
             
-            System.out.println("heeeeeeeeeeeeeeeeeeeerrrrrrrrreeeeeeeee");
             //connect to DB
             con = DriverManager.getConnection(
                     "jdbc:mariadb://localhost/yourCart",
@@ -28,7 +27,6 @@ public class DbConnection {
                     "");
 
             System.out.println(con);
-            System.out.println("heeeeeeeeeeeeeeeeeeeerrrrrrrrreeeeeeeee2");
             return con;
 
         } catch (ClassNotFoundException | SQLException e) {

@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/UserDbModel.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/User.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/DbConnection.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/login.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/Cart.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/CartModel.java</file>
         </group>
     </open-files>
 </project-private>

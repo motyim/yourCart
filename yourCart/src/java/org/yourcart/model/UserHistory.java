@@ -1,5 +1,6 @@
 package org.yourcart.model;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,24 +9,24 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.yourcart.beans.History;
+import org.yourcart.model.DbConnection;
 
 /**
  *
  * @author OsamaPC
  */
-public class UserHistory {
+public class UserHistory extends DbConnection{
 
     ResultSet rs = null;
    // DbConnection db = new DbConnection();
     Connection con;
     History history = new History();
-    DbConnection db = new DbConnection();
 
-    History getUserHistory(int usrId) {
+    public History getUserHistory(int usrId) {
 
         try {
 
-            con = db.openConnection();
+            con = openConnection();
 
             PreparedStatement pst = null;
             pst = con.prepareStatement("select * From history where user_id=?");
@@ -36,22 +37,22 @@ public class UserHistory {
             history.setProductId(rs.getInt(3));
             history.setQuantity(rs.getInt(5));
             history.setData(rs.getString(4));
-            db.closeConnection();
+            closeConnection();
             return history;
         } catch (SQLException ex) {
-            db.closeConnection();
+            closeConnection();
             ex.printStackTrace();
             return null;
         } finally {
-            db.closeConnection();
+            closeConnection();
         }
     }
 
-    ArrayList<History> getAllHistory() throws SQLException {
+   public ArrayList<History> getAllHistory() throws SQLException {
         ArrayList<History> arrList = new ArrayList();
 
         try {
-            con = db.openConnection();
+            con = openConnection();
             PreparedStatement pst = null;
             try {
                 pst = con.prepareStatement("select * From history");
@@ -68,19 +69,19 @@ public class UserHistory {
                 arrList.add(history);
             }
 
-            db.closeConnection();
+            closeConnection();
             return arrList;
         } catch (SQLException ex) {
-            db.closeConnection();
+            closeConnection();
             ex.printStackTrace();
             return null;
         } finally {
-            db.closeConnection();
+            closeConnection();
         }
     }
 
-    boolean addUserHistory(int usrId, History s) {
-        con = db.openConnection();
+    public boolean addUserHistory(int usrId, History s) {
+        con = openConnection();
         PreparedStatement pst = null;
         try {
             System.out.println("my con" + con);
@@ -92,7 +93,7 @@ public class UserHistory {
             pst.setInt(5, s.getQuantity());
 
             int executeUpdate = pst.executeUpdate();
-            db.closeConnection();
+            closeConnection();
             if (executeUpdate > 0) {
                 return true;
             }
@@ -102,15 +103,15 @@ public class UserHistory {
         return false;
     }
 
-    boolean deleteUserHistory(int usrId) {
-        con = db.openConnection();
+   public boolean deleteUserHistory(int usrId) {
+        con = openConnection();
         PreparedStatement pst = null;
         try {
             //System.out.println("my con" + con);
             pst = con.prepareStatement("delete From history where user_id=?");
             pst.setInt(1, usrId);
             int executeUpdate = pst.executeUpdate();
-            db.closeConnection();
+            closeConnection();
             if (executeUpdate > 0) {
                 return true;
             }

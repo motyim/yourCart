@@ -3,6 +3,7 @@ package org.yourcart.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,8 +53,12 @@ public class Signup extends HttpServlet {
         user.setCash(new Random().nextInt(1000)); // set cash as randome number
    
         if(new UserDbModel().signUp(user)){
-            out.print("DOne");
-        }else out.print("NNOOOT");
+            request.setAttribute("message", "You signup successfully");
+            getServletContext().getRequestDispatcher("/success.jsp").forward(request, response);
+        }else {
+            request.setAttribute("message", "Cant't Signup <br/> Email or Cridt Card used before .. ");
+            getServletContext().getRequestDispatcher("/Failed.jsp").forward(request, response);
+        }
        
         
         

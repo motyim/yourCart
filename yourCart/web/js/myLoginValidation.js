@@ -32,7 +32,7 @@ function validatePassword()
 function validateCredit()
 {
     var credit = document.getElementById("SignupCreditCard").value;
-    var CreditCardPattern = /^([0-9]{4}( |\-)){3}[0-4]{4}$/;
+    var CreditCardPattern = /^([0-9]{4}( |\-)){3}[0-9]{4}$/;
     return credit.match(CreditCardPattern);
 
 }

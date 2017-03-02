@@ -43,7 +43,7 @@ public class UserDbModel{
         
         boolean b = false;
         
-        System.out.println("after valid");
+        
         if (!search(bean.getUserName())) {
             try {
                 con = db.openConnection();
@@ -69,6 +69,7 @@ public class UserDbModel{
                 //con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+                return b ;
             }
         }
 
