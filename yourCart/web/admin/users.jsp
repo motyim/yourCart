@@ -33,15 +33,15 @@
                      <c:forEach items="${requestScope.allUsersAdmin}" var="user">
                 <tr>
                     <td class="cart_product">
-                        <a href=""><img src="../images/cart/one.png" alt=""></a>
+                        <img src="../images/cart/one.png" alt="">
                     </td>
                     <td class="cart_description">
-                        <h4><a href="">${user.userName}</a></h4>
+                        <h4>${user.userName}</h4>
                         <p>${user.email}</p>
                     </td>
 
                     <td class="cart_delete">
-                        <a class="cart_quantity_delete" href=""><i class="fa fa-pencil"></i></a>
+                        <a class="cart_quantity_delete" href="AdminProfile?id=${user.userId}"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 </c:forEach>

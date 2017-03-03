@@ -1,24 +1,24 @@
 package org.yourcart.controller;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
+import org.yourcart.utilize.FileUpload;
 
 /**
  *
  * @author MotYim
  */
+@MultipartConfig
 @WebServlet(name = "Profile", urlPatterns = {"/Profile"})
 public class Profile extends HttpServlet {
-
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -46,14 +46,13 @@ public class Profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             //get id from session
-            User user =(User) request.getSession().getAttribute("LoginUser");
-            
-            User newUser =(User) user.clone();
-            
-            
+            User user = (User) request.getSession().getAttribute("LoginUser");
+
+            User newUser = (User) user.clone();
+
             //get request paramater & update object user
             newUser.setUserName(request.getParameter("username"));
             newUser.setEmail(request.getParameter("email"));
@@ -61,22 +60,41 @@ public class Profile extends HttpServlet {
             newUser.setAddress(request.getParameter("address"));
             newUser.setJob(request.getParameter("job"));
             newUser.setCreditCard(request.getParameter("creditcard"));
-            
-            if(new UserDbModel().updateUser(newUser)){
+
+            //-------------- upload photo ------------------
+            Part filePart = request.getPart("image");
+            if (filePart.getSize() != 0) {      //if photo uploaded
+                String path = request.getServletContext().getRealPath("");
+                
+                try{
+                    String uploadedpath = FileUpload.uploadImage(filePart, path);
+                    newUser.setPhoto(uploadedpath);
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                    request.setAttribute("message", "please choose image only");
+                    request.getRequestDispatcher("/Failed.jsp").forward(request, response);
+                    return ;
+                }
+                
+            }
+
+            if (new UserDbModel().updateUser(newUser)) {
                 //update user successfully
                 newUser.setPassword("");    //remove password from object
                 request.getSession().setAttribute("LoginUser", newUser); //update session user
                 //redirect to profile
                 request.setAttribute("messageInfo", "update user info Successfully");
                 request.getRequestDispatcher("/profile.jsp").forward(request, response);
-            }else{
+            } else {
                 //can't update user
-                request.setAttribute("message", "can't update user now .. :(");
+                request.setAttribute("message", "can't update user now .. :(<br/>"
+                        + "email or credit card used before");
                 request.getRequestDispatcher("/Failed.jsp").forward(request, response);
-            }} catch (CloneNotSupportedException ex) {
-            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            }
+        } catch (CloneNotSupportedException ex) {
+            ex.printStackTrace();
+        } 
+
     }
 
     /**

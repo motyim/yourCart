@@ -27,14 +27,14 @@
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-4">
                         <div class="view-product">
-                            <img src="images/product-details/1.jpg" alt="" />
+                            <img src="${LoginUser.photo}" alt="" />
                         </div>
 
 
                     </div>
                     <div class="col-sm-8">
                         <div class="product-information"><!--/product-information-->
-                            <form action="Profile" method="post" id="editProfileForm" onsubmit="return validateSignup();">	
+                            <form action="Profile" method="post" id="editProfileForm" enctype="multipart/form-data" onsubmit="return validateSignup();">	
                                 <h2>${LoginUser.userName}</h2>
                                 <p>Account Setting</p>
                                 <label>Name</label>
@@ -55,7 +55,7 @@
                                
 
                                 <label>Image</label>
-                                <input type="file" name="image" id="editImage"><br/>
+                                <input type="file" name="image" id="editImage" accept="image/*" /><br/>
                                 <button type="submit" class="btn btn-default" id="editSubmitBtn">Update</button>
                             </form>
                         </div><!--/product-information-->

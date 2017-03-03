@@ -172,4 +172,35 @@ public class UserDbModel{
         }
         return null;
     }
+    
+    public User getUser(int id) {
+        User user = null ;
+        try {
+             
+            con = db.openConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * from users where (id=?)");
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                user= new User();
+                user.setUserId(rs.getInt("id"));
+                user.setUserName(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setAddress(rs.getString("address"));
+                user.setPassword(rs.getString("password"));
+                user.setJob(rs.getString("job"));
+                user.setCreditCard(rs.getString("creaditCard"));
+                user.setCash(rs.getInt("cash"));
+                user.setRole(rs.getString("role"));
+                user.setPhoto(rs.getString("photo"));
+            }
+            db.closeConnection();
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+            
+        }
+        return user ; 
+        
+    }
 }

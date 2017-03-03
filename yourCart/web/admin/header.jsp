@@ -27,6 +27,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     </head><!--/head-->
 
     <body>
@@ -62,7 +63,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.html"><img src="../images/home/logo.png" alt="" /></a>
+                                <a href=""><img src="../images/home/logo.png" alt="" /></a>
                             </div>
 
                         </div>
