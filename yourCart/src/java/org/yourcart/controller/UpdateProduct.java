@@ -54,7 +54,7 @@ public class UpdateProduct extends HttpServlet {
         int price=Integer.parseInt(request.getParameter("price"));
        // price = Double.parsedouble();
      //  String id = request.getParameter("id");
-        String cat = request.getParameter("cat");
+        int cat = Integer.parseInt(request.getParameter("cat"));
         int quan = Integer.parseInt(request.getParameter("quan"));
         String date = request.getParameter("date");
         String disc = request.getParameter("disc");

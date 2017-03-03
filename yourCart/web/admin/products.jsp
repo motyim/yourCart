@@ -4,7 +4,10 @@
     Author     : MotYim
 --%>
 
-<%-- include header file --%> 
+<%-- include header file --%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="org.yourcart.controller.AdminProductServlet" %> 
 <%@include file="header.jsp" %>
 
 <%-- include slidebar file --%> 
@@ -22,6 +25,7 @@
     <div class="table-responsive cart_info">
         <table class="table table-condensed">
             <thead>
+
                 <tr class="cart_menu">
                     <td class="image">Item</td>
                     <td class="description"></td>
@@ -31,25 +35,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="cart_product">
-                        <a href=""><img src="../images/cart/one.png" alt=""></a>
-                    </td>
-                    <td class="cart_description">
-                        <h4><a href="">Colorblock Scuba</a></h4>
-                        <p>Web ID: 1089772</p>
-                    </td>
-                    <td class="cart_price">
-                        <p>$59</p>
-                    </td>
-                    <td class="cart_price">
-                        <p>2</p>
-                    </td>
-                    <td class="cart_delete">
-                        <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        <a class="cart_quantity_delete" href=""><i class="fa fa-pencil"></i></a>
-                    </td>
-                </tr>
+                <c:if test="${!empty requestScope.allProductsAdmin}">
+
+                    <c:forEach items="${requestScope.allProductsAdmin}" var="product">
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="../images/cart/one.png" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <p>${product.name}</p>
+                                
+                            </td>
+                            <td class="cart_price">
+                                <h4>$${product.price}</h4>
+                            </td>
+                            <td class="cart_price">
+                                <p>${product.quantity}</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-pencil"></i></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
 
 
             </tbody>

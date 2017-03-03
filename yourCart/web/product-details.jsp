@@ -4,6 +4,7 @@
     Author     : MotYim
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 
@@ -24,19 +25,21 @@
         <div class="col-sm-7">
             <div class="product-information"><!--/product-information-->
                 <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-                <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-                <p>Web ID: 1089772</p>
+                <h2>${product.name}</h2>
+                <p>Product ID: ${product.productId}</p>
                 <img src="images/product-details/rating.png" alt="" />
                 <span>
-                    <span>US $59</span>
+                    <span>US $${product.price}</span>
                     <label>Quantity:</label>
-                    <input type="text" value="3" />
+                    <input type="text" value="1" />
                     <button type="button" class="btn btn-fefault cart">
                         <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </button>
                 </span>
-                <p><b>Description</b> This is product zal fol</p>
+                <p> Avaliable Quantity: ${product.quantity} </p><br/>
+                <p><b>Description</b> ${product.discriptin}</p>
+                <span>Add on : ${product.date} | model : ${product.model}</span>
 
             </div><!--/product-information-->
         </div>

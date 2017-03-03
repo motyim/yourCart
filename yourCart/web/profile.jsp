@@ -4,11 +4,16 @@
     Author     : MotYim
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 <section>
     <div class="container">
         <div class="row">
+            <div class="alert alert-warning" role="alert" id="error" style="display: none;"></div>
+            <c:if test="${!empty messageInfo }">
+                <div class="alert alert-success" role="alert" >${messageInfo}</div>
+            </c:if>
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     
@@ -29,25 +34,25 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="product-information"><!--/product-information-->
-                            <form action="#" id="editProfileForm" onsubmit="validate();">	
-                                <h2>Mariah Carayban</h2>
+                            <form action="Profile" method="post" id="editProfileForm" onsubmit="return validateSignup();">	
+                                <h2>${LoginUser.userName}</h2>
                                 <p>Account Setting</p>
                                 <label>Name</label>
-                                <input type="text" placeholder="Name"  class="input-field" id="editUserName"required/>
+                                <input type="text" placeholder="Name"  class="input-field" name="username" id="editUserName" value="${LoginUser.userName}" required/>
                                 <label>E-mail</label>
-                                <input type="email" placeholder="E-mail"  class="input-field" id="editEmail"required/>
+                                <input type="email" placeholder="E-mail"  class="input-field" name="email" id="editEmail" value="${LoginUser.email}" required/>
                                 <label>Password</label>
-                                <input type="Password" placeholder="Password"  class="input-field" id="editPassword"required/>
+                                <input type="Password" placeholder="Password"  class="input-field" name="password" id="SignupPassword" required/>
                                 <label>Confirm Password</label>
-                                <input type="Password" placeholder="Confirm Password"  class="input-field" id="editConfirmPassword"required/>
-                                <div class="alert alert-warning" role="alert" id="errorPassword" style="display: none;">passwords donot match</div>
+                                <input type="Password" placeholder="Confirm Password"  class="input-field" id="SignupConfirmPassword" required/>
+                               
                                 <label>Address</label>
-                                <input type="text" placeholder="Address"  class="input-field" id="editAddress" />
+                                <input type="text" placeholder="Address"  class="input-field" name="address" id="editAddress" value="${LoginUser.address}" />
                                 <label>Job</label>
-                                <input type="text" placeholder="Job"  class="input-field" id="editJob"/>
+                                <input type="text" placeholder="Job"  class="input-field" name="job" id="editJob" value="${LoginUser.job}"/>
                                 <label>Credit Card</label>
-                                <input type="text" placeholder="Credit Card"  class="input-field" id="editCreditCard"required/>
-                                <div class="alert alert-warning" role="alert" id="errorCredit" style="display: none;">invalid creditCardNumber</div>
+                                <input type="text" placeholder="Credit Card"  class="input-field" name="creditcard" id="SignupCreditCard" value="${LoginUser.creditCard}" required/>
+                               
 
                                 <label>Image</label>
                                 <input type="file" name="image" id="editImage"><br/>

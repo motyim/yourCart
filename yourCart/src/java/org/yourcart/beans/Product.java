@@ -14,7 +14,7 @@ public class Product {
     private String discriptin;
     private int quantity;
     private int productId;
-    private String category;
+    private int category_id;
 
     public Product() {
     }
@@ -88,15 +88,15 @@ public class Product {
  
 
 
-    public String getCategory() {
-        return category;
+    public int getCategory() {
+        return category_id;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory(int category_id) {
+        this.category_id = category_id;
     }
 
-    public Product(String name, double price, String model, String date, String photo, String discriptin, int quantity, int productId, String category) {
+    public Product(String name, double price, String model, String date, String photo, String discriptin, int quantity, int productId, int category_id) {
         this.name = name;
         this.price = price;
         this.model = model;
@@ -105,7 +105,7 @@ public class Product {
         this.discriptin = discriptin;
         this.quantity = quantity;
         this.productId = productId;
-        this.category = category;
+        this.category_id = category_id;
     }
 
 }

@@ -61,6 +61,3 @@
 
 <%-- include footer file --%> 
 <%@include file="footer.jsp" %>
-
-
-

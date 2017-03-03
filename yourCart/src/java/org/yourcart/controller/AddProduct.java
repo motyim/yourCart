@@ -40,7 +40,7 @@ public class AddProduct extends HttpServlet {
         String description= request.getParameter("description");
         int  quantity=  Integer.parseInt(request.getParameter("quantity"));
         int  productid= Integer.parseInt(request.getParameter("productid"));
-        String category= request.getParameter("category");
+        int category= Integer.parseInt(request.getParameter("category"));
           
     
                 

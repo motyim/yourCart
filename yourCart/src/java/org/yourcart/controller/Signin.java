@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
 
@@ -44,9 +45,19 @@ public class Signin extends HttpServlet {
         
         User user = new UserDbModel().signIn(username, password);
            if(user == null ){
-               out.print("Wrong username or password");
+               //TODO : MAKE forget password
+               request.setAttribute("message", "Cant't Login <br/> Wrong username or password .. ");
+               getServletContext().getRequestDispatcher("/Failed.jsp").forward(request, response);
            } else {
-               out.print(user.getUserName());
+            
+            //set session for login user
+            HttpSession session = request.getSession(true);
+            session.setAttribute("LoginUser", user);
+            session.setMaxInactiveInterval(60*15);
+            
+               if(user.getRole().equalsIgnoreCase("admin"))
+                   response.sendRedirect("admin/AdminProductServlet");   //admin
+               else response.sendRedirect("index.jsp");                  //user
            }
         
         

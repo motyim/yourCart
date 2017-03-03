@@ -2,7 +2,7 @@
 package org.yourcart.beans;
 
 
-public class User {
+public class User implements Cloneable {
     
     
     private String userName;
@@ -103,6 +103,9 @@ public class User {
     }
 
 
-    
+    @Override
+    public Object clone()throws CloneNotSupportedException{  
+        return super.clone();  
+    }  
     
 }

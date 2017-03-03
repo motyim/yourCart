@@ -69,10 +69,20 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="profile.jsp"><i class="fa fa-user"></i> Account</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart (2)</a></li>
-                                    <li><a href="#"><i class="fa fa-usd"></i> 266</a></li>
-                                    <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                                    <!--SEE Work on servelt only -->
+                                    <c:if test="${!empty sessionScope.LoginUser }">
+                                        <li><a href="Profile"><i class="fa fa-user"></i> Account</a></li>
+                                        <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart (2)</a></li>
+                                        <li><a href="#"><i class="fa fa-usd"></i> ${LoginUser.cash}</a></li>
+                                        <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                    </c:if>
+                                    
+                                    <c:if test="${empty sessionScope.LoginUser}">
+                                        <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                                    </c:if>
+                                    
+                                    
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -95,7 +105,7 @@
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="index.jsp" class="active">Home</a></li>
-                                    <li><a href="shop.jsp" >Shop</a></li>
+                                    <li><a href="Shop" >Shop</a></li>
                                 </ul>
                             </div>
                         </div>
