@@ -8,7 +8,7 @@
         <div class="breadcrumbs">
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li class="active">Products</li>
+                <li class="active">Admin Panel</li>
             </ol>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Users</a></h4>
+                                <h4 class="panel-title"><a href="AdminUserServlet">Users</a></h4>
                             </div>
                         </div>
 

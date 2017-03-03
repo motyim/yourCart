@@ -5,6 +5,9 @@
 --%>
 
 <%-- include header file --%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="org.yourcart.controller.AdminUserServlet" %> 
+
 <%@include file="header.jsp" %>
 
 <%-- include slidebar file --%> 
@@ -25,19 +28,24 @@
                 </tr>
             </thead>
             <tbody>
+                 <c:if test="${!empty requestScope.allUsersAdmin}">
+
+                     <c:forEach items="${requestScope.allUsersAdmin}" var="user">
                 <tr>
                     <td class="cart_product">
                         <a href=""><img src="../images/cart/one.png" alt=""></a>
                     </td>
                     <td class="cart_description">
-                        <h4><a href="">Colorblock Scuba</a></h4>
-                        <p>Web ID: 1089772</p>
+                        <h4><a href="">${user.userName}</a></h4>
+                        <p>${user.email}</p>
                     </td>
 
                     <td class="cart_delete">
                         <a class="cart_quantity_delete" href=""><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
+                </c:forEach>
+                  </c:if>
 
 
             </tbody>

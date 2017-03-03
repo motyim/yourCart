@@ -70,19 +70,17 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <!--SEE Work on servelt only -->
-                                    <c:if test="${!empty sessionScope.LoginUser }">
+                                    <c:if test="${!empty LoginUser }">
                                         <li><a href="Profile"><i class="fa fa-user"></i> Account</a></li>
                                         <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart (2)</a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> ${LoginUser.cash}</a></li>
                                         <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                                     </c:if>
-                                    
-                                    <c:if test="${empty sessionScope.LoginUser}">
+
+                                    <c:if test="${empty LoginUser}">
                                         <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
-                                    </c:if>
-                                    
-                                    
-                                    
+                                    </c:if> 
+
                                 </ul>
                             </div>
                         </div>
