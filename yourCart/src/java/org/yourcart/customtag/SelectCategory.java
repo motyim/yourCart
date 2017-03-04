@@ -11,25 +11,39 @@ import org.yourcart.model.CategoryModel;
  *
  * @author MotYim
  */
-public class Category extends SimpleTagSupport {
+public class SelectCategory extends SimpleTagSupport {
 
-  
+    private int selectID;
+
+    /**
+     * Called by the container to invoke this tag. The implementation of this
+     * method is provided by the tag library developer, and handles all tag
+     * processing, body iteration, etc.
+     */
     @Override
     public void doTag() throws JspException {
         JspWriter out = getJspContext().getOut();
         
         try {
             out.print("<select name='category'>");
-            
+            String selected = ""; 
             //get all category
             ArrayList<org.yourcart.beans.Category> categoriess = new CategoryModel().AllCategoriess();
             for (org.yourcart.beans.Category categories : categoriess) {
-                out.print("<option value='"+categories.getId()+"'>"+categories.getName()+"</option>");
+                if(selectID == categories.getId())
+                    selected = "selected";
+                out.print("<option value='"+categories.getId()+"' "+selected+">"+categories.getName()+"</option>");
+                
+                selected ="";
             }
             out.print("</select>");
         } catch (java.io.IOException ex) {
             throw new JspException("Error in Category tag", ex);
         }
+    }
+
+    public void setSelectID(int selectID) {
+        this.selectID = selectID;
     }
     
 }

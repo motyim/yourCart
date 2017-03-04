@@ -28,6 +28,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     </head><!--/head-->
 
     <body>

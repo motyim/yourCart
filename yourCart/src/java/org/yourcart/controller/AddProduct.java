@@ -1,7 +1,6 @@
 package org.yourcart.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -34,7 +33,18 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
 
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product productobject = new ProductModel().getProduct(id);
+        if(productobject==null){
+            request.getSession().setAttribute("message", "Product not found");
+            response.sendRedirect("../Failed.jsp");
+        }else{
+            request.setAttribute("product", productobject);
+            request.setAttribute("type", "Edit");
+            request.getRequestDispatcher("/admin/addproduct.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -83,15 +93,39 @@ public class AddProduct extends HttpServlet {
                 return;
             }
 
+        }else{                          //no photo uploaded
+            productObj.setPhoto(request.getParameter("photo"));
         }
-        if (new ProductModel().addProduct(productObj)) {
-            //redirect to Success
-            request.getSession().setAttribute("message", "Product Added Successfully");
-            response.sendRedirect("../Success.jsp");
-        } else {
-            //can't add product
-           request.getSession().setAttribute("message", "can't add product ..An Error occure");
-           response.sendRedirect("../Failed.jsp");
+        
+
+        //-------------- Update Product ------------------
+        if (request.getParameter("id") != null && !request.getParameter("id").trim().equals("")) {                
+           
+            int id = Integer.parseInt(request.getParameter("id"));
+            productObj.setProductId(id);
+            
+             if (new ProductModel().editProduct(productObj)) {
+                //redirect to Success
+                request.getSession().setAttribute("message", "Product Updated Successfully");
+                response.sendRedirect("../Success.jsp");
+            } else {
+                //can't add product
+                request.getSession().setAttribute("message", "can't Update product ..An Error occure");
+                response.sendRedirect("../Failed.jsp");
+            }
+
+             //-------------- Add  new product ------------------
+        } else {                                            
+            if (new ProductModel().addProduct(productObj)) {
+                //redirect to Success
+                request.getSession().setAttribute("message", "Product Added Successfully");
+                response.sendRedirect("../Success.jsp");
+            } else {
+                //can't add product
+                request.getSession().setAttribute("message", "can't add product ..An Error occure");
+                response.sendRedirect("../Failed.jsp");
+            }
+
         }
 
     }

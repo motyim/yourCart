@@ -2,6 +2,7 @@
 package org.yourcart.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,8 @@ public class Product extends HttpServlet {
             throws ServletException, IOException {
         
         int productID = Integer.parseInt(request.getParameter("id"));
-        org.yourcart.beans.Product product = new ProductModel().getProduct(productID);
+        ProductModel productModel = new ProductModel();
+        org.yourcart.beans.Product product = productModel.getProduct(productID);
         
         //no product with this id 
         if(product==null){
@@ -40,6 +42,11 @@ public class Product extends HttpServlet {
         }else{
              //assigne it on request
             request.setAttribute("product", product);
+            
+            //get recommnded product
+            ArrayList<org.yourcart.beans.Product> recommeendedItem = productModel.getRecommeendedItem(product.getCategory(), productID);
+            request.setAttribute("recomed", recommeendedItem);
+            
             request.getRequestDispatcher("/product-details.jsp").forward(request, response);
         }
         

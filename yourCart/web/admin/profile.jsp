@@ -14,7 +14,7 @@
     <div class="product-details"><!--product-details-->
         <div class="col-sm-4">
             <div class="view-product">
-                <img src="../images/product-details/1.jpg" alt="" />
+                <img src="../images/product-details/1.jpg" id="imageView" alt="" />
             </div>
 
 
@@ -48,7 +48,7 @@
                     <input type="hidden" name="id" value="${userInfo.userId}" />
 
                     <label>Image</label>
-                    <input type="file" name="image" id="editImage"><br/>
+                    <input type="file" name="image" id="image" accept="image/*"><br/>
                     <button type="submit" class="btn btn-default" id="editSubmitBtn">Update</button>
                 </form>
             </div>

@@ -11,13 +11,15 @@ import java.util.ArrayList;
  *
  * @author Nesmaa
  */
-public class ProductModel  {
+public class ProductModel {
 
     ResultSet rs;
     PreparedStatement pst = null;
     DbConnection db = new DbConnection();
     ArrayList<Product> list = new ArrayList();
     ArrayList<Product> selectLastProduct = new ArrayList();
+    ArrayList<Product> ListProductByName = new ArrayList();
+    ArrayList<Product> getItem = new ArrayList();
 
     Connection con;
 
@@ -28,12 +30,8 @@ public class ProductModel  {
         try {
             con = db.openConnection();
             System.out.println(con);
-            if(product.getPhoto()==null)
-                pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id) values (?,?,?,?,?,?,?)");
-            else
-                pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id,photo) values (?,?,?,?,?,?,?,?)");
+            pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id,photo) values (?,?,?,?,?,?,?,?)");
 
-            
             pst.setString(1, product.getName());
             pst.setDouble(2, product.getPrice());
             pst.setInt(3, product.getQuantity());
@@ -41,10 +39,8 @@ public class ProductModel  {
             pst.setString(5, product.getDiscriptin());
             pst.setString(6, product.getDate());
             pst.setInt(7, product.getCategory());
+            pst.setString(8, product.getPhoto());
 
-            if(product.getPhoto()!=null)
-                pst.setString(8, product.getPhoto());
-            
             i = pst.executeUpdate();
 
             // pst.close();
@@ -69,15 +65,17 @@ public class ProductModel  {
         try {
             con = db.openConnection();
             int i = 0;
-            pst = con.prepareStatement("update product set name=?,price=?,quantity=?,model=?,descriptin=? where id=?");
+            pst = con.prepareStatement("update product set name=?,price=?,quantity=?,model=?,descriptin=?,photo=?,category_id=? where id=?");
 
             pst.setString(1, product.getName());
             pst.setDouble(2, product.getPrice());
             pst.setInt(3, product.getQuantity());
             pst.setString(4, product.getModel());
             pst.setString(5, product.getDiscriptin());
-
-            pst.setInt(6, product.getProductId());
+            pst.setString(6, product.getPhoto());
+            pst.setInt(7, product.getCategory());
+            pst.setInt(8, product.getProductId());
+            System.out.println("--->" + product.getPhoto());
             i = pst.executeUpdate();
 
             db.closeConnection();
@@ -169,9 +167,9 @@ public class ProductModel  {
         return null;
 
     }
-    
+
     public ArrayList<Product> getLastProduct() {
-          System.out.println("getLastproduct");
+        System.out.println("getLastproduct");
         try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product ORDER BY id DESC LIMIT 6 ");
@@ -191,5 +189,74 @@ public class ProductModel  {
         return selectLastProduct;
     }
 
+    public ArrayList<Product> getProductByName(String productName) {
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where name like ? ");
+            pst.setString(1, productName);
+            Product obj;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                obj = new Product(rs.getString("name"), rs.getDouble("price"), rs.getString("model"), rs.getString("date"), rs.getString("photo"), rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"), rs.getInt("category_id"));
+                ListProductByName.add(obj);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(ListProductByName.size());
+        return ListProductByName;
+    }
+
+    public ArrayList<Product> getAllProductByCategoryId(int categoryId) {
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where category_id=? ");
+            pst.setInt(1, categoryId);
+            Product p;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                list.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(list.size());
+        return list;
+    }
+
+    public ArrayList<Product> getRecommeendedItem(int categoryId, int productid) {
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("SELECT * from product where id <> ? and category_id= ? ORDER BY id ASC limit 6");
+            pst.setInt(1, productid);
+            pst.setInt(2, categoryId);
+            Product p;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                getItem.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(getItem.size());
+        return getItem;
+    }
 
 }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import org.yourcart.beans.Product;
-import org.yourcart.beans.Product;
 import org.yourcart.model.ProductModel;
 
 @WebServlet("/IndexProductServlet")
@@ -32,10 +31,6 @@ public class IndexProductServlet extends HttpServlet {
          limitedProducts = productModel.getLastProduct();
          
           request.setAttribute("limitedProducts",limitedProducts );
-
-//        String nextJSP = "/index.jsp";
-//        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-//        dispatcher.include(request, response);
 
 
     }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import org.yourcart.beans.Product;
-import org.yourcart.beans.Product;
 import org.yourcart.model.ProductModel;
 
 @WebServlet("/admin/AdminProductServlet")

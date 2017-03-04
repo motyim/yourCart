@@ -2532,3 +2532,8 @@ textarea{
 .cart_product img{
     max-height: 85px;
 }
+
+.productinfo img{
+    max-width: 255px;
+    max-height: 191px;
+}

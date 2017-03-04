@@ -3,8 +3,6 @@
     Created on : Feb 28, 2017, 11:05:58 PM
     Author     : MotYim
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 
@@ -16,7 +14,7 @@
     <div class="product-details"><!--product-details-->
         <div class="col-sm-5">
             <div class="view-product">
-                <img src="images/product-details/1.jpg" alt="" />
+                <img src="${product.photo}" alt="" />
 
             </div>
 
@@ -52,82 +50,36 @@
 
         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="item active">	
+                ${loop.index}
+                
+                <c:forEach items="${recomed}" var="item"  varStatus="loop">
+                    
+                    <c:if test="${loop.index == 0}">
+                        <div class="item active">
+                    </c:if>
+                    <c:if test="${loop.index == 3}">
+                        <div class="item">
+                    </c:if>
+                    
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/recommend1.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
+                                    <a href="Product?id=${item.productId}"><img src="${item.photo}" /></a>
+                                    <h2>$${item.price}</h2>
+                                    <p>${item.name}</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/recommend2.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
+                    
+                    <c:if test="${loop.index ==2  || loop.index == 5 || loop.index == fn:length(recomed)-1}">
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/recommend3.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">	
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/recommend1.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/recommend2.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/recommend3.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </c:if>
+                
+                </c:forEach>
+   
             </div>
             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
