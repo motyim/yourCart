@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
+import org.yourcart.utilize.SHA;
 
 /**
  *
@@ -41,7 +42,7 @@ public class Signin extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String username = request.getParameter("SigninName");
-        String password = request.getParameter("SigninPassword");
+        String password = SHA.encrypt(request.getParameter("SigninPassword"));
         
         User user = new UserDbModel().signIn(username, password);
            if(user == null ){

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
+import org.yourcart.utilize.SHA;
 
 /**
  *
@@ -40,6 +41,9 @@ public class Signup extends HttpServlet {
         String job = request.getParameter("SignupJob");
         String address = request.getParameter("SignupAddress");
         String creditCrd = request.getParameter("SignupCreditCard");
+        
+        //-------------- encrypt password ------------------
+        password = SHA.encrypt(password);
         
         //-------------- create user object ------------------
         User user = new User();
