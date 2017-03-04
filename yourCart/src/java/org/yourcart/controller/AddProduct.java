@@ -57,7 +57,7 @@ public class AddProduct extends HttpServlet {
         String description = request.getParameter("ProductDescription");
         int quantity = Integer.parseInt(request.getParameter("ProductQuantity"));
         int category = Integer.parseInt(request.getParameter("category"));
-
+        String update=request.getParameter("update");
         //-------------- Set Product Object  ------------------
         Product productObj = new Product();
         productObj.setName(name);
@@ -84,6 +84,11 @@ public class AddProduct extends HttpServlet {
             }
 
         }
+        if (update.equalsIgnoreCase("true"))
+                {
+                    new ProductModel().editProduct(productObj);
+                }
+        else {
         if (new ProductModel().addProduct(productObj)) {
             //redirect to Success
             request.getSession().setAttribute("message", "Product Added Successfully");
@@ -94,6 +99,7 @@ public class AddProduct extends HttpServlet {
            response.sendRedirect("../Failed.jsp");
         }
 
+    }
     }
 
     /**

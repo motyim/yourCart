@@ -1,6 +1,5 @@
 package org.yourcart.model;
 
-
 /**
  *
  * @author OsamaPC
@@ -11,23 +10,24 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-
     Connection con = null;
-
 
     public Connection openConnection() {
         try {
 
             Class.forName("org.mariadb.jdbc.Driver");
-            
+
             //connect to DB
             con = DriverManager.getConnection(
                     "jdbc:mariadb://localhost/yourCart",
                     "root",
                     "");
-
             System.out.println(con);
             return con;
+//            Class.forName("org.sqlite.JDBC");
+//            con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\OsamaPC\\Desktop\\Project JSP\\yourCart.db ");
+//            System.out.println(con);
+//            return con;
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -48,4 +48,3 @@ public class DbConnection {
         return false;
     }
 }
-

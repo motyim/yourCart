@@ -22,19 +22,20 @@
                 <form action="AdminProduct" method="post" enctype="multipart/form-data">
                     <h2>Add Product</h2>
                     <label>Product Name</label>
-                    <input type="text" placeholder="Product Name" name="ProductName"  class="input-field" id="ProductName" required/>
+                    <input type="text" placeholder="Product Name" name="ProductName" value=${product.name} class="input-field" id="ProductName" required/>
                     <label>Product Price</label>
-                    <input type="number" placeholder="Product Price" name="ProductPrice" step="0.01" class="input-field" id="ProductPrice" required/>
+                    <input type="number" placeholder="Product Price" name="ProductPrice" value=${product.price} step="0.01" class="input-field" id="ProductPrice" required/>
                     <label>Product Quantity</label>
-                    <input type="number" placeholder="Product Quantity" name="ProductQuantity" class="input-field" id="ProductQuantity" required/>
+                    <input type="number" placeholder="Product Quantity" name="ProductQuantity" value=${product.quantity} class="input-field" id="ProductQuantity" required/>
                     <label>Product Model</label>
-                    <input type="text" placeholder="Product Model" name="ProductModel"  class="input-field" id="ProductModel" />
+                    <input type="text" placeholder="Product Model" name="ProductModel" value=${product.model} class="input-field" id="ProductModel" />
                     <label>Product Description</label>
-                    <textarea  placeholder="Product Description" name="ProductDescription" class="input-field"></textarea>
+                    <textarea  placeholder="Product Description" name="ProductDescription" value=${product.discriptin} class="input-field"></textarea>
                     <label>Category</label>
                     <lib:Category/>
                     <label>Photo</label>
-                    <input type="file"  name="image" id="imageFile"/><br/>
+                    <input type="file"  name="image" value=${product.photo} id="imageFile"/><br/>
+                    <input type="hidden"  name="update" value="true" class="input-field" id="update" />
 
                     <button type="submit" class="btn btn-default">Add Product</button>
                 </form>

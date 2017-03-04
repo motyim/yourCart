@@ -53,7 +53,7 @@
                                 <p>${product.quantity}</p>
                             </td>
                             <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                <a class="cart_quantity_delete" href="DeleteProduct?id=${product.productId}"><i class="fa fa-times"></i></a>
                                 <a class="cart_quantity_delete" href=""><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
