@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Nesmaa
  */
-public class ProductModel  {
+public class ProductModel {
 
     ResultSet rs;
     PreparedStatement pst = null;
@@ -19,6 +19,8 @@ public class ProductModel  {
     ArrayList<Product> list = new ArrayList();
     ArrayList<Product> selectLastProduct = new ArrayList();
     ArrayList<Product> ListProductByName = new ArrayList();
+    ArrayList<Product> getItem = new ArrayList();
+
     Connection con;
 
     public boolean addProduct(Product product) {
@@ -28,12 +30,12 @@ public class ProductModel  {
         try {
             con = db.openConnection();
             System.out.println(con);
-            if(product.getPhoto()==null)
+            if (product.getPhoto() == null) {
                 pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id) values (?,?,?,?,?,?,?)");
-            else
+            } else {
                 pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id,photo) values (?,?,?,?,?,?,?,?)");
+            }
 
-            
             pst.setString(1, product.getName());
             pst.setDouble(2, product.getPrice());
             pst.setInt(3, product.getQuantity());
@@ -42,9 +44,10 @@ public class ProductModel  {
             pst.setString(6, product.getDate());
             pst.setInt(7, product.getCategory());
 
-            if(product.getPhoto()!=null)
+            if (product.getPhoto() != null) {
                 pst.setString(8, product.getPhoto());
-            
+            }
+
             i = pst.executeUpdate();
 
             // pst.close();
@@ -169,9 +172,9 @@ public class ProductModel  {
         return null;
 
     }
-    
+
     public ArrayList<Product> getLastProduct() {
-          System.out.println("getLastproduct");
+        System.out.println("getLastproduct");
         try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product ORDER BY id DESC LIMIT 6 ");
@@ -190,12 +193,12 @@ public class ProductModel  {
         System.out.println(selectLastProduct.size());
         return selectLastProduct;
     }
-    
-        public ArrayList<Product> getProductByName( String productName) {
-          try {
+
+    public ArrayList<Product> getProductByName(String productName) {
+        try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product where name like ? ");
-            pst.setString (1,productName);
+            pst.setString(1, productName);
             Product obj;
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -211,13 +214,12 @@ public class ProductModel  {
         System.out.println(ListProductByName.size());
         return ListProductByName;
     }
-    
 
-         public ArrayList<Product> getAllProductByCategoryId( int categoryId) {
+    public ArrayList<Product> getAllProductByCategoryId(int categoryId) {
         try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product where category_id=? ");
-            pst.setInt(1,categoryId);
+            pst.setInt(1, categoryId);
             Product p;
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -237,6 +239,30 @@ public class ProductModel  {
         return list;
     }
 
-   
+
+    public ArrayList<Product> getRecommeendedItem(int categoryId, int productid) {
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("SELECT * from product where id <>657 and category_id=1 ORDER BY id ASC limit 6");
+            pst.setInt(1, productid);
+            pst.setInt(2, categoryId);
+            Product p;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                getItem.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(getItem.size());
+        return getItem;
+    }
 
 }
