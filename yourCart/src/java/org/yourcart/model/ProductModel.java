@@ -18,7 +18,7 @@ public class ProductModel  {
     DbConnection db = new DbConnection();
     ArrayList<Product> list = new ArrayList();
     ArrayList<Product> selectLastProduct = new ArrayList();
-
+    ArrayList<Product> ListProductByName = new ArrayList();
     Connection con;
 
     public boolean addProduct(Product product) {
@@ -190,6 +190,53 @@ public class ProductModel  {
         System.out.println(selectLastProduct.size());
         return selectLastProduct;
     }
+    
+        public ArrayList<Product> getProductByName( String productName) {
+          try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where name like ? ");
+            pst.setString (1,productName);
+            Product obj;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                obj = new Product(rs.getString("name"), rs.getDouble("price"), rs.getString("model"), rs.getString("date"), rs.getString("photo"), rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"), rs.getInt("category_id"));
+                ListProductByName.add(obj);
 
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(ListProductByName.size());
+        return ListProductByName;
+    }
+    
+
+         public ArrayList<Product> getAllProductByCategoryId( int categoryId) {
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where category_id=? ");
+            pst.setInt(1,categoryId);
+            Product p;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                list.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(list.size());
+        return list;
+    }
+
+   
 
 }
