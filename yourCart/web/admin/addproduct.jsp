@@ -12,7 +12,7 @@
     <div class="product-details"><!--product-details-->
         <div class="col-sm-4">
             <div class="view-product">
-                <img id="imageView" src="../images/product-details/1.jpg" alt="" />
+                <img src="../images/product-details/1.jpg" alt="" />
             </div>
 
 
@@ -34,7 +34,7 @@
                     <label>Category</label>
                     <lib:Category/>
                     <label>Photo</label>
-                    <input type="file"  name="image" id="image" accept="image/*" /><br/>
+                    <input type="file"  name="image" id="imageFile"/><br/>
 
                     <button type="submit" class="btn btn-default">Add Product</button>
                 </form>

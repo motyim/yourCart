@@ -94,7 +94,7 @@ public class UserDbModel{
                     userSinIn.setUserName(rs.getString("username"));
                     userSinIn.setEmail(rs.getString("email"));
                     userSinIn.setAddress(rs.getString("address"));
-                    userSinIn.setPassword("");
+                    userSinIn.setPassword(rs.getString("password"));
                     userSinIn.setJob(rs.getString("job"));
                     userSinIn.setCreditCard(rs.getString("creaditCard"));
                     userSinIn.setCash(rs.getInt("cash"));
@@ -156,7 +156,7 @@ public class UserDbModel{
                 user.setUserName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setAddress(rs.getString("address"));
-                user.setPassword("");
+                user.setPassword(rs.getString("password"));
                 user.setJob(rs.getString("job"));
                 user.setCreditCard(rs.getString("creaditCard"));
                 user.setCash(rs.getInt("cash"));
@@ -187,7 +187,7 @@ public class UserDbModel{
                 user.setUserName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setAddress(rs.getString("address"));
-                user.setPassword("");
+                user.setPassword(rs.getString("password"));
                 user.setJob(rs.getString("job"));
                 user.setCreditCard(rs.getString("creaditCard"));
                 user.setCash(rs.getInt("cash"));
