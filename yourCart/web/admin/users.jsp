@@ -33,7 +33,7 @@
                      <c:forEach items="${requestScope.allUsersAdmin}" var="user">
                 <tr>
                     <td class="cart_product">
-                        <img src="../images/cart/one.png" alt="">
+                        <img src="../${user.photo}" alt="">
                     </td>
                     <td class="cart_description">
                         <h4>${user.userName}</h4>

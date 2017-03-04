@@ -16,7 +16,7 @@
 <div class="col-sm-9 padding-right">
 
     <h2>Products
-        <a class="btn btn-default" style="float: right;">New Product</a>
+        <a class="btn btn-default" style="float: right;" href="addproduct.jsp">New Product</a>
     </h2>
 
 
@@ -40,7 +40,7 @@
                     <c:forEach items="${requestScope.allProductsAdmin}" var="product">
                         <tr>
                             <td class="cart_product">
-                                <a href=""><img src="../images/cart/one.png" alt=""></a>
+                                <a href=""><img src="../${product.photo}" alt=""></a>
                             </td>
                             <td class="cart_description">
                                 <p>${product.name}</p>

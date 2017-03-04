@@ -12,8 +12,8 @@
         <div class="row">
 
             <div class="alert alert-success">
-                <strong>${requestScope.message}</strong> 
-                <p><a href="index.jsp">Home</a></p>
+                <strong>${message}</strong> 
+                <p style="cursor: pointer"><a onclick="window.history.back();">Back</a></p>
             </div>
 
         </div>

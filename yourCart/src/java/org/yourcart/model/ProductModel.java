@@ -28,18 +28,23 @@ public class ProductModel  {
         try {
             con = db.openConnection();
             System.out.println(con);
-            pst = con.prepareStatement("insert into product(id,name,price,quantity,model,descriptin,date,photo,category_id) values (?,?,?,?,?,?,?,?,?)");
+            if(product.getPhoto()==null)
+                pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id) values (?,?,?,?,?,?,?)");
+            else
+                pst = con.prepareStatement("insert into product(name,price,quantity,model,descriptin,date,category_id,photo) values (?,?,?,?,?,?,?,?)");
 
-            pst.setInt(1, product.getProductId());
-            pst.setString(2, product.getName());
-            pst.setDouble(3, product.getPrice());
-            pst.setInt(4, product.getQuantity());
-            pst.setString(5, product.getModel());
-            pst.setString(6, product.getDiscriptin());
-            pst.setString(7, product.getDate());
-            pst.setString(8, product.getPhoto());
-            pst.setInt(9, product.getCategory());
+            
+            pst.setString(1, product.getName());
+            pst.setDouble(2, product.getPrice());
+            pst.setInt(3, product.getQuantity());
+            pst.setString(4, product.getModel());
+            pst.setString(5, product.getDiscriptin());
+            pst.setString(6, product.getDate());
+            pst.setInt(7, product.getCategory());
 
+            if(product.getPhoto()!=null)
+                pst.setString(8, product.getPhoto());
+            
             i = pst.executeUpdate();
 
             // pst.close();

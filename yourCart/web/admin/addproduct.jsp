@@ -5,6 +5,9 @@
 <%-- include slidebar file --%> 
 <%@include file="slidebar.jsp" %>
 
+<%-- include myTags library --%> 
+<%@taglib prefix="lib" uri="/WEB-INF/tlds/myTags_library.tld" %>
+
 <div class="col-sm-9 padding-right">
     <div class="product-details"><!--product-details-->
         <div class="col-sm-4">
@@ -16,26 +19,26 @@
         </div>
         <div class="col-sm-8">
             <div class="product-information"><!--/product-information-->
+                <form action="AdminProduct" method="post" enctype="multipart/form-data">
+                    <h2>Add Product</h2>
+                    <label>Product Name</label>
+                    <input type="text" placeholder="Product Name" name="ProductName"  class="input-field" id="ProductName" required/>
+                    <label>Product Price</label>
+                    <input type="number" placeholder="Product Price" name="ProductPrice" step="0.01" class="input-field" id="ProductPrice" required/>
+                    <label>Product Quantity</label>
+                    <input type="number" placeholder="Product Quantity" name="ProductQuantity" class="input-field" id="ProductQuantity" required/>
+                    <label>Product Model</label>
+                    <input type="text" placeholder="Product Model" name="ProductModel"  class="input-field" id="ProductModel" />
+                    <label>Product Description</label>
+                    <textarea  placeholder="Product Description" name="ProductDescription" class="input-field"></textarea>
+                    <label>Category</label>
+                    <lib:Category/>
+                    <label>Photo</label>
+                    <input type="file"  name="image" id="imageFile"/><br/>
 
-                <h2>product one</h2>
-                <p>Account Setting</p>
-                <label>Product Name</label>
-                <input type="text" placeholder="ProductName"  class="input-field" id="ProductName" required/>
-                <label>Product Price</label>
-                <input type="text" placeholder="ProductPrice"  class="input-field" id="ProductPrice" required/>
-                <label>Product Quantity</label>
-                <input type="text" placeholder="ProductQuantity"  class="input-field" id="ProductQuantity" required/>
-                <label>Product Description</label>
-                <input type="text" placeholder="ProductDescription"  class="input-field" id="ProductDescription"/>
-                <label>Date</label>
-                <input type="text" placeholder="Date"  class="input-field" id="Date" />
-                <label>Photo</label>
-                <input type="file" placeholder="Job"  class="input-field" name="image" id="imageFile"/>
-                <label>Category</label>
-                <input type="text" placeholder="ProductCategory"  class="input-field" id="ProductCategory"/>
+                    <button type="submit" class="btn btn-default">Add Product</button>
+                </form>
 
-
-                <button type="submit" class="btn btn-default">Update</button>
 
             </div><!--/product-information-->
         </div>
