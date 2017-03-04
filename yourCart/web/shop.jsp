@@ -41,7 +41,7 @@
                         </div>
                         <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="Product?id=${product.productId}"><i class="fa fa-plus-square"></i>View Details</a></li>
+                                <li><a href="ProductDetailsServlet?id=${product.productId}"><i class="fa fa-plus-square"></i>View Details</a></li>
                             </ul>
                         </div>
                     </div>

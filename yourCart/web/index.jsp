@@ -45,7 +45,9 @@
                         </div>
                         <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="product-details.jsp"><i class="fa fa-plus-square"></i>View Details</a></li>
+                               <li><a href="ProductDetailsServlet?productId="${product.id}><i class="fa fa-plus-square"></i>View Details</a></li>
+                                    
+                                   
                             </ul>
                         </div>
                     </div>
