@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/Product.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/Signup.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/ProductModel.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/products.jsp</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/Profile.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/users.jsp</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/User.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/css/main.css</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AddProduct.java</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/login.jsp</file>
-            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/addproduct.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
