@@ -115,7 +115,7 @@ public class ProductModel {
     public ArrayList<Product> getAllProduct() {
         try {
             con = db.openConnection();
-            pst = con.prepareStatement("select * from product ");
+            pst = con.prepareStatement("select * from product ORDER BY id DESC");
             Product p;
             rs = pst.executeQuery();
             while (rs.next()) {
