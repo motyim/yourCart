@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/products.jsp</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminCategoryServlet.java</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/addproduct.jsp</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/addcategory.jsp</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminProfile.java</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminProductServlet.java</file>
-            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/category.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/products.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AdminProductServlet.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/UserHistory.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/slidebar.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/header.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/History.java</file>
         </group>
     </open-files>
 </project-private>
+

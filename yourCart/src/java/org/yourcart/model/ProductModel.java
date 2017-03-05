@@ -16,10 +16,7 @@ public class ProductModel {
     ResultSet rs;
     PreparedStatement pst = null;
     DbConnection db = new DbConnection();
-    ArrayList<Product> list = new ArrayList();
-    ArrayList<Product> selectLastProduct = new ArrayList();
-    ArrayList<Product> ListProductByName = new ArrayList();
-    ArrayList<Product> getItem = new ArrayList();
+    
 
     Connection con;
 
@@ -113,9 +110,10 @@ public class ProductModel {
     }
 
     public ArrayList<Product> getAllProduct() {
+        ArrayList<Product> list = new ArrayList();
         try {
             con = db.openConnection();
-            pst = con.prepareStatement("select * from product ");
+            pst = con.prepareStatement("select * from product ORDER BY id DESC");
             Product p;
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -169,7 +167,7 @@ public class ProductModel {
     }
 
     public ArrayList<Product> getLastProduct() {
-        System.out.println("getLastproduct");
+        ArrayList<Product> selectLastProduct = new ArrayList();
         try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product ORDER BY id DESC LIMIT 6 ");
@@ -190,10 +188,15 @@ public class ProductModel {
     }
 
     public ArrayList<Product> getProductByName(String productName) {
-        try {
+         ArrayList<Product> ListProductByName = new ArrayList();
+        try { 
             con = db.openConnection();
-            pst = con.prepareStatement("select * from product where name like ? ");
-            pst.setString(1, productName);
+            pst = con.prepareStatement("SELECT * FROM product WHERE name LIKE ? ESCAPE '!'");
+            productName = productName.replace("!", "!!")
+                                     .replace("%", "!%")
+                                     .replace("_", "!_")
+                                     .replace("[", "![");
+            pst.setString(1, productName + "%");
             Product obj;
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -211,6 +214,7 @@ public class ProductModel {
     }
 
     public ArrayList<Product> getAllProductByCategoryId(int categoryId) {
+        ArrayList<Product> list = new ArrayList();
         try {
             con = db.openConnection();
             pst = con.prepareStatement("select * from product where category_id=? ");
@@ -235,6 +239,7 @@ public class ProductModel {
     }
 
     public ArrayList<Product> getRecommeendedItem(int categoryId, int productid) {
+        ArrayList<Product> getItem = new ArrayList();
         try {
             con = db.openConnection();
             pst = con.prepareStatement("SELECT * from product where id <> ? and category_id= ? ORDER BY id ASC limit 6");
