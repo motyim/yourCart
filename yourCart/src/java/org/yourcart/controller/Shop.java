@@ -26,16 +26,18 @@ public class Shop extends HttpServlet {
         if(request.getParameter("cate") !=null)
         {
             int cate=   Integer.parseInt(request.getParameter("cate"));
-            allProducts = productModel.getAllProductByCategoryId(cate);
+
+            allProducts = productModel.getAllProductByCategoryId(cate); 
+
         }
         else
         {
             allProducts = productModel.getAllProduct();
         }
-        
         request.setAttribute("allProducts", allProducts);
         String nextJSP = "/shop.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
+        
     }
 }
