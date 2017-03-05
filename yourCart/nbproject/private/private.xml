@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/products.jsp</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminCategoryServlet.java</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/addproduct.jsp</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/addcategory.jsp</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminProfile.java</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/src/java/org/yourcart/controller/AdminProductServlet.java</file>
+            <file>file:/C:/Users/Nesmaa/Documents/NetBeansProjects/yourCart/yourCart/web/admin/category.jsp</file>
+        </group>
     </open-files>
 </project-private>
