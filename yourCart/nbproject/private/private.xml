@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/Product.java</file>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/ProductModel.java</file>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AddProduct.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/products.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AdminProductServlet.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/model/UserHistory.java</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/slidebar.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/web/admin/header.jsp</file>
+            <file>file:/C:/Users/MY-PC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/History.java</file>
         </group>
     </open-files>
 </project-private>
