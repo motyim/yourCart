@@ -16,7 +16,7 @@
 <div class="col-sm-9 padding-right">
 
     <h2>Products
-        <a class="btn btn-default" style="float: right;" href="addproduct.jsp">New Product</a>
+     <a class="btn btn-default" style="float: right;" href="addproduct.jsp">New Product</a>
     </h2>
 
 
@@ -55,6 +55,7 @@
                             <td class="cart_delete">
                                 <a class="cart_quantity_delete" href="DeleteProduct?id=${product.productId}"><i class="fa fa-times"></i></a>
                                 <a class="cart_quantity_delete" href="AdminProduct?id=${product.productId}"><i class="fa fa-pencil"></i></a>
+                                 <a class="cart_quantity_delete" href="AddSlider?id=${product.productId}"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
                     </c:forEach>

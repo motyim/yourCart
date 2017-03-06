@@ -4,9 +4,33 @@
         <servlet-name>SearchForProduct</servlet-name>
         <servlet-class>org.yourcart.controller.SearchForProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddSlider</servlet-name>
+        <servlet-class>org.yourcart.controller.AddSlider</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSlider</servlet-name>
+        <servlet-class>org.yourcart.controller.DeleteSlider</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SlidersShow</servlet-name>
+        <servlet-class>org.yourcart.controller.SlidersShow</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSlider</servlet-name>
+        <url-pattern>/AddSlider</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSlider</servlet-name>
+        <url-pattern>/DeleteSlider</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SlidersShow</servlet-name>
+        <url-pattern>/SlidersShow</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

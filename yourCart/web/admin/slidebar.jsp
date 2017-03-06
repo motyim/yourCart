@@ -31,6 +31,11 @@
                                 <h4 class="panel-title"><a href="AdminUserServlet">Users</a></h4>
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="SlidersShow">Slide Bar</a></h4>
+                            </div>
+                        </div>
 
                     </div><!--/category-products-->
 
