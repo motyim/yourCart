@@ -1621,7 +1621,7 @@ h2.title {
 }
 
 .cart_product {
-    display: block;
+/*    display: block;*/
     margin: 15px -70px 10px 25px;
 }
 
@@ -1659,7 +1659,9 @@ h2.title {
     background:#F0F0E9;
     color: #FFFFFF;
     padding: 5px 7px;
-    font-size: 16px
+    font-size: 16px;
+    margin: 24px 0px;
+    display: inline-block;    
 }
 
 .cart_delete a:hover {
@@ -2536,4 +2538,13 @@ textarea{
 .productinfo img{
     max-width: 255px;
     max-height: 191px;
+}
+
+.slide-height{
+    height: 400px !important; 
+}
+
+.ads{
+    max-width: 270px;
+    max-height: 329px;
 }

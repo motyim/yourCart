@@ -73,5 +73,24 @@ public class CategoryModel {
         }
         return AllCategory;
     }
+    
+    public Category getCategorie(int id) {
+
+        Category category = new Category();
+        try {
+            con = db.openConnection();
+
+            PreparedStatement pst = con.prepareStatement("SELECT * from category where id=?");
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                category.setId(rs.getInt("id"));
+                category.setName(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return category;
+    }
 
 }

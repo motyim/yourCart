@@ -10,15 +10,27 @@
 <%-- include slidebar file --%> 
 <%@include file="slidebar.jsp" %>
 
+
+<!--handle photo --> 
+<c:choose>
+    <c:when test="${empty userInfo.photo}">
+        <c:set var="photo" value="../upload/profile.jpg"/>
+        <c:set var="photoscr" value="upload/profile.jpg"/>
+    </c:when>
+    <c:otherwise>
+        <c:set var="photo" value="../${userInfo.photo}"/>
+        <c:set var="photoscr" value="${userInfo.photo}"/>
+    </c:otherwise>
+</c:choose>
+
 <div class="col-sm-9 padding-right">
     <div class="product-details"><!--product-details-->
         <div class="col-sm-4">
             <div class="view-product">
-                <img src="../images/product-details/1.jpg" id="imageView" alt="" />
+                <img src="${photo}"  id="imageView" alt="" />
             </div>
-
-
         </div>
+            
         <div class="col-sm-8">
             <div class="alert alert-warning" role="alert" id="error" style="display: none;"></div>
             
@@ -27,7 +39,7 @@
             </c:if>
             
             <div class="product-information"><!--/product-information-->
-                <form action="AdminProfile" method="post" id="editProfileForm" onsubmit="return validateSignup();">	
+                <form action="AdminProfile" method="post" id="editProfileForm" enctype="multipart/form-data" onsubmit="return validateSignup();">	
                     <h2>${userInfo.userName}</h2>
                     <p>Account Setting</p>
                     <label>Name</label>
@@ -46,6 +58,7 @@
                     <label>Credit Card</label>
                     <input type="text" placeholder="Credit Card"  class="input-field" name="creditcard" id="SignupCreditCard" value="${userInfo.creditCard}" required/>
                     <input type="hidden" name="id" value="${userInfo.userId}" />
+                    <input type="hidden" name="photo" value="${photoscr}"/>
 
                     <label>Image</label>
                     <input type="file" name="image" id="image" accept="image/*"><br/>

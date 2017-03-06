@@ -3,55 +3,50 @@
     Created on : Feb 28, 2017, 10:21:18 PM
     Author     : MotYim
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <c:if test="${not empty slides}">
+                <div class="col-sm-12">
+                <!-- include slides-->
+                <jsp:include page="/SliderIndex"/>
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        <c:forEach var="i" begin="0" end="${fn:length(slides)-1}" >
+                            <c:if test="${i==0}">
+                                <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            </c:if>
+                            <c:if test="${i!=0}">
+                                <li data-target="#slider-carousel" data-slide-to="${i}"></li>
+                            </c:if>
+                        </c:forEach>
                     </ol>
 
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
-                            </div>
-                        </div>
+                        <c:forEach var="slide" items="${slides}" varStatus="loop">
+                            <c:if test="${loop.index == 0}">
+                                <c:set var="classActive" value="active" />
+                            </c:if>
 
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                            <div class="item ${classActive}">
+                                <div class="col-sm-6 slide-height">
+                                    <h1>${slide.title}</h1>
+                                    <h2>${slide.subTitle}</h2>
+                                    <p>${slide.description}</p>
+                                    <a href="Product?id=${slide.productId}" class="btn btn-default get">Get it now</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="${slide.image}" class="girl img-responsive " alt="" />
+
+                                </div>  
+
+
+
                             </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
-                            </div>
-                        </div>
+
+                            <c:set var="classActive" value="" />
+                        </c:forEach>
 
                     </div>
 
@@ -64,6 +59,7 @@
                 </div>
 
             </div>
+            </c:if>
         </div>
     </div>
 </section><!--/slider-->

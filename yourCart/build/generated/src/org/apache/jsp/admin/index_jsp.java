@@ -198,7 +198,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\r\n");
       out.write("                         <div class=\"panel panel-default\">\r\n");
       out.write("                            <div class=\"panel-heading\">\r\n");
-      out.write("                                <h4 class=\"panel-title\"><a href=\"#\">Slider</a></h4>\r\n");
+      out.write("                                <h4 class=\"panel-title\"><a href=\"SlidersShow\">Slider</a></h4>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                         <div class=\"panel panel-default\">\r\n");
@@ -319,7 +319,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("            <div>\n");
+      out.write(" \n");
       out.write("            <div class=\"col-sm-4\">\n");
       out.write("                <div class=\"product-image-wrapper\">\n");
       out.write("                    <div class=\"single-products\">\n");
@@ -344,7 +344,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("      \n");
       out.write("    </div>\n");
-      out.write("\n");
+      out.write("</section>\n");
       out.write("\n");
       out.write("\n");
       out.write(' ');

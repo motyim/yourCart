@@ -37,7 +37,7 @@
                 </span>
                 <p> Avaliable Quantity: ${product.quantity} </p><br/>
                 <p><b>Description</b> ${product.discriptin}</p>
-                <span>Add on : ${product.date} | model : ${product.model}</span>
+                <span>Add on : ${product.date} | Category : <myCate:CategoryName id="${product.model}"/> </span>
 
             </div><!--/product-information-->
         </div>

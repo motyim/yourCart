@@ -35,4 +35,15 @@
       <type>int</type>
     </attribute>
   </tag>
+  <tag>
+    <name>CategoryName</name>
+    <tag-class>org.yourcart.customtag.CategoryName</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
+  </tag>
 </taglib>

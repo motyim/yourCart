@@ -4,7 +4,7 @@
     Author     : MotYim
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 <section>

@@ -6,7 +6,6 @@
 
 <%-- include header file --%>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="org.yourcart.controller.AdminProductServlet" %> 
 <%@include file="header.jsp" %>
 
@@ -55,6 +54,7 @@
                             <td class="cart_delete">
                                 <a class="cart_quantity_delete" href="DeleteProduct?id=${product.productId}"><i class="fa fa-times"></i></a>
                                 <a class="cart_quantity_delete" href="AdminProduct?id=${product.productId}"><i class="fa fa-pencil"></i></a>
+                                <a class="cart_quantity_delete" href="AddSlider?id=${product.productId}"><i class="fa fa-star"></i></a>
                             </td>
                         </tr>
                     </c:forEach>
