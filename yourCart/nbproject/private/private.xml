@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/offers.jsp</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AddAdvertisement.java</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/DeleteAdvertisement.java</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/slidebar.jsp</file>
             <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/products.jsp</file>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/DeleteSlider.java</file>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/controller/AddSlider.java</file>
-            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/addSlider.jsp</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/ads.jsp</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/web/admin/AddAdvert.jsp</file>
+            <file>file:/C:/Users/OsamaPC/Desktop/yourCart/yourCart/src/java/org/yourcart/beans/Advertisement.java</file>
         </group>
     </open-files>
 </project-private>

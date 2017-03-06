@@ -16,6 +16,18 @@
         <servlet-name>SlidersShow</servlet-name>
         <servlet-class>org.yourcart.controller.SlidersShow</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddAdvertisement</servlet-name>
+        <servlet-class>org.yourcart.controller.AddAdvertisement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAdvertisement</servlet-name>
+        <servlet-class>org.yourcart.controller.ShowAdvertisement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAdvertisement</servlet-name>
+        <servlet-class>org.yourcart.controller.DeleteAdvertisement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>SlidersShow</servlet-name>
         <url-pattern>/SlidersShow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAdvertisement</servlet-name>
+        <url-pattern>/AddAdvertisement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAdvertisement</servlet-name>
+        <url-pattern>/ShowAdvertisement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAdvertisement</servlet-name>
+        <url-pattern>/DeleteAdvertisement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,12 +16,12 @@ public class SliderOperation extends DbConnection {
 
     Connection con;
     ResultSet rs;
-    DbConnection db = new DbConnection();
+//    DbConnection db = new DbConnection();
 
     public boolean addSlider(Slider slider) {
 
         try {
-            con = db.openConnection();
+            con = openConnection();
             PreparedStatement pst = null;
             System.out.println("my con" + con);
             pst = con.prepareStatement("insert into slides (image,title,subTitle,description,product_Id)Values (?,?,?,?,?)");
@@ -32,7 +32,7 @@ public class SliderOperation extends DbConnection {
             pst.setString(4, slider.getDescription());
             pst.setInt(5, slider.getProductId());
             int executeUpdate = pst.executeUpdate();
-            db.closeConnection();
+            closeConnection();
             if (executeUpdate > 0) {
                 return true;
             }
@@ -45,13 +45,13 @@ public class SliderOperation extends DbConnection {
     public boolean deleteSlider(int id) {
 
         try {
-            con = db.openConnection();
+            con = openConnection();
             PreparedStatement pst = null;
             //System.out.println("my con" + con);
             pst = con.prepareStatement("delete From slides where id=?");
             pst.setInt(1, id);
             int executeUpdate = pst.executeUpdate();
-            db.closeConnection();
+            closeConnection();
             if (executeUpdate > 0) {
                 return true;
             }
