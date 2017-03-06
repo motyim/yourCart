@@ -29,8 +29,8 @@
                 <span>
                     <span>US $${product.price}</span>
                     <label>Quantity:</label>
-                    <input type="text" value="1" />
-                    <button type="button" class="btn btn-fefault cart">
+                    <input type="text" id="quan" value="1" />
+                    <button type="button" id="${product.productId}" class="btn btn-fefault cart add-to-my">
                         <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </button>

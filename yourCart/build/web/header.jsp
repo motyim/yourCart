@@ -73,7 +73,7 @@
                                 <ul class="nav navbar-nav">
                                     <c:if test="${!empty LoginUser }">
                                         <li><a href="Profile"><i class="fa fa-user"></i> Account</a></li>
-                                        <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart (2)</a></li>
+                                        <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart (<span id="number">2</span> )</a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> ${LoginUser.cash}</a></li>
                                         <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                                     </c:if>

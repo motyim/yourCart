@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.yourcart.model;
 
 import java.sql.Connection;
@@ -55,9 +50,12 @@ public class CartModel extends DbConnection {
 
         try {
             int search = search(cart.getProductId(), cart.getUserId());
+            System.out.println("Serach -- " + search);
             if (search != 0) {
+                System.out.println("In edit");
                 return editQantity(search + cart.getQuantity(), cart.getUserId(), cart.getProductId());
             }
+            System.out.println("Not Edit");
             con = openConnection();
             PreparedStatement pst = null;
             System.out.println("my con" + con);
@@ -115,37 +113,32 @@ public class CartModel extends DbConnection {
     }
 
     private int search(int pID, int usrID) {
-        boolean b = false;
         int qu = 0;
         try {
 
             con = openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT * from cart where (id=?) and (user_id=?)");
+            PreparedStatement pst = con.prepareStatement("SELECT * from cart where (product_id=?) and (user_id=?)");
             pst.setInt(1, pID);
             pst.setInt(2, usrID);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                b = true;
+            if (rs.next()) {  
                 qu = rs.getInt("quantity");
-            } else {
-                b = false;
-            }
+            } 
             closeConnection();
         } catch (SQLException ex) {
             closeConnection();
             ex.printStackTrace();
         }
-        if (b) {
-            return qu;
-        }
-        return 0;
+        
+        return qu;
+        
     }
 
     private boolean editQantity(int quantity, int usrID, int productID) {
         try {
 
             con = openConnection();
-            PreparedStatement pst = con.prepareStatement("update cart set quantity=? where user_id=? and id=? ");
+            PreparedStatement pst = con.prepareStatement("update cart set quantity=? where user_id=? and product_id=? ");
             pst.setInt(1, quantity);
             pst.setInt(2, usrID);
             pst.setInt(3, productID);

@@ -10,6 +10,8 @@ public class History {
     private String data;
     private int quantity;
     private int productId;
+    private int userId;
+    
     
     public History(){}
 
@@ -44,8 +46,13 @@ public class History {
     public void setProductId(int productId) {
         this.productId = productId;
     }
-    
-    
-            
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     
 }

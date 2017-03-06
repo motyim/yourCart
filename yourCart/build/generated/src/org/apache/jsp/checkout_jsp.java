@@ -3,9 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import org.yourcart.controller.IndexProductServlet;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -13,15 +12,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(5);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
     _jspx_dependants.add("/header.jsp");
-    _jspx_dependants.add("/slider.jsp");
-    _jspx_dependants.add("/slidebar.jsp");
-    _jspx_dependants.add("/WEB-INF/tlds/myTags_library.tld");
     _jspx_dependants.add("/footer.jsp");
   }
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -31,12 +26,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_if_test.release();
   }
 
@@ -64,10 +57,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write(" \r\n");
-      out.write(" \r\n");
-      out.write(" \r\n");
+      out.write('\n');
+      out.write('\n');
+      out.write(' ');
+      out.write('\n');
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
@@ -186,121 +179,137 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("            </div><!--/header-bottom-->\r\n");
       out.write("        </header><!--/header-->\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write(" \r\n");
-      out.write("\r\n");
-      out.write("<section id=\"slider\"><!--slider-->\r\n");
-      out.write("    <div class=\"container\">\r\n");
-      out.write("        <div class=\"row\">\r\n");
-      out.write("            <div class=\"col-sm-12\">\r\n");
-      out.write("                <div id=\"slider-carousel\" class=\"carousel slide\" data-ride=\"carousel\">\r\n");
-      out.write("                    <ol class=\"carousel-indicators\">\r\n");
-      out.write("                        <li data-target=\"#slider-carousel\" data-slide-to=\"0\" class=\"active\"></li>\r\n");
-      out.write("                        <li data-target=\"#slider-carousel\" data-slide-to=\"1\"></li>\r\n");
-      out.write("                        <li data-target=\"#slider-carousel\" data-slide-to=\"2\"></li>\r\n");
-      out.write("                    </ol>\r\n");
-      out.write("\r\n");
-      out.write("                    <div class=\"carousel-inner\">\r\n");
-      out.write("                        <div class=\"item active\">\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <h1><span>E</span>-SHOPPER</h1>\r\n");
-      out.write("                                <h2>Free E-Commerce Template</h2>\r\n");
-      out.write("                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-default get\">Get it now</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <img src=\"images/home/girl1.jpg\" class=\"girl img-responsive\" alt=\"\" />\r\n");
-      out.write("                                <img src=\"images/home/pricing.png\"  class=\"pricing\" alt=\"\" />\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"item\">\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <h1><span>E</span>-SHOPPER</h1>\r\n");
-      out.write("                                <h2>100% Responsive Design</h2>\r\n");
-      out.write("                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-default get\">Get it now</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <img src=\"images/home/girl2.jpg\" class=\"girl img-responsive\" alt=\"\" />\r\n");
-      out.write("                                <img src=\"images/home/pricing.png\"  class=\"pricing\" alt=\"\" />\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"item\">\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <h1><span>E</span>-SHOPPER</h1>\r\n");
-      out.write("                                <h2>Free Ecommerce Template</h2>\r\n");
-      out.write("                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-default get\">Get it now</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
-      out.write("                                <img src=\"images/home/girl3.jpg\" class=\"girl img-responsive\" alt=\"\" />\r\n");
-      out.write("                                <img src=\"images/home/pricing.png\" class=\"pricing\" alt=\"\" />\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                    </div>\r\n");
-      out.write("\r\n");
-      out.write("                    <a href=\"#slider-carousel\" class=\"left control-carousel hidden-xs\" data-slide=\"prev\">\r\n");
-      out.write("                        <i class=\"fa fa-angle-left\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <a href=\"#slider-carousel\" class=\"right control-carousel hidden-xs\" data-slide=\"next\">\r\n");
-      out.write("                        <i class=\"fa fa-angle-right\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                </div>\r\n");
-      out.write("\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </div>\r\n");
-      out.write("</section><!--/slider-->");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write(" \r\n");
       out.write("\n");
-      out.write("<section>\n");
-      out.write("    \n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<section id=\"cart_items\">\n");
       out.write("    <div class=\"container\">\n");
-      out.write("        <div class=\"row\">\n");
-      out.write("            <div class=\"col-sm-3\">\n");
-      out.write("                <div class=\"left-sidebar\">\n");
-      out.write("                    <h2>Category</h2>\n");
-      out.write("                    <div class=\"panel-group category-products\" id=\"accordian\"><!--category-productsr-->\n");
-      out.write("                       \n");
-      out.write("                        ");
-      if (_jspx_meth_myCate_CartCategory_0(_jspx_page_context))
-        return;
       out.write("\n");
-      out.write("                    </div><!--/category-products-->\n");
-      out.write("                    <div class=\"shipping text-center\"><!--shipping-->\n");
-      out.write("                        <img src=\"images/home/shipping.jpg\" alt=\"\" />\n");
-      out.write("                    </div><!--/shipping-->\n");
+      out.write("        <div class=\"breadcrumbs\">\n");
+      out.write("            <ol class=\"breadcrumb\">\n");
+      out.write("                <li><a href=\"#\">Home</a></li>\n");
+      out.write("                <li class=\"active\">Check out</li>\n");
+      out.write("            </ol>\n");
+      out.write("        </div><!--/breadcrums-->\n");
       out.write("\n");
-      out.write("                </div>\n");
-      out.write("            </div>");
-      out.write('\r');
+      out.write("\n");
+      out.write("\n");
+      out.write("        <div class=\"review-payment\">\n");
+      out.write("            <h2>Review & Payment</h2>\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("        <div class=\"table-responsive cart_info\">\n");
+      out.write("            <table class=\"table table-condensed\">\n");
+      out.write("                <thead>\n");
+      out.write("                    <tr class=\"cart_menu\">\n");
+      out.write("                        <td class=\"image\">Item</td>\n");
+      out.write("                        <td class=\"description\"></td>\n");
+      out.write("                        <td class=\"price\">Price</td>\n");
+      out.write("                        <td class=\"quantity\">Quantity</td>\n");
+      out.write("                        <td class=\"total\">Total</td>\n");
+      out.write("                        <td></td>\n");
+      out.write("                    </tr>\n");
+      out.write("                </thead>\n");
+      out.write("                <tbody>\n");
+      out.write("                    <tr>\n");
+      out.write("                        <td class=\"cart_product\">\n");
+      out.write("                            <a href=\"\"><img src=\"images/cart/three.png\" alt=\"\"></a>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_description\">\n");
+      out.write("                            <h4><a href=\"\">Colorblock Scuba</a></h4>\n");
+      out.write("                            <p>Web ID: 1089772</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>20</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_total\">\n");
+      out.write("                            <p class=\"cart_total_price\">$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_delete\">\n");
+      out.write("                            <a class=\"cart_quantity_delete\" href=\"\"><i class=\"fa fa-times\"></i></a>\n");
+      out.write("                        </td>\n");
+      out.write("                    </tr>\n");
+      out.write("                    <tr>\n");
+      out.write("                        <td class=\"cart_product\">\n");
+      out.write("                            <a href=\"\"><img src=\"images/cart/three.png\" alt=\"\"></a>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_description\">\n");
+      out.write("                            <h4><a href=\"\">Colorblock Scuba</a></h4>\n");
+      out.write("                            <p>Web ID: 1089772</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>20</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_total\">\n");
+      out.write("                            <p class=\"cart_total_price\">$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_delete\">\n");
+      out.write("                            <a class=\"cart_quantity_delete\" href=\"\"><i class=\"fa fa-times\"></i></a>\n");
+      out.write("                        </td>\n");
+      out.write("                    </tr>\n");
+      out.write("\n");
+      out.write("                    <tr>\n");
+      out.write("                        <td class=\"cart_product\">\n");
+      out.write("                            <a href=\"\"><img src=\"images/cart/three.png\" alt=\"\"></a>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_description\">\n");
+      out.write("                            <h4><a href=\"\">Colorblock Scuba</a></h4>\n");
+      out.write("                            <p>Web ID: 1089772</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_price\">\n");
+      out.write("                            <p>20</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_total\">\n");
+      out.write("                            <p class=\"cart_total_price\">$59</p>\n");
+      out.write("                        </td>\n");
+      out.write("                        <td class=\"cart_delete\">\n");
+      out.write("                            <a class=\"cart_quantity_delete\" href=\"\"><i class=\"fa fa-times\"></i></a>\n");
+      out.write("                        </td>\n");
+      out.write("                    </tr>\n");
+      out.write("                    <tr>\n");
+      out.write("                        <td colspan=\"4\">&nbsp;</td>\n");
+      out.write("                        <td colspan=\"2\">\n");
+      out.write("                            <table class=\"table table-condensed total-result\">\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <td>Cart Sub Total</td>\n");
+      out.write("                                    <td>$59</td>\n");
+      out.write("                                </tr>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <td>Exo Tax</td>\n");
+      out.write("                                    <td>$2</td>\n");
+      out.write("                                </tr>\n");
+      out.write("                                <tr class=\"shipping-cost\">\n");
+      out.write("                                    <td>Shipping Cost</td>\n");
+      out.write("                                    <td>Free</td>\t\t\t\t\t\t\t\t\t\t\n");
+      out.write("                                </tr>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <td>Total</td>\n");
+      out.write("                                    <td><span>$61</span></td>\n");
+      out.write("                                </tr>\n");
+      out.write("                            </table>\n");
+      out.write("                        </td>\n");
+      out.write("                    </tr>\n");
+      out.write("                </tbody>\n");
+      out.write("            </table>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"payment-options\">\n");
+      out.write("            <a class=\"btn btn-primary\" href=\"\">Pay</a>\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</section> <!--/#cart_items-->\n");
+      out.write("\n");
+      out.write(' ');
       out.write('\n');
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/IndexProductServlet", out, false);
-      out.write("\r\n");
-      out.write("<div class=\"col-sm-9 padding-right\">\r\n");
-      out.write("    <div class=\"features_items\"><!--features_items-->\r\n");
-      out.write("        <h2 class=\"title text-center\">New Items</h2>\r\n");
-      out.write("\r\n");
-      out.write("        ");
-      if (_jspx_meth_c_if_2(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("    </div><!--features_items-->\r\n");
-      out.write("</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("</section>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write(" \r\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -351,8 +360,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script src=\"js/addtocart.js\"></script>\n");
       out.write("</body>\n");
       out.write("</html>");
-      out.write('\r');
-      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -380,7 +387,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       do {
         out.write("\r\n");
         out.write("                                        <li><a href=\"Profile\"><i class=\"fa fa-user\"></i> Account</a></li>\r\n");
-        out.write("                                        <li><a href=\"cart.jsp\"><i class=\"fa fa-shopping-cart\"></i> Cart (2)</a></li>\r\n");
+        out.write("                                        <li><a href=\"cart.jsp\"><i class=\"fa fa-shopping-cart\"></i> Cart (<span id=\"number\">2</span> )</a></li>\r\n");
         out.write("                                        <li><a href=\"#\"><i class=\"fa fa-usd\"></i> ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoginUser.cash}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</a></li>\r\n");
@@ -424,125 +431,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_myCate_CartCategory_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  myCate:CartCategory
-    org.yourcart.customtag.CartCategoryTagHandler _jspx_th_myCate_CartCategory_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(org.yourcart.customtag.CartCategoryTagHandler.class) : new org.yourcart.customtag.CartCategoryTagHandler();
-    _jspx_th_myCate_CartCategory_0.setJspContext(_jspx_page_context);
-    _jspx_th_myCate_CartCategory_0.doTag();
-    return false;
-  }
-
-  private boolean _jspx_meth_c_if_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_2.setParent(null);
-    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${!empty requestScope.limitedProducts}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
-    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("            ");
-        if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("        ");
-        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
-      return true;
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${requestScope.limitedProducts}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("product");
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("\r\n");
-          out.write("                <div class=\"col-sm-4\">\r\n");
-          out.write("                    <div class=\"product-image-wrapper\">\r\n");
-          out.write("                        <div class=\"single-products\">\r\n");
-          out.write("                            <div class=\"productinfo text-center\">\r\n");
-          out.write("                                <img src=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.photo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write(" alt=\"\" />\r\n");
-          out.write("                                <h2>$");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</h2>\r\n");
-          out.write("                                <p>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</p>\r\n");
-          out.write("                                <a href=\"#\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Add to cart</a>\r\n");
-          out.write("                            </div>\r\n");
-          out.write("                            <div class=\"product-overlay\">\r\n");
-          out.write("                                <div class=\"overlay-content\">\r\n");
-          out.write("                                    <h2>$");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</h2>\r\n");
-          out.write("                                    <p>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</p>\r\n");
-          out.write("                                    <a href=\"#\" id=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Add to cart</a>\r\n");
-          out.write("                                </div>\r\n");
-          out.write("                            </div>\r\n");
-          out.write("                            <img src=\"images/home/new.png\" class=\"new\" alt=\"\" />\r\n");
-          out.write("                        </div>\r\n");
-          out.write("                        <div class=\"choose\">\r\n");
-          out.write("                            <ul class=\"nav nav-pills nav-justified\">\r\n");
-          out.write("                                <li><a href=\"Product?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"><i class=\"fa fa-plus-square\"></i>View Details</a></li>\r\n");
-          out.write("                            </ul>\r\n");
-          out.write("                        </div>\r\n");
-          out.write("                    </div>\r\n");
-          out.write("                </div>\r\n");
-          out.write("            ");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
     return false;
   }
 }

@@ -2,37 +2,45 @@
 package org.yourcart.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.yourcart.beans.Cart;
+import org.yourcart.beans.User;
 import org.yourcart.model.CartModel;
 
 
 /**
  *
- * @author OsamaPC
+ * @author MotYim
  */
+@WebServlet("/addCart")
 public class AddCart extends HttpServlet {
-
-    CartModel cartModel;
-    Cart car = null;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        cartModel = new CartModel();
-        int usrID = Integer.parseInt(request.getParameter("usrID"));
+        
+        CartModel cartModel = new CartModel();
+       
         int pID = Integer.parseInt(request.getParameter("productID"));
         int qaunty = Integer.parseInt(request.getParameter("qaunty"));
-        car = new Cart();
+        //get login user id
+        User user = (User) request.getSession().getAttribute("LoginUser");
+        
+        Cart car = new Cart();
         car.setProductId(pID);
         car.setQuantity(qaunty);
-        car.setUserId(usrID);
-        boolean addCart = cartModel.addCart(car);
-        System.out.println(addCart);
+        car.setUserId(user.getUserId());
+        
+        if(cartModel.addCart(car)){
+            System.out.println("DOOOOOOOOOOOOOOOOOOON");
+            response.getWriter().print(cartModel.getNubmberOfCartsForUser(user.getUserId()));
+        }else{
+            System.out.println("NOOOOOOOOOOOOOOOT");
+        }
     }
 
     

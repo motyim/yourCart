@@ -31,8 +31,29 @@
                                 <h4 class="panel-title"><a href="AdminUserServlet">Users</a></h4>
                             </div>
                         </div>
+			<div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="AdminCategoryServlet">Category</a></h4>
+                            </div>
+                        </div>
 
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="AdminHistoryServlet">History</a></h4>
+                            </div>
+                        </div>
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Slider</a></h4>
+                            </div>
+                        </div>
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Ads</a></h4>
+                            </div>
+                        </div>
                     </div><!--/category-products-->
+
 
 
                 </div>

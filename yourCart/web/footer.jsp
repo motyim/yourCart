@@ -49,5 +49,6 @@
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 <script src="js/myLoginValidation.js"></script>
+<script src="js/addtocart.js"></script>
 </body>
 </html>

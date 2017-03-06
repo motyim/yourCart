@@ -1,4 +1,4 @@
-<%-- 'DF 
+<%--
     Document   : index
     Created on : Feb 28, 2017, 10:25:09 PM
     Author     : MotYim
@@ -37,7 +37,7 @@
                                 <div class="overlay-content">
                                     <h2>$${product.price}</h2>
                                     <p>${product.name}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="#" id="${product.productId}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                             <img src="images/home/new.png" class="new" alt="" />
