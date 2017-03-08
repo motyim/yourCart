@@ -2,33 +2,44 @@ package org.yourcart.beans;
 
 /**
  *
- * @author OsamaPC
+ * @author sara metwalli
  */
-public class Product {
-
-    private String name;
+public class CartProduct {
+     private int cartId;
+    private int userId;
+    private int quantity;
+     private String name;
     private double price;
     private String model;
     private String date;
     private String photo;
     private String discriptin;
-    private int quantity;
-    private int productId;
+    private int quantity_product;
+     private int productId;
     private int category;
 
-    public Product() {
+    public int getCartId() {
+        return cartId;
     }
 
-    public Product(int productId) {
-        this.productId = productId;
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
-    public int getProductId() {
-        return productId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -79,12 +90,20 @@ public class Product {
         this.discriptin = discriptin;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQuantity_product() {
+        return quantity_product;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity_product(int quantity_product) {
+        this.quantity_product = quantity_product;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public int getCategory() {
@@ -94,17 +113,18 @@ public class Product {
     public void setCategory(int category) {
         this.category = category;
     }
+  //  CartProduct cartProduct=new CartProduct(cartId,rs.getInt("c.quantity"),rs.getString("p.name"),rs.getInt("p.price"),rs.getString("p.photo"),rs.getString("p.discriptin"),rs.getInt(",p.productId"));
 
-    public Product(String name, double price, String model, String date, String photo, String discriptin, int quantity, int productId, int category_id) {
+    public CartProduct(int cartId, int quantity, String name, double price, String photo, String discriptin, int productId) {
+        this.cartId = cartId;
+        this.quantity = quantity;
         this.name = name;
         this.price = price;
-        this.model = model;
-        this.date = date;
         this.photo = photo;
         this.discriptin = discriptin;
-        this.quantity = quantity;
         this.productId = productId;
-        this.category = category_id;
     }
 
+  
+   
 }

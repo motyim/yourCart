@@ -3,23 +3,6 @@
   <tlib-version>1.0</tlib-version>
   <short-name>mytags_library</short-name>
   <uri>/WEB-INF/tlds/myTags_library</uri>
-  <!-- A validator verifies that the tags are used correctly at JSP
-          translation time. Validator entries look like this: 
-       <validator>
-           <validator-class>com.mycompany.TagLibValidator</validator-class>
-           <init-param>
-              <param-name>parameter</param-name>
-              <param-value>value</param-value>
-           </init-param>
-       </validator>
-    -->
-  <!-- A tag library can register Servlet Context event listeners in
-         case it needs to react to such events. Listener entries look
-         like this: 
-      <listener>
-          <listener-class>com.mycompany.TagLibListener</listener-class> 
-      </listener>
-    -->
   <tag>
     <name>CartCategory</name>
     <tag-class>org.yourcart.customtag.CartCategoryTagHandler</tag-class>
@@ -31,17 +14,6 @@
     <body-content>empty</body-content>
     <attribute>
       <name>selectID</name>
-      <rtexprvalue>true</rtexprvalue>
-      <type>int</type>
-    </attribute>
-  </tag>
-  <tag>
-    <name>CategoryName</name>
-    <tag-class>org.yourcart.customtag.CategoryName</tag-class>
-    <body-content>empty</body-content>
-    <attribute>
-      <name>id</name>
-      <required>true</required>
       <rtexprvalue>true</rtexprvalue>
       <type>int</type>
     </attribute>

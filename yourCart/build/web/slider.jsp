@@ -3,14 +3,14 @@
     Created on : Feb 28, 2017, 10:21:18 PM
     Author     : MotYim
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <jsp:include page="/SliderIndex"/>
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
             <c:if test="${not empty slides}">
                 <div class="col-sm-12">
                 <!-- include slides-->
-                <jsp:include page="/SliderIndex"/>
+               
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <c:forEach var="i" begin="0" end="${fn:length(slides)-1}" >

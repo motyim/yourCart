@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.yourcart.beans.Cart;
+import org.yourcart.beans.CartProduct;
 
 /**
  *
@@ -167,4 +168,29 @@ public class CartModel extends DbConnection {
         System.out.println("Quantity ==  " + count);
         return count;
     }
+    public ArrayList<CartProduct> getProductFromCart(int userId)
+    {
+        ArrayList<CartProduct> carts=new ArrayList<CartProduct>();
+         try {
+            con = openConnection();
+            PreparedStatement pst = con.prepareStatement("select c.id,c.quantity,p.name,p.price,p.photo,p.descriptin,p.id from cart as c, product as p where c.product_id=p.id AND c.user_id=? ");
+            pst.setInt(1, userId);
+             rs= pst.executeQuery();
+             while(rs.next())
+             {
+                 
+                 CartProduct cartProduct=new CartProduct(rs.getInt("c.id"),rs.getInt("c.quantity"),rs.getString("p.name"),rs.getInt("p.price"),rs.getString("p.photo"),rs.getString("p.descriptin"),rs.getInt("p.id"));
+                 carts.add(cartProduct);
+             }
+              closeConnection();
+            return carts;
+             
+        } catch (SQLException ex) {
+         ex.printStackTrace();
+        }
+        return null;
+    }
+    
+
+    
 }

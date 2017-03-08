@@ -18,6 +18,11 @@ public class Cart {
 
     public Cart() {
     }
+    
+     public Cart(int cartId)
+    {
+        this.cartId = cartId;
+    }
 
     public Cart(int cartId, int userId, int productId, int quantity) {
         this.cartId = cartId;

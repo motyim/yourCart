@@ -2,7 +2,9 @@
 package org.yourcart.controller;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +13,9 @@ import org.yourcart.model.CartModel;
 
 /**
  *
- * @author OsamaPC
+ * @author OsamaPC & sara
  */
+@WebServlet("/DeleteCart")
 public class DeleteCart extends HttpServlet {
  CartModel cartModel;
    
@@ -24,7 +27,10 @@ public class DeleteCart extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
        
         boolean addCart = cartModel.deleteCart(id);
-        System.out.println(addCart);
+
+        String nextJSP = "/CartHandlerServlet";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.include(request, response);
     }
 
     
