@@ -32,7 +32,7 @@
                                 <img src=${product.photo} alt="" />
                                 <h2>$${product.price}</h2>
                                 <p>${product.discriptin}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-bluetooth"></i>Add to cart</a>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                             <div class="product-overlay">
                                 <div class="overlay-content">

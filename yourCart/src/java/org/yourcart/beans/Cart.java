@@ -25,7 +25,10 @@ public class Cart {
         this.productId = productId;
         this.quantity = quantity;
     }
-
+    public Cart(int cartId)
+    {
+        this.cartId = cartId;
+    }
     public int getCartId() {
         return cartId;
     }

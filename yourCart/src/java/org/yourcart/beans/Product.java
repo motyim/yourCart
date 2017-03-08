@@ -111,5 +111,9 @@ public class Product {
         this.productId = productId;
         this.category = category_id;
     }
+    public Product(int productId)
+    {
+        this.productId = productId;
+    }
 
 }

@@ -10,7 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.yourcart.beans.Cart;
+import org.yourcart.beans.CartProduct;
 
 /**
  *
@@ -174,4 +177,54 @@ public class CartModel extends DbConnection {
         System.out.println("Quantity ==  " + count);
         return count;
     }
+//    public int getProductFromCart(int cartId)
+//    {
+//        try {
+//            con = openConnection();
+//            PreparedStatement pst = con.prepareStatement("select product_id from cart where id=? ");
+//            pst.setInt(1, cartId);
+//             rs= pst.executeQuery();
+//             if(rs.next())
+//             {
+//                  closeConnection(); 
+//                 return rs.getInt("product_id");
+//                 
+//             }
+//             else
+//             {
+//                 closeConnection(); 
+//                 return 0;
+//               }
+//             
+//             
+//        } catch (SQLException ex) {
+//         ex.printStackTrace();
+//        }
+//        return 0;
+//    }
+    public ArrayList<CartProduct> getProductFromCart(int userId)
+    {
+        ArrayList<CartProduct> carts=new ArrayList<CartProduct>();
+         try {
+            con = openConnection();
+            PreparedStatement pst = con.prepareStatement("select c.id,c.quantity,p.name,p.price,p.photo,p.descriptin,p.id from cart as c, product as p where c.product_id=p.id AND c.user_id=? ");
+            pst.setInt(1, userId);
+             rs= pst.executeQuery();
+             while(rs.next())
+             {
+                 
+                 CartProduct cartProduct=new CartProduct(rs.getInt("c.id"),rs.getInt("c.quantity"),rs.getString("p.name"),rs.getInt("p.price"),rs.getString("p.photo"),rs.getString("p.descriptin"),rs.getInt("p.id"));
+                 carts.add(cartProduct);
+             }
+              closeConnection();
+            return carts;
+             
+        } catch (SQLException ex) {
+         ex.printStackTrace();
+        }
+        return null;
+    }
+    
+
+    
 }
