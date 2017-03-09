@@ -18,13 +18,13 @@
                         <i class="fa fa-cc-visa fa-4x" aria-hidden="true" style="color:lightskyblue"></i>
                         <h2>$50</h2>
                         <p>Charge with 50 dollars</p>
-                        <a href="ScratchCardServlet?charge=50" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                        <a href="ScratchCardServlet?charge=50" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
                             <h2>$50</h2>
                             <p>Charge with 50 dollars</p>
-                            <a href="ScratchCardServlet?charge=50" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                            <a href="ScratchCardServlet?charge=50" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                         </div>
                     </div>
                 </div>
@@ -37,13 +37,13 @@
                         <i class="fa fa-cc-visa fa-4x" aria-hidden="true" style="color:lightskyblue"></i>
                         <h2>$100</h2>
                         <p>Charge with 100 dollars</p>
-                        <a href="ScratchCardServlet?charge=100" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                        <a href="ScratchCardServlet?charge=100" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
                             <h2>$100</h2>
                             <p>Charge with 100 dollars</p>
-                            <a href="ScratchCardServlet?charge=100" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                            <a href="ScratchCardServlet?charge=100" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                         </div>
                     </div>
                 </div>
@@ -58,13 +58,13 @@
                         <i class="fa fa-cc-visa fa-4x" aria-hidden="true" style="color:lightskyblue"></i>
                         <h2>$200</h2>
                         <p>Charge with 200 dollars</p>
-                        <a href="ScratchCardServlet?charge=200" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                        <a href="ScratchCardServlet?charge=200" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
                             <h2>$200</h2>
                             <p>Charge with 200 dollars</p>
-                            <a href="ScratchCardServlet?charge=200" class="btn btn-default add-to-cart"><i class="fa fa-cc-visa"></i>Charge</a>
+                            <a href="ScratchCardServlet?charge=200" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                         </div>
                     </div>
                 </div>
@@ -78,13 +78,13 @@
                         <i class="fa fa-cc-visa fa-4x" aria-hidden="true" style="color:lightskyblue"></i>
                         <h2>$500</h2>
                         <p>Charge with 500 dollars</p>
-                        <a href="ScratchCardServlet?charge=500" class="btn btn-default "><i class="fa fa-cc-visa"></i>Charge</a>
+                        <a href="ScratchCardServlet?charge=500" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
                             <h2>$500</h2>
                             <p>Charge with 500 dollars</p>
-                            <a href="ScratchCardServlet?charge=500" class="btn btn-default "><i class="fa fa-cc-visa"></i>Charge</a>
+                            <a href="ScratchCardServlet?charge=500" class="btn btn-default my_btn"><i class="fa fa-cc-visa"></i> Charge</a>
                         </div>
                     </div>
                 </div>

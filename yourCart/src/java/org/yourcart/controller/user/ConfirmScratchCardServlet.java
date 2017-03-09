@@ -25,9 +25,9 @@ public class ConfirmScratchCardServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User usr = (User) request.getSession().getAttribute("LoginUser");
-        int usrId = usr.getUserId();
-        double cash = usr.getCash();
+        User user =(User) request.getSession().getAttribute("LoginUser");
+        int usrId = user.getUserId();
+        double cash = user.getCash();
         
         String CardStr = request.getParameter("CardStr");
         System.out.println("cardStr"+CardStr);
@@ -42,8 +42,8 @@ public class ConfirmScratchCardServlet extends HttpServlet {
                 chModel.setCardUsed(CardStr);
                 cash = cash + value;
                 UserDbModel usrDbModel = new UserDbModel();
-                usr.setCash(cash);
-                boolean cashAdded = usrDbModel.updateUserBalance(usr);
+                user.setCash(cash);
+                boolean cashAdded = usrDbModel.updateUserBalance(user);
                 if (cashAdded) {
                     request.setAttribute("message", "The Cash added to your balance successfully");
                     

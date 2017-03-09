@@ -1,0 +1,37 @@
+SMAP
+ScratchCards_jsp.java
+JSP
+*S JSP
+*F
++ 0 ScratchCards.jsp
+ScratchCards.jsp
++ 1 header.jsp
+header.jsp
++ 2 slidebar.jsp
+slidebar.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+5,4:62
+5#1,72:65
+76:388,8
+77,2:396
+79:398,3
+80,3:401
+82,3:139
+84:422,8
+85,3:430
+87,42:144
+8#0:185
+5#2,2:186
+7:188,3
+8,8:191
+15:450,4
+15,18:201
+32:462,8
+33,2:470,3
+35,2:476
+36,6:221
+9#0,92:227
+5#3,52:318
+*E

@@ -6,7 +6,7 @@
 
 <%-- include header file --%>
 
-<%@ page import="org.yourcart.controller.AdminProductServlet" %> 
+<%@ page import="org.yourcart.controller.admin.AdminProductServlet" %> 
 <%@include file="header.jsp" %>
 
 <%-- include slidebar file --%> 

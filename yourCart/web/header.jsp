@@ -75,10 +75,11 @@
                                 <ul class="nav navbar-nav">
                                     <c:if test="${!empty LoginUser }">
                                         <li><a href="Profile"><i class="fa fa-user"></i> Account</a></li>
-                                        <li><a href="CartHandlerServlet"><i class="fa fa-shopping-cart"></i> Cart (<span id="number">2</span> )</a></li>
+                                        <li><a href="CartHandlerServlet"><i class="fa fa-shopping-cart"></i> Cart (<span id="number"></span> )</a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> ${LoginUser.cash}</a></li>
                                          <li><a href="ScratchCards.jsp"><i class="fa fa-cc-visa"></i> Charge </a></li>
                                         <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                        <script type="text/javascript">var userID = '${LoginUser.userId}';</script>
                                     </c:if>
 
                                     <c:if test="${empty LoginUser}">

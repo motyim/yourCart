@@ -3,8 +3,7 @@
     Created on : Feb 28, 2017, 10:51:25 PM
     Author     : MotYim
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="org.yourcart.controller.Shop" %> 
+<%@ page import="org.yourcart.controller.user.Shop" %> 
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 

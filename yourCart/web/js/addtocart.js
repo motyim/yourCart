@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    
+    //init number of product for user
+    if("userID" in window) getInitProductNumber(userID);
 
     //add in home & shop page
     $('.add-to-cart').click(function () {
@@ -20,6 +23,17 @@ $(document).ready(function () {
             url: 'addCart', //servlet url
             type: 'GET',
             data: {"productID": id,"qaunty" :qaunty },
+            success: (data) => {
+                $("#number").html(data);
+            }
+        });
+    }
+    
+    function getInitProductNumber(id){
+         $.ajax({
+            url: 'getCartCount', //servlet url
+            type: 'GET',
+            data: {"id": id},
             success: (data) => {
                 $("#number").html(data);
             }

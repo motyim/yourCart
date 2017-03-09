@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>SearchForProduct</servlet-name>
-        <servlet-class>org.yourcart.controller.SearchForProduct</servlet-class>
+        <servlet-class>org.yourcart.controller.user.SearchForProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
@@ -14,4 +14,3 @@
         </session-timeout>
     </session-config>
 </web-app>
-
