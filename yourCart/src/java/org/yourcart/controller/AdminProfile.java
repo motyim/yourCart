@@ -59,7 +59,7 @@ public class AdminProfile extends HttpServlet {
             throws ServletException, IOException {
 
         User user = new User();
-
+        String path = request.getServletContext().getRealPath("");
         //get request paramater & update object user
         user.setUserName(request.getParameter("username"));
         user.setEmail(request.getParameter("email"));
@@ -73,7 +73,7 @@ public class AdminProfile extends HttpServlet {
         //-------------- upload photo ------------------
         Part filePart = request.getPart("image");
         if (filePart.getSize() != 0) {      //if photo uploaded
-            String path = request.getServletContext().getRealPath("");
+           
 
             try {
                 String uploadedpath = FileUpload.uploadImage(filePart, path);
@@ -89,7 +89,7 @@ public class AdminProfile extends HttpServlet {
             user.setPhoto(request.getParameter("photo"));
         }
 
-        if (new UserDbModel().updateUser(user)) {
+        if (new UserDbModel().updateUser(user,path)) {
             //update user successfully
             //redirect to profile
             request.setAttribute("messageInfo", "update user info Successfully");
