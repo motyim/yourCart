@@ -203,4 +203,43 @@ public class UserDbModel{
         return user ; 
         
     }
+        private boolean searchById(int id) {
+
+        try {
+
+            con = db.openConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * from users where (id=?)");
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                b = true;
+            } else {
+                b = false;
+            }
+            db.closeConnection();
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+
+        return b;
+    }
+    
+    public boolean updateUserCash(int id, double cash) {
+        try {
+            if (searchById(id)) {
+                con = db.openConnection();
+                PreparedStatement pst = con.prepareStatement("update users set cash=? where id=? ");
+                pst.setDouble(1, cash);
+                pst.setInt(2, id);
+                pst.executeUpdate();
+                db.closeConnection();
+                return true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            db.closeConnection();
+        }
+        return false;
+    }
 }

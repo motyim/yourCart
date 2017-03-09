@@ -12,12 +12,17 @@
         <div class="row">
 
             <div class="alert alert-success">
-                <strong>${message}</strong> 
+               <font size="5px"> <strong>${message}</strong> </font>
                 <p style="cursor: pointer"><a onclick="window.history.back();">Back</a></p>
             </div>
 
         </div>
     </div>
+                <c:if test="${!empty requestScope.showGoToCharge}">
+                <center><div   id="goToCharge" >
+                  <font size="5px">  <a href="ConfirmScratchCard.jsp"><i class="fa fa-arrow-circle-right fa-3x"></i>Go For Charging</a></font>
+                    </div></center>
+                </c:if>
 </section>
 
 

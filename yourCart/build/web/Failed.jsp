@@ -11,7 +11,7 @@
             <div class="row">
 
                 <div class="alert alert-danger">
-                    <strong>${message}</strong> 
+                    <font size="5px">  <strong>${message}</strong> </font> 
                     <p style="cursor: pointer"><a onclick="window.history.back();">Back</a></p>
                 </div>
 
