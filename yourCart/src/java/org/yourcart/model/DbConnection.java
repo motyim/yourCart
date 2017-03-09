@@ -30,6 +30,7 @@ public class DbConnection {
             return con;
 
         } catch (ClassNotFoundException | SQLException e) {
+          // getErrorCode()
             e.printStackTrace();
 
         }

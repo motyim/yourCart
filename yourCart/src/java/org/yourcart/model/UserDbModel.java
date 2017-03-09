@@ -114,10 +114,15 @@ public class UserDbModel{
         return null;
     }
 
-    public boolean updateUser(User updateUser) {
+    public boolean updateUser(User updateUser ,String path) {
 
         try {
             if (search(updateUser.getUserName())) {
+                User temp=getUser(updateUser.getUserId());
+                if (!temp.getPhoto().equalsIgnoreCase(updateUser.getPhoto()))
+                {
+                     boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(temp.getPhoto(), path);
+                }
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("update users set username=?,password=?,email=?,job=?,address=?,creaditCard=?,cash=?,role=? ,photo=? where id=? ");
                 pst.setString(1, updateUser.getUserName());

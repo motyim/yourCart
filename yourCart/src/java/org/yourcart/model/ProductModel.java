@@ -88,27 +88,33 @@ public class ProductModel {
 
     }
 
-    public boolean deleteProduct(int id) {
+    public boolean deleteProduct(int id, String path) {
 
         try {
-            con = db.openConnection();
+
             int i = 0;
-            pst = con.prepareStatement("delete from product where id=?");
-            pst.setInt(1, id);
-            i = pst.executeUpdate();
+            Product product = getProduct(id);
+            boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(product.getPhoto(), path);
+            System.out.println(product.getPhoto());
+            System.out.println("osama" + deleteFile);
+            if (deleteFile) {
+                con = db.openConnection();
+                pst = con.prepareStatement("delete from product where id=?");
+                pst.setInt(1, id);
+                i = pst.executeUpdate();
 
-            db.closeConnection();
-            if (i > 0) {
-                return true;
+                db.closeConnection();
+                if (i > 0) {
+                    return true;
+                }
             }
-
         } catch (SQLException ex) {
             db.closeConnection();
             ex.printStackTrace();
         }
+
         return false;
     }
-
     public ArrayList<Product> getAllProduct() {
         ArrayList<Product> list = new ArrayList();
         try {

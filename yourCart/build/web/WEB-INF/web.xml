@@ -13,5 +13,10 @@
             30
         </session-timeout>
     </session-config>
+    <error-page> 
+        <exception-type> java.sql.SQLException </exception-type> 
+        <location> /404.jsp </location> 
+    </error-page> 
+
 </web-app>
 
