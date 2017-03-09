@@ -263,5 +263,35 @@ public class ProductModel {
         System.out.println(getItem.size());
         return getItem;
     }
+    
+    
+       public ArrayList<Product> getAllProductByPrice(double priceStart, double priceEnd) {
+            ArrayList<Product> getAllProductByPrice = new ArrayList();
+        try {
+           
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where  price BETWEEN ? AND ?");
+
+            pst.setDouble(1, priceStart);
+            pst.setDouble(2, priceEnd);
+
+            Product product;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                product = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                getAllProductByPrice.add(product);
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(getAllProductByPrice.size());
+        return getAllProductByPrice;
+    }
 
 }
