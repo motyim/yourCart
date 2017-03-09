@@ -88,24 +88,31 @@ public class ProductModel {
 
     }
 
-    public boolean deleteProduct(int id) {
+    public boolean deleteProduct(int id, String path) {
 
         try {
-            con = db.openConnection();
+
             int i = 0;
-            pst = con.prepareStatement("delete from product where id=?");
-            pst.setInt(1, id);
-            i = pst.executeUpdate();
+            Product product = getProduct(id);
+            boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(product.getPhoto(), path);
+            System.out.println(product.getPhoto());
+            System.out.println("osama" + deleteFile);
+            if (deleteFile) {
+                con = db.openConnection();
+                pst = con.prepareStatement("delete from product where id=?");
+                pst.setInt(1, id);
+                i = pst.executeUpdate();
 
-            db.closeConnection();
-            if (i > 0) {
-                return true;
+                db.closeConnection();
+                if (i > 0) {
+                    return true;
+                }
             }
-
         } catch (SQLException ex) {
             db.closeConnection();
             ex.printStackTrace();
         }
+
         return false;
     }
 
@@ -263,5 +270,55 @@ public class ProductModel {
         System.out.println(getItem.size());
         return getItem;
     }
+    
+       public boolean updateProductQauntity(Product product) throws SQLException {
+        
+            con = db.openConnection();
+            int i = 0;
+            pst = con.prepareStatement("update product set quantity=? where id=?");
+
+            pst.setInt(1, product.getQuantity());
+            pst.setInt(2, product.getProductId());
+           
+            i = pst.executeUpdate();
+
+            db.closeConnection();
+            if (i > 0) {
+                return true;
+            }
+
+        
+        return false;
+
+    }
+       
+    public ArrayList<Product> getAllProductByPrice(double priceStart, double priceEnd) {
+             ArrayList<Product> getAllProductByPrice = new ArrayList();
+         try {
+            
+             con = db.openConnection();
+             pst = con.prepareStatement("select * from product where  price BETWEEN ? AND ?");
+ 
+             pst.setDouble(1, priceStart);
+             pst.setDouble(2, priceEnd);
+ 
+             Product product;
+             rs = pst.executeQuery();
+             while (rs.next()) {
+                 product = new Product(rs.getString("name"), rs.getDouble("price"),
+                         rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                         rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                         rs.getInt("category_id"));
+                 getAllProductByPrice.add(product);
+ 
+            }
+ 
+         } catch (SQLException ex) {
+             db.closeConnection();
+             ex.printStackTrace();
+         }
+         System.out.println(getAllProductByPrice.size());
+         return getAllProductByPrice;
+     }
 
 }

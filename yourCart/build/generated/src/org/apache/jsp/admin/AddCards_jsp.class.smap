@@ -1,0 +1,24 @@
+SMAP
+AddCards_jsp.java
+JSP
+*S JSP
+*F
++ 0 AddCards.jsp
+admin/AddCards.jsp
++ 1 header.jsp
+admin/header.jsp
++ 2 slidebar.jsp
+admin/slidebar.jsp
++ 3 footer.jsp
+admin/footer.jsp
+*L
+5,8:52
+5#1,100:59
+12#0,2:158
+14:160,2
+5#2,58:162
+15#0,41:219
+55:259,2
+5#3,50:261
+56#0,4:311
+*E

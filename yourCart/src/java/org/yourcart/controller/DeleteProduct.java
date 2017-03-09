@@ -20,8 +20,8 @@ public class DeleteProduct extends HttpServlet {
             throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        
-        if (new ProductModel().deleteProduct(id)) {
+        String path = request.getServletContext().getRealPath("");
+        if (new ProductModel().deleteProduct(id,path)) {
             //redirect to Success
             request.getSession().setAttribute("message", "Product Deleted Successfully");
             response.sendRedirect("../Success.jsp");

@@ -18,6 +18,12 @@
 
         </div>
     </div>
+
+    <c:if test="${!empty requestScope.showGoToCharge}">
+        <center><div   id="goToCharge" >
+                <font size="5px">  <a href="ConfirmScratchCard.jsp"><i class="fa fa-arrow-circle-right fa-3x"></i>Go For Charging</a></font>
+            </div></center>
+        </c:if>
 </section>
 
 

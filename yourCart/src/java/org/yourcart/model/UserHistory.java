@@ -82,13 +82,13 @@ public class UserHistory extends DbConnection{
         }
     }
 
-    public boolean addUserHistory(int usrId, History s) {
+    public boolean addUserHistory(History s) throws SQLException {
         con = openConnection();
         PreparedStatement pst = null;
-        try {
+        
             System.out.println("my con" + con);
             pst = con.prepareStatement("insert into history (user_id,product_id,date,quantity)Values (?,?,?,?)");
-            pst.setInt(1, usrId);
+            pst.setInt(1, s.getUserId());
             pst.setInt(2, s.getProductId());
             pst.setString(3, s.getData());
             pst.setInt(4, s.getQuantity());
@@ -98,9 +98,7 @@ public class UserHistory extends DbConnection{
             if (executeUpdate > 0) {
                 return true;
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+  
         return false;
     }
 

@@ -52,7 +52,7 @@ public class Profile extends HttpServlet {
             User user = (User) request.getSession().getAttribute("LoginUser");
 
             User newUser = (User) user.clone();
-
+            String path = request.getServletContext().getRealPath("");
             //get request paramater & update object user
             newUser.setUserName(request.getParameter("username"));
             newUser.setEmail(request.getParameter("email"));
@@ -64,7 +64,7 @@ public class Profile extends HttpServlet {
             //-------------- upload photo ------------------
             Part filePart = request.getPart("image");
             if (filePart.getSize() != 0) {      //if photo uploaded
-                String path = request.getServletContext().getRealPath("");
+                
                 
                 try{
                     String uploadedpath = FileUpload.uploadImage(filePart, path);
@@ -78,7 +78,7 @@ public class Profile extends HttpServlet {
                 
             }
 
-            if (new UserDbModel().updateUser(newUser)) {
+            if (new UserDbModel().updateUser(newUser,path)) {
                 //update user successfully
                 newUser.setPassword("");    //remove password from object
                 request.getSession().setAttribute("LoginUser", newUser); //update session user
