@@ -15,13 +15,22 @@
                         <myCate:CartCategory/>
                     </div><!--/category-products-->
 
+                      <form action="SearchForProduct" method="get">
                     <div class="price-range"><!--price-range-->
+                        
                         <h2>Price Range</h2>
                         <div class="well text-center">
                             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                           
                             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                             
+                            <br>
+                            <input type="hidden" id="downValue" name="down" value=""/>
+                            <input type="hidden" id="upValue" name="up"value=""/>
+                            <input type="submit"  class="btn btn-default">
                         </div>
-                    </div><!--/price-range-->
+                    </div>
+                </form>
 
                     <div class="shipping text-center"><!--shipping-->
                         <c:if test="${not empty ads}">
