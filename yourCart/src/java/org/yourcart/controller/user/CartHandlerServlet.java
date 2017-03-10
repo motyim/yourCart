@@ -1,7 +1,7 @@
 package org.yourcart.controller.user;
 
 /**
- *
+ * get object in cart db of user to display in checkout page
  * @author sara metwalli
  */
 import java.io.IOException;

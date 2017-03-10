@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.yourcart.controller.user;
 
 import java.io.IOException;
@@ -17,8 +12,8 @@ import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
 
 /**
- *
- * @author MY-PC
+ * handle signin
+ * @author MotYim
  */
 @WebServlet(name = "Signin", urlPatterns = {"/Signin"})
 public class Signin extends HttpServlet {
@@ -55,9 +50,15 @@ public class Signin extends HttpServlet {
             session.setAttribute("LoginUser", user);
             session.setMaxInactiveInterval(60*15);
             
-               if(user.getRole().equalsIgnoreCase("admin"))
-                   response.sendRedirect("admin/AdminProductServlet");   //admin
-               else response.sendRedirect("index.jsp");                  //user
+               if(user.getRole().equalsIgnoreCase("admin")){
+                   System.out.println("ADMIN");
+                   response.sendRedirect("admin/index.jsp");   //admin
+               }
+                   
+               else {
+                   System.out.println("NOT");
+                   response.sendRedirect("index.jsp");
+               }                  //user
            }
         
         

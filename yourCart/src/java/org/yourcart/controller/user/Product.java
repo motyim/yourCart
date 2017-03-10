@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.ProductModel;
 
 /**
- *
+ * handle display product and recomand products
  * @author MotYim
  */
 @WebServlet(name = "Product", urlPatterns = {"/Product"})
@@ -19,7 +19,7 @@ public class Product extends HttpServlet {
 
    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *

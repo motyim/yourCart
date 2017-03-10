@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * handle logout process
  * @author MotYim
  */
 @WebServlet(name = "logout", urlPatterns = {"/logout"})

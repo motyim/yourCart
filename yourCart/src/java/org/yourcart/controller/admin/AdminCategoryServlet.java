@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.yourcart.controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +12,7 @@ import org.yourcart.beans.Category;
 import org.yourcart.model.CategoryModel;
 
 /**
- *
+ * display category
  * @author Nesmaa
  */
 @WebServlet(name = "AdminCategoryServlet", urlPatterns = {"/admin/AdminCategoryServlet"})
@@ -43,11 +36,6 @@ public class AdminCategoryServlet extends HttpServlet {
        
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
-    }
 
 
     @Override

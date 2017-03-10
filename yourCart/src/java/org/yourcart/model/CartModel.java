@@ -94,8 +94,8 @@ public class CartModel extends DbConnection {
         return false;
 
     }
-
-    public boolean deleteUserCart(int userID) {
+    
+     public boolean deleteUserCart(int userID) {
         con = openConnection();
         PreparedStatement pst = null;
         try {

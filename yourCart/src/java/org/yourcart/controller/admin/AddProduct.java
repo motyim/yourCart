@@ -14,7 +14,7 @@ import org.yourcart.model.ProductModel;
 import org.yourcart.utilize.FileUpload;
 
 /**
- *
+ * to add and view products
  * @author MotYim
  */
 @WebServlet(name = "AddProduct", urlPatterns = {"/admin/AdminProduct"})

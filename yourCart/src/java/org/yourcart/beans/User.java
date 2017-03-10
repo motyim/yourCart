@@ -107,5 +107,11 @@ public class User implements Cloneable {
     public Object clone()throws CloneNotSupportedException{  
         return super.clone();  
     }  
+
+    @Override
+    public String toString() {
+        return "name : " + userName +"\n role" + role ;
+    }
+    
     
 }

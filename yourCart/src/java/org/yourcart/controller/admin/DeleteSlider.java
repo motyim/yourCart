@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.SliderOperation;
 
 /**
- *
+ * delete slide
  * @author OsamaPC 
  */
 @WebServlet("/admin/DeleteSlider")

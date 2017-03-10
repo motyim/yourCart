@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.ProductModel;
 
 /**
- *
- * @author OsamaPC Updated by MotYim
+ * delete product
+ * @author OsamaPC 
  */
 @WebServlet(name = "DeleteProduct", urlPatterns = {"/admin/DeleteProduct"})
 public class DeleteProduct extends HttpServlet {

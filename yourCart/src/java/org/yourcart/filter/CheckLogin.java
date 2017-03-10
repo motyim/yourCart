@@ -16,7 +16,11 @@ import org.yourcart.beans.User;
  *
  * @author MotYim
  */
-@WebFilter(filterName = "Login", urlPatterns = {"/Profile","/Profile.jsp"})
+@WebFilter(filterName = "Login",
+        urlPatterns = {"/Profile","/Profile.jsp","/addCart","/CartHandlerServlet",
+        "/ConfirmScratchCardServlet","/DeleteCart" ,"/getCartCount","/Pay",
+        "/ScratchCardServlet","/logout","/checkout.jsp","/ConfirmScratchCard.jsp",
+        "/ScratchCards.jsp"})
 public class CheckLogin implements Filter {
     
    
@@ -41,7 +45,7 @@ public class CheckLogin implements Filter {
          
 
             User user = (User)  ((HttpServletRequest) request).getSession().getAttribute("LoginUser");
-            if (user != null) //there is a login user
+            if (user != null && user.getRole().equalsIgnoreCase("user")) //there is a login user
             {
                chain.doFilter(request, response);
             }

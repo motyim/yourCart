@@ -1,7 +1,7 @@
 package org.yourcart.controller.user;
 
 /**
- *
+ * check card number to get cash
  * @author sara metwalli
  */
 import javax.servlet.*;

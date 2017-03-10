@@ -1,7 +1,7 @@
 package org.yourcart.controller.user;
 
 /**
- *
+ * handle get card number and send via mail
  * @author sara metwalli
  */
 import javax.servlet.*;

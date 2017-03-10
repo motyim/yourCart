@@ -13,7 +13,7 @@ import org.yourcart.model.UserHistory;
 
 
 /**
- *
+ * display all history
  * @author OsamaPC
  */
 public class GetAllHistory extends HttpServlet {

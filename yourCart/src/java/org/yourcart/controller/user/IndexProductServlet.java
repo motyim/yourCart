@@ -1,7 +1,7 @@
 package org.yourcart.controller.user;
 
 /**
- *
+ * display leates product in index
  * @author sara metwalli
  */
 import javax.servlet.*;
@@ -23,9 +23,9 @@ public class IndexProductServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductModel productModel = new ProductModel();
-         limitedProducts = productModel.getLastProduct();
+        limitedProducts = productModel.getLastProduct();
          
-          request.setAttribute("limitedProducts",limitedProducts );
+        request.setAttribute("limitedProducts",limitedProducts );
 
 
     }

@@ -13,7 +13,7 @@ import org.yourcart.model.CartModel;
 
 
 /**
- *
+ * add cart object to user cart DB
  * @author MotYim
  */
 @WebServlet("/addCart")

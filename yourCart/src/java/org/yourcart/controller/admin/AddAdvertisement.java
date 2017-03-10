@@ -13,7 +13,7 @@ import org.yourcart.model.AdvertisementModel;
 import org.yourcart.utilize.FileUpload;
 
 /**
- *
+ * to add Advertisement
  * @author OsamaPC
  */
 @WebServlet("/admin/AddAdvertisement")
@@ -23,11 +23,6 @@ public class AddAdvertisement extends HttpServlet {
     Advertisement add;
     AdvertisementModel model;
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

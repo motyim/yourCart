@@ -14,7 +14,7 @@ import org.yourcart.model.Payment;
 import org.yourcart.utilize.MailModel;
 
 /**
- *
+ * to proccess pay operation 
  * @author MotYim
  */
 @WebServlet(name = "Pay", urlPatterns = {"/Pay"})

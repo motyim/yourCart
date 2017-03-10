@@ -15,7 +15,7 @@ import org.yourcart.model.SliderOperation;
 import org.yourcart.utilize.FileUpload;
 
 /**
- *
+ * to add slider
  * @author OsamaPC
  */
 @WebServlet("/admin/AddSlider")

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.SliderOperation;
 
 /**
- *
+ * handle display slider
  * @author MotYim
  */
 @WebServlet(name = "Slider", urlPatterns = {"/SliderIndex"})

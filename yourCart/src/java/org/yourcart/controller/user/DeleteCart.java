@@ -12,7 +12,7 @@ import org.yourcart.model.CartModel;
 
 
 /**
- *
+ * delete cart from user cart in DB
  * @author OsamaPC & sara
  */
 @WebServlet("/DeleteCart")

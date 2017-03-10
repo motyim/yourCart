@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.AdvertisementModel;
 
 /**
- *
+ * delete ads
  * @author OsamaPC
  */
 @WebServlet("/admin/DeleteAdvertisement")

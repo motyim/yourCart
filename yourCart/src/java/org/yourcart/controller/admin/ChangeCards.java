@@ -13,7 +13,7 @@ import org.yourcart.beans.Charge;
 import org.yourcart.model.changemodel;
 
 /**
- *
+ * generate cards
  * @author Nesmaa
  */
 

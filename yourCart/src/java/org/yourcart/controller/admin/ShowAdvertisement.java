@@ -13,7 +13,7 @@ import org.yourcart.beans.Advertisement;
 import org.yourcart.model.AdvertisementModel;
 
 /**
- *
+ * display all ads
  * @author OsamaPC
  */
 @WebServlet("/admin/ShowAdvertisement")

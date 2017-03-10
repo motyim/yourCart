@@ -11,7 +11,7 @@ import org.yourcart.beans.Category;
 import org.yourcart.model.CategoryModel;
 
 /**
- *
+ * add category
  * @author Nesmaa
  */
 @WebServlet("/admin/AdminCategory")

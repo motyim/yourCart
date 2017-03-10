@@ -3,7 +3,6 @@ package org.yourcart.controller.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,7 @@ import org.yourcart.beans.User;
 import org.yourcart.model.UserDbModel;
 
 /**
- *
+ * handle sign up 
  * @author MotYim
  */
 @WebServlet(name = "Signup", urlPatterns = {"/Signup"})

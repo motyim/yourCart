@@ -13,7 +13,7 @@ import org.yourcart.model.ProductModel;
 import org.yourcart.model.SliderOperation;
 
 /**
- *
+ * get all slide 
  * @author OsamaPC
  */
 @WebServlet("/admin/SlidersShow")

@@ -6,7 +6,7 @@
 package org.yourcart.controller.admin;
 
 /**
- *
+ * display all users
  * @author sara metwalli
  */
 import javax.servlet.*;

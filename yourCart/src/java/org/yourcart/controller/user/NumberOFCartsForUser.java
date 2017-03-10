@@ -12,7 +12,7 @@ import org.yourcart.model.CartModel;
 
 
 /**
- *
+ * get number of product in user cart
  * @author OsamaPC
  */
 @WebServlet("/getCartCount")

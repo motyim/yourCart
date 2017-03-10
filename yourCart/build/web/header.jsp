@@ -28,8 +28,8 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
         <%@taglib prefix="myCate" uri="/WEB-INF/tlds/myTags_library.tld" %>
     </head><!--/head-->
 
@@ -109,7 +109,7 @@
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="index.jsp" class="active">Home</a></li>
-                                    <li><a href="Shop" >Shop</a></li>
+                                    <li><a href="Shop?page=1" >Shop</a></li>
                                 </ul>
                             </div>
                         </div>
