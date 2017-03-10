@@ -12,7 +12,7 @@
 
                 <div class="alert alert-danger">
                     <strong>${message}</strong> 
-                    <p style="cursor: pointer"><a onclick="window.history.back();">Back</a></p>
+                    <p style="cursor: pointer"><a href="index.jsp">Home</a></p>
                 </div>
 
             </div>

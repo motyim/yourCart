@@ -23,12 +23,20 @@ public class DeleteProduct extends HttpServlet {
         String path = request.getServletContext().getRealPath("");
         if (new ProductModel().deleteProduct(id,path)) {
             //redirect to Success
-            request.getSession().setAttribute("message", "Product Deleted Successfully");
-            response.sendRedirect("../Success.jsp");
+             //set alert message
+            request.getSession().setAttribute("AlertMessage", "Product Deleted Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("AdminProductServlet");
+            
         } else {
             //can't add product
-           request.getSession().setAttribute("message", "can't Delete product ..An Error occure");
-           response.sendRedirect("../Failed.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "canot Delete product ..An Error occure");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "danger");
+            response.sendRedirect("AdminProductServlet");
+         
         }
         
     }

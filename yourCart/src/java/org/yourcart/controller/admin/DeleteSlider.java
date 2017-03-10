@@ -27,12 +27,20 @@ public class DeleteSlider extends HttpServlet {
         boolean deleteSlider = sliderOp.deleteSlider(id);
         if (deleteSlider) {
             //redirect to Success
-            request.getSession().setAttribute("message", "Slide Deleted Successfully");
-            response.sendRedirect("../Success.jsp");
+             //set alert message
+            request.getSession().setAttribute("AlertMessage", "Slide Deleted Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("SlidersShow");
+            
         } else {
             //can't add product
-           request.getSession().setAttribute("message", "can't Delete slide..An Error occure");
-           response.sendRedirect("../Failed.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "canot Delete slide ..An Error occure");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "danger");
+            response.sendRedirect("SlidersShow");
+           
         }
 
     }

@@ -64,8 +64,11 @@ public class ChangeCards extends HttpServlet {
         } while (i < numberOfCards);
         if(found)
         {
-            request.getSession().setAttribute("message", "Added Successfully");
-              response.sendRedirect("../Success.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "Cards Added Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("charge.jsp");
         }
         
 

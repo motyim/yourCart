@@ -25,10 +25,13 @@ public class UserDbModel{
             con = db.openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from users where (username=?)");
             pst.setString(1, usrName);
+            System.out.println("name :::::: "+ usrName);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
+                System.out.println("return true");
                 b = true;
             } else {
+                System.out.println("return false");
                 b = false;
             }
             db.closeConnection();
@@ -118,12 +121,16 @@ public class UserDbModel{
     public boolean updateUser(User updateUser ,String path) {
 
         try {
+            System.out.println("Start");
             if (search(updateUser.getUserName())) {
+                System.out.println("########## in method");
                 User temp=getUser(updateUser.getUserId());
                 if (!temp.getPhoto().equalsIgnoreCase(updateUser.getPhoto()))
                 {
                      boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(temp.getPhoto(), path);
+                     System.out.println("--=-=-=-=-=-=-=-=-=-==-0" + deleteFile);
                 }
+                System.out.println("-=-=-=-=-= 0 -=-=-=-=-= ");
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("update users set username=?,password=?,email=?,job=?,address=?,creaditCard=?,cash=?,role=? ,photo=? where id=? ");
                 pst.setString(1, updateUser.getUserName());
@@ -136,8 +143,9 @@ public class UserDbModel{
                 pst.setString(8, updateUser.getRole());
                 pst.setString(9, updateUser.getPhoto());
                 pst.setInt(10, updateUser.getUserId());
-                
+                System.out.println("--=-=-=-=-=-=-=-=-=-==-1");
                 pst.executeUpdate();
+                System.out.println("--=-=-=-=-=-=-=-=-=-==-2");
                 db.closeConnection();
                 return true;
             }

@@ -41,13 +41,20 @@ public class AdminCategory extends HttpServlet {
         System.out.println("---> " + categoryobj.getName());
         if ( new CategoryModel().addCategory(categoryobj))
         {
-            request.getSession().setAttribute("message", "Category Added Successfully");
-            response.sendRedirect("../Success.jsp");
+           
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "Category Added Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("AdminCategoryServlet");
         }
         else 
         {
-             request.getSession().setAttribute("message", "can't add Category ..An Error occure");
-                response.sendRedirect("../Failed.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "canot add Category ..An Error occure");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "danger");
+            response.sendRedirect("AdminCategoryServlet");
         }
         
         

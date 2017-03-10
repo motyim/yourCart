@@ -16,6 +16,7 @@ import org.yourcart.utilize.FileUpload;
 
 /**
  * to add slider
+ *
  * @author OsamaPC
  */
 @WebServlet("/admin/AddSlider")
@@ -35,15 +36,15 @@ public class AddSlider extends HttpServlet {
         productIdForSlider = Integer.parseInt(request.getParameter("id"));
         pModel = new ProductModel();
         productForSlider = pModel.getProduct(productIdForSlider);
-        
-        if(productForSlider==null){
+
+        if (productForSlider == null) {
             request.getSession().setAttribute("message", "Product not found");
             response.sendRedirect("../Failed.jsp");
-        }else{
+        } else {
             request.setAttribute("product", productForSlider);
             request.getRequestDispatcher("/admin/addSlider.jsp").forward(request, response);
         }
-        
+
     }
 
     @Override
@@ -71,8 +72,12 @@ public class AddSlider extends HttpServlet {
                 slider.setImage(uploadedpath);
             } catch (Exception ex) {
                 ex.printStackTrace();
-                request.setAttribute("message", "please choose image only");
-                request.getRequestDispatcher("/Failed.jsp").forward(request, response);
+
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "please choose image only");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "danger");
+                response.sendRedirect("SlidersShow");
                 return;
             }
 
@@ -83,11 +88,19 @@ public class AddSlider extends HttpServlet {
         System.out.println(slider);
         boolean addSlider = sliderOp.addSlider(slider);
         if (addSlider) {
-            response.sendRedirect("../Success.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "Slide Added Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("SlidersShow");
         } else {
-            response.sendRedirect("../Failed.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "canot add slide ..An Error occure");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "danger");
+            response.sendRedirect("SlidersShow");
+
         }
-        
 
     }
 

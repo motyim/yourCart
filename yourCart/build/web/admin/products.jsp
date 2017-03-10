@@ -72,3 +72,5 @@
 
 <%-- include footer file --%> 
 <%@include file="footer.jsp" %>
+<%-- include notify file --%> 
+<%@include file="notify.jsp" %>

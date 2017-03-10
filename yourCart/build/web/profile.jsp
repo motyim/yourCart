@@ -11,9 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="alert alert-warning" role="alert" id="error" style="display: none;"></div>
-            <c:if test="${!empty messageInfo }">
-                <div class="alert alert-success" role="alert" >${messageInfo}</div>
-            </c:if>
+         
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     
@@ -38,7 +36,8 @@
                                 <h2>${LoginUser.userName}</h2>
                                 <p>Account Setting</p>
                                 <label>Name</label>
-                                <input type="text" placeholder="Name"  class="input-field" name="username" id="editUserName" value="${LoginUser.userName}" disabled required/>
+                                <input type="text" placeholder="Name"  class="input-field"  id="editUserName" value="${LoginUser.userName}" disabled required/>
+                                <input type="hidden" name="username" value="${LoginUser.userName}"/>
                                 <label>E-mail</label>
                                 <input type="email" placeholder="E-mail"  class="input-field" name="email" id="editEmail" value="${LoginUser.email}" required/>
                                 <label>Password</label>

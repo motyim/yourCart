@@ -29,7 +29,7 @@ $(document).ready(function () {
                     window.location.href = data.redirect;
                 }else{
                     $("#number").html(data);
-                    showNotification();
+                    showNotification('product add to your cart','success');
                 }
                 
             },
@@ -55,13 +55,4 @@ $(document).ready(function () {
         });
     }
     
-    function showNotification(){
-        $.notify({
-	// options
-	message: 'product add to your cart' 
-        },{
-	// settings
-	type: 'success'
-        });
-    }
 });

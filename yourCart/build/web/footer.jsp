@@ -51,6 +51,7 @@
 <script src="js/main.js"></script>
 <script src="js/myLoginValidation.js"></script>
 <script src="js/bootstrap-notify.min.js"></script>
+<script src="js/notify.js"></script>
 <script src="js/addtocart.js"></script>
 
 </body>

@@ -15,6 +15,7 @@ import org.yourcart.utilize.FileUpload;
 
 /**
  * to add and view products
+ *
  * @author MotYim
  */
 @WebServlet(name = "AddProduct", urlPatterns = {"/admin/AdminProduct"})
@@ -33,14 +34,13 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 
         int id = Integer.parseInt(request.getParameter("id"));
         Product productobject = new ProductModel().getProduct(id);
-        if(productobject==null){
+        if (productobject == null) {
             request.getSession().setAttribute("message", "Product not found");
             response.sendRedirect("../Failed.jsp");
-        }else{
+        } else {
             request.setAttribute("product", productobject);
             request.setAttribute("type", "Edit");
             request.getRequestDispatcher("/admin/addproduct.jsp").forward(request, response);
@@ -88,42 +88,61 @@ public class AddProduct extends HttpServlet {
                 productObj.setPhoto(uploadedpath);
             } catch (Exception ex) {
                 ex.printStackTrace();
-                request.setAttribute("message", "please choose image only");
-                request.getRequestDispatcher("/Failed.jsp").forward(request, response);
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "please choose image only");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "danger");
+                response.sendRedirect("AdminProductServlet");
+
                 return;
             }
 
-        }else{                          //no photo uploaded
+        } else {                          //no photo uploaded
             productObj.setPhoto(request.getParameter("photo"));
         }
-        
 
         //-------------- Update Product ------------------
-        if (request.getParameter("id") != null && !request.getParameter("id").trim().equals("")) {                
-           
+        if (request.getParameter("id") != null && !request.getParameter("id").trim().equals("")) {
+
             int id = Integer.parseInt(request.getParameter("id"));
             productObj.setProductId(id);
-            
-             if (new ProductModel().editProduct(productObj)) {
+
+            if (new ProductModel().editProduct(productObj)) {
                 //redirect to Success
-                request.getSession().setAttribute("message", "Product Updated Successfully");
-                response.sendRedirect("../Success.jsp");
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "Product Updated Successfully");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "success");
+                response.sendRedirect("AdminProductServlet");
+                return;
             } else {
                 //can't add product
-                request.getSession().setAttribute("message", "can't Update product ..An Error occure");
-                response.sendRedirect("../Failed.jsp");
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "canot Update product ..An Error occure");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "danger");
+                response.sendRedirect("AdminProductServlet");
+                return;
             }
 
-             //-------------- Add  new product ------------------
-        } else {                                            
+            //-------------- Add  new product ------------------
+        } else {
             if (new ProductModel().addProduct(productObj)) {
                 //redirect to Success
-                request.getSession().setAttribute("message", "Product Added Successfully");
-                response.sendRedirect("../Success.jsp");
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "Product Added Successfully");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "success");
+                response.sendRedirect("AdminProductServlet");
+                return;
             } else {
                 //can't add product
-                request.getSession().setAttribute("message", "can't add product ..An Error occure");
-                response.sendRedirect("../Failed.jsp");
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "canot add product ..An Error occure");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "danger");
+                response.sendRedirect("AdminProductServlet");
+                return;
             }
 
         }

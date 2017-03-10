@@ -15,6 +15,8 @@
 <%-- include slidebar file --%> 
 <%@include file="slidebar.jsp" %>
 
+
+
 <div class="col-sm-9 padding-right">
 
     <h2>Scratch Card
@@ -85,4 +87,5 @@
 
 <%-- include footer file --%> 
 <%@include file="footer.jsp" %>
-
+<%-- include notify file --%> 
+<%@include file="notify.jsp" %>
