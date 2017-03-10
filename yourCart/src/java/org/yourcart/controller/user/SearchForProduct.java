@@ -22,7 +22,7 @@ public class SearchForProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if (request.getParameter("search") == "search") {
+        if (request.getParameter("search") != null) {
             String productName = request.getParameter("search");
 
             System.out.println(productName);

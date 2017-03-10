@@ -7,7 +7,7 @@ function validateSignup()
     }
     
     if(!validateCredit()){
-        message += "* Wrong Credit card number <br>";
+        message += "* Wrong Credit card number Must be in form 8888-8888-8888-8888<br>";
     }
     
     if(message)

@@ -2,7 +2,6 @@ package org.yourcart.controller.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +48,7 @@ public class Signup extends HttpServlet {
         user.setRole("user");
         user.setAddress(address);
         user.setCreditCard(creditCrd);
-        user.setCash(new Random().nextInt(1000)); // set cash as randome number
+        user.setCash(0); 
    
         if(new UserDbModel().signUp(user)){
             request.setAttribute("message", "You signup successfully");

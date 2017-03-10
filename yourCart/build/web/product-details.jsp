@@ -22,14 +22,12 @@
         </div>
         <div class="col-sm-7">
             <div class="product-information"><!--/product-information-->
-                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
                 <h2>${product.name}</h2>
                 <p>Product ID: ${product.productId}</p>
-                <img src="images/product-details/rating.png" alt="" />
                 <span>
                     <span>US $${product.price}</span>
                     <label>Quantity:</label>
-                    <input type="text" id="quan" value="1" />
+                    <input type="number" id="quan" value="1" min="1" />
                     <button type="button" id="${product.productId}" class="btn btn-fefault cart add-to-my">
                         <i class="fa fa-shopping-cart"></i>
                         Add to cart

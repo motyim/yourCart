@@ -335,6 +335,7 @@ static {
       out.write("<script src=\"js/price-range.js\"></script>\n");
       out.write("<script src=\"js/main.js\"></script>\n");
       out.write("<script src=\"js/myLoginValidation.js\"></script>\n");
+      out.write("<script src=\"js/bootstrap-notify.min.js\"></script>\n");
       out.write("<script src=\"js/addtocart.js\"></script>\n");
       out.write("\n");
       out.write("</body>\n");
@@ -367,7 +368,9 @@ static {
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                                        <li><a href=\"Profile\"><i class=\"fa fa-user\"></i> Account</a></li>\r\n");
+        out.write("                                        <li><a href=\"Profile\"><i class=\"fa fa-user\"></i> ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoginUser.userName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</a></li>\r\n");
         out.write("                                        <li><a href=\"CartHandlerServlet\"><i class=\"fa fa-shopping-cart\"></i> Cart (<span id=\"number\"></span> )</a></li>\r\n");
         out.write("                                        <li><a href=\"#\"><i class=\"fa fa-usd\"></i> ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoginUser.cash}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -828,7 +831,7 @@ static {
           out.write("                                <p>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</p>\r\n");
-          out.write("                                <a href=\"#\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Add to cart</a>\r\n");
+          out.write("                                <a class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Add to cart</a>\r\n");
           out.write("                            </div>\r\n");
           out.write("                            <div class=\"product-overlay\">\r\n");
           out.write("                                <div class=\"overlay-content\">\r\n");
@@ -838,7 +841,7 @@ static {
           out.write("                                    <p>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</p>\r\n");
-          out.write("                                    <a href=\"#\" id=\"");
+          out.write("                                    <a  id=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Add to cart</a>\r\n");
           out.write("                                </div>\r\n");

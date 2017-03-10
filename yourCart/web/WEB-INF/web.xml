@@ -8,6 +8,11 @@
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <!-- Missing login -->
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
     <session-config>
         <session-timeout>
             30

@@ -22,7 +22,7 @@ public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+    
         CartModel cartModel = new CartModel();
        
         int pID = Integer.parseInt(request.getParameter("productID"));

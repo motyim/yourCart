@@ -126,12 +126,12 @@
                             <i class="fa fa-cc-visa fa-5x" aria-hidden="true" ></i>
                             <h2>Scratch Cards</h2>
 
-                            <a href="#" class="btn btn-default my_btn"><i class=" fa fa-cc-visa "></i> Scratch Cards</a>
+                            <a href="charge.jsp" class="btn btn-default my_btn"><i class=" fa fa-cc-visa "></i> Scratch Cards</a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>Here you can add Scratch Cards that will charge your  web site users </h2>
-                                <a href="#" class="btn btn-default my_btn"><i class="fa fa-cc-visa" ></i> Scratch Cards</a>
+                                <a href="charge.jsp" class="btn btn-default my_btn"><i class="fa fa-cc-visa" ></i> Scratch Cards</a>
 
                             </div>
                         </div>

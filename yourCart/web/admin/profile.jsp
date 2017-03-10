@@ -43,7 +43,7 @@
                     <h2>${userInfo.userName}</h2>
                     <p>Account Setting</p>
                     <label>Name</label>
-                    <input type="text" placeholder="Name"  class="input-field" name="username" id="editUserName" value="${userInfo.userName}" required/>
+                    <input type="text" placeholder="Name"  class="input-field" name="username" id="editUserName" value="${userInfo.userName}" disabled required/>
                     <label>E-mail</label>
                     <input type="email" placeholder="E-mail"  class="input-field" name="email" id="editEmail" value="${userInfo.email}" required/>
                     <label>Password</label>
