@@ -62,6 +62,7 @@ public class AdvertisementModel extends DbConnection {
 
     public Advertisement getRandomAds(){
         ArrayList<Advertisement> allAds = getAllAdvertisements();
+        System.out.println("---->"+allAds.size());
         return  allAds.get(new Random().nextInt(allAds.size()));
     }
 

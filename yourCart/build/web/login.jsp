@@ -15,10 +15,23 @@
                 <div class="login-form"><!--login form-->
                     <h2>Login to your account</h2>
                     <form action="Signin" id="SigninForm" method="post">
-                        <input type="text" placeholder="username" id="SigninName" name="SigninName" required/>
-                        <input type="password" placeholder="password" id="SigninPassword" name="SigninPassword" required/>
+                        <c:if test="${empty requestScope.type}">
+                            <c:set var="type" value="Add"/>
+                        </c:if>
+
+                        <c:choose>
+                            <c:when test="${empty user.userName}">
+                                <input type="text" placeholder="username" id="SigninName" name="SigninName" value="" required/>
+                                <input type="password" placeholder="password" id="SigninPassword" name="SigninPassword" value="" required/>
+                            </c:when>
+                            <c:otherwise>
+                                <input type="text" placeholder="username" id="SigninName" name="SigninName" value="${user.userName}" required/>
+                                <input type="password" placeholder="password" id="SigninPassword" name="SigninPassword" value="${user.password}" required/>
+                            </c:otherwise>
+                        </c:choose>
+
                         <span>
-                            <input type="checkbox" class="checkbox" id="SigninCheckbox"> 
+                            <input type="checkbox" class="checkbox" name="SigninCheckbox" value="5"> 
                             Keep me signed in
                         </span>
                         <button type="submit" class="btn btn-default">Login</button>
@@ -36,12 +49,12 @@
                         <input type="email" placeholder="Email Address" id="SignupEmail" name=SignupEmail required/>
                         <input type="password" placeholder="Password" id="SignupPassword" name=SignupPassword required/>
                         <input type="password" placeholder="ConfirmPassword" id="SignupConfirmPassword" required/>
-                        
+
 
                         <input type="text" placeholder="Address" id="SignupAddress" name="SignupAddress" required/>
                         <input type="text" placeholder="Job" id="SignupJob" name="SignupJob" required/>
                         <input type="text" placeholder="CreditCard" id="SignupCreditCard" name="SignupCreditCard" required/>
-                        
+
 
                         <!--validate password-->
                         <button type="submit" class="btn btn-default">Signup</button>

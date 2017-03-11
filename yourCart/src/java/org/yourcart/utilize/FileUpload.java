@@ -36,6 +36,25 @@ public class FileUpload {
             return "";
         }
     }
+<<<<<<< HEAD
+    
+   public static boolean deleteFile (String photo,String path){
+        
+       if (photo.equalsIgnoreCase("upload/yourCart.png")||photo.equalsIgnoreCase("upload/profile.jpg"))
+               {
+                   return true;
+               }
+        File file =new File(path+photo);
+        System.out.println("OoOoo---->"+path+photo);
+                if (file.exists())
+        {
+        boolean delete = file.delete();
+        System.out.println("file is deleted"+delete);
+        return true;
+        }
+        return false;
+    }
+=======
 
     /**
      * get file name of part
@@ -43,6 +62,7 @@ public class FileUpload {
      * @param part
      * @return file name
      */
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
     private static String getFileName(final Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {

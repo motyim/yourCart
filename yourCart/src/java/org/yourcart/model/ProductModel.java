@@ -116,7 +116,6 @@ public class ProductModel {
 
         return false;
     }
-
     public ArrayList<Product> getAllProduct() {
         ArrayList<Product> list = new ArrayList();
         try {

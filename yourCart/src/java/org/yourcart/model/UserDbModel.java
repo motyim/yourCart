@@ -123,14 +123,21 @@ public class UserDbModel{
         try {
             System.out.println("Start");
             if (search(updateUser.getUserName())) {
+<<<<<<< HEAD
+=======
                 System.out.println("########## in method");
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
                 User temp=getUser(updateUser.getUserId());
                 if (!temp.getPhoto().equalsIgnoreCase(updateUser.getPhoto()))
                 {
                      boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(temp.getPhoto(), path);
+<<<<<<< HEAD
+                }
+=======
                      System.out.println("--=-=-=-=-=-=-=-=-=-==-0" + deleteFile);
                 }
                 System.out.println("-=-=-=-=-= 0 -=-=-=-=-= ");
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("update users set username=?,password=?,email=?,job=?,address=?,creaditCard=?,cash=?,role=? ,photo=? where id=? ");
                 pst.setString(1, updateUser.getUserName());

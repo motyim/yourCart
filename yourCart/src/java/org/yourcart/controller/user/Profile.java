@@ -50,9 +50,13 @@ public class Profile extends HttpServlet {
         try {
             //get id from session
             User user = (User) request.getSession().getAttribute("LoginUser");
-
+            
             User newUser = (User) user.clone();
             String path = request.getServletContext().getRealPath("");
+<<<<<<< HEAD:yourCart/src/java/org/yourcart/controller/Profile.java
+
+=======
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b:yourCart/src/java/org/yourcart/controller/user/Profile.java
             //get request paramater & update object user
             newUser.setUserName(request.getParameter("username"));
             newUser.setEmail(request.getParameter("email"));
@@ -64,7 +68,11 @@ public class Profile extends HttpServlet {
             //-------------- upload photo ------------------
             Part filePart = request.getPart("image");
             if (filePart.getSize() != 0) {      //if photo uploaded
+<<<<<<< HEAD:yourCart/src/java/org/yourcart/controller/Profile.java
+               // String path = request.getServletContext().getRealPath("");
+=======
                 
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b:yourCart/src/java/org/yourcart/controller/user/Profile.java
                 
                 try{
                     String uploadedpath = FileUpload.uploadImage(filePart, path);
@@ -97,11 +105,7 @@ public class Profile extends HttpServlet {
 
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";

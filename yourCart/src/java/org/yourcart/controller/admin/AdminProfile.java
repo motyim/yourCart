@@ -74,6 +74,10 @@ System.out.println("Test1-----------------------------");
         //-------------- upload photo ------------------
         Part filePart = request.getPart("image");
         if (filePart.getSize() != 0) {      //if photo uploaded
+<<<<<<< HEAD:yourCart/src/java/org/yourcart/controller/AdminProfile.java
+           
+=======
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b:yourCart/src/java/org/yourcart/controller/admin/AdminProfile.java
 
             try {
                 String uploadedpath = FileUpload.uploadImage(filePart, path);
@@ -92,9 +96,14 @@ System.out.println("Test1-----------------------------");
         } else {                          //no photo uploaded
             user.setPhoto(request.getParameter("photo"));
         }
+<<<<<<< HEAD:yourCart/src/java/org/yourcart/controller/AdminProfile.java
+
+        if (new UserDbModel().updateUser(user,path)) {
+=======
 System.out.println("Test3-----------------------------");
         System.out.println("Username :-: " + user.getUserName());
         if (new UserDbModel().updateUser(user, path)) {
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b:yourCart/src/java/org/yourcart/controller/admin/AdminProfile.java
             //update user successfully
             //set alert message
             request.getSession().setAttribute("AlertMessage", "update user info Successfully");
