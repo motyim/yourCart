@@ -409,18 +409,10 @@ public class ProductModel {
 
             pst = con.prepareStatement("SELECT MAX(price) AS HighestPrice FROM product");
 
-          //  pst.setInt(1, productId);
+        
             rs = pst.executeQuery();
             if (rs.next()) {
-               /* productObject.setName(rs.getString("name"));
-                productObject.setProductId(rs.getInt("id"));
-                productObject.setPrice(rs.getDouble("price"));
-                productObject.setQuantity(rs.getInt("quantity"));
-                productObject.setModel(rs.getString("model"));
-                productObject.setDiscriptin(rs.getString("descriptin"));
-                productObject.setDate(rs.getString("date"));
-                productObject.setPhoto(rs.getString("photo"));
-                productObject.setCategory(rs.getInt("category_id"));*/
+             
                highestprice = rs.getDouble("HighestPrice");
                     
                 db.closeConnection();

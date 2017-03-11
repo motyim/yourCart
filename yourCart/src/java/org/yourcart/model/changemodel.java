@@ -232,5 +232,33 @@ public class changemodel {
         db.closeConnection();
         return false;
 
+        
     }
+    
+     public int getProfit() {
+          int profit=0;
+        try {
+            
+            con = db.openConnection();
+            pst = con.prepareStatement("select SUM(value) AS profit from charge where taken=1");
+
+           
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+            
+                   profit = rs.getInt("profit");
+                     db.closeConnection();
+
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+
+        return profit;
+      
+   
+     }
 }
