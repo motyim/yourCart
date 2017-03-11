@@ -4,6 +4,10 @@
         <servlet-name>SearchForProduct</servlet-name>
         <servlet-class>org.yourcart.controller.user.SearchForProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChargeServlet</servlet-name>
+        <servlet-class>org.yourcart.controller.admin.ChargeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
@@ -13,6 +17,10 @@
         <error-code>404</error-code>
         <location>/404.jsp</location>
     </error-page>
+    <servlet-mapping>
+        <servlet-name>ChargeServlet</servlet-name>
+        <url-pattern>/ChargeServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
