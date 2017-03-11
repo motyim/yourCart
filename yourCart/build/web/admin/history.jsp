@@ -5,8 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="org.yourcart.controller.AdminHistoryServlet" %> 
+<%@ page import="org.yourcart.controller.admin.AdminHistoryServlet" %> 
 <%@include file="header.jsp" %>
 
 <%-- include slidebar file --%> 

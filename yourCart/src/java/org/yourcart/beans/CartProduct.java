@@ -125,6 +125,9 @@ public class CartProduct {
         this.productId = productId;
     }
 
+    public CartProduct(){
+        
+    }
   
    
 }

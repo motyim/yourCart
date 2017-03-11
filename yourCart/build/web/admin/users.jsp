@@ -5,8 +5,7 @@
 --%>
 
 <%-- include header file --%> 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="org.yourcart.controller.AdminUserServlet" %> 
+<%@ page import="org.yourcart.controller.admin.AdminUserServlet" %> 
 
 <%@include file="header.jsp" %>
 
@@ -60,5 +59,6 @@
 
 <%-- include footer file --%> 
 <%@include file="footer.jsp" %>
-
+<%-- include notify file --%> 
+<%@include file="notify.jsp" %>
 

@@ -32,18 +32,15 @@
         </div>
             
         <div class="col-sm-8">
-            <div class="alert alert-warning" role="alert" id="error" style="display: none;"></div>
-            
-            <c:if test="${not empty messageInfo}">
-                <div class="alert alert-success" role="alert" >${messageInfo}</div>
-            </c:if>
+           
             
             <div class="product-information"><!--/product-information-->
                 <form action="AdminProfile" method="post" id="editProfileForm" enctype="multipart/form-data" onsubmit="return validateSignup();">	
                     <h2>${userInfo.userName}</h2>
                     <p>Account Setting</p>
                     <label>Name</label>
-                    <input type="text" placeholder="Name"  class="input-field" name="username" id="editUserName" value="${userInfo.userName}" required/>
+                    <input type="text" placeholder="Name"  class="input-field"  id="editUserName" value="${userInfo.userName}" disabled required/>
+                    <input type="hidden" name="username" value="${userInfo.userName}"/>
                     <label>E-mail</label>
                     <input type="email" placeholder="E-mail"  class="input-field" name="email" id="editEmail" value="${userInfo.email}" required/>
                     <label>Password</label>

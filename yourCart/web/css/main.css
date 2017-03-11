@@ -2548,3 +2548,18 @@ textarea{
     max-width: 270px;
     max-height: 329px;
 }
+
+.my_btn {
+    background: #F5F5ED;
+    border: 0 none;
+    border-radius: 0;
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.my_btn:hover {
+    background: #FE980F;
+    color: #FFFFFF;
+}

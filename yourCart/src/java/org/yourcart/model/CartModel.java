@@ -94,8 +94,8 @@ public class CartModel extends DbConnection {
         return false;
 
     }
-
-    public boolean deleteUserCart(int userID) {
+    
+     public boolean deleteUserCart(int userID) {
         con = openConnection();
         PreparedStatement pst = null;
         try {
@@ -122,17 +122,17 @@ public class CartModel extends DbConnection {
             pst.setInt(1, pID);
             pst.setInt(2, usrID);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {  
+            if (rs.next()) {
                 qu = rs.getInt("quantity");
-            } 
+            }
             closeConnection();
         } catch (SQLException ex) {
             closeConnection();
             ex.printStackTrace();
         }
-        
+
         return qu;
-        
+
     }
 
     private boolean editQantity(int quantity, int usrID, int productID) {
@@ -168,29 +168,34 @@ public class CartModel extends DbConnection {
         System.out.println("Quantity ==  " + count);
         return count;
     }
-    public ArrayList<CartProduct> getProductFromCart(int userId)
-    {
-        ArrayList<CartProduct> carts=new ArrayList<CartProduct>();
-         try {
+
+    public ArrayList<CartProduct> getProductFromCart(int userId) {
+        ArrayList<CartProduct> carts = new ArrayList<CartProduct>();
+        try {
             con = openConnection();
-            PreparedStatement pst = con.prepareStatement("select c.id,c.quantity,p.name,p.price,p.photo,p.descriptin,p.id from cart as c, product as p where c.product_id=p.id AND c.user_id=? ");
+            PreparedStatement pst = con.prepareStatement("select c.id,c.quantity,p.name,p.price,p.photo,p.descriptin,p.id ,p.quantity from cart as c, product as p where c.product_id=p.id AND c.user_id=? ");
             pst.setInt(1, userId);
-             rs= pst.executeQuery();
-             while(rs.next())
-             {
-                 
-                 CartProduct cartProduct=new CartProduct(rs.getInt("c.id"),rs.getInt("c.quantity"),rs.getString("p.name"),rs.getInt("p.price"),rs.getString("p.photo"),rs.getString("p.descriptin"),rs.getInt("p.id"));
-                 carts.add(cartProduct);
-             }
-              closeConnection();
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                CartProduct cartProduct = new CartProduct();
+                cartProduct.setCartId(rs.getInt("c.id"));
+                cartProduct.setQuantity(rs.getInt("c.quantity"));
+                cartProduct.setName(rs.getString("p.name"));
+                cartProduct.setPrice(rs.getInt("p.price"));
+                cartProduct.setPhoto(rs.getString("p.photo"));
+                cartProduct.setDiscriptin(rs.getString("p.descriptin"));
+                cartProduct.setProductId(rs.getInt("p.id"));
+                cartProduct.setQuantity_product(rs.getInt("p.quantity"));
+
+                carts.add(cartProduct);
+            }
+            closeConnection();
             return carts;
-             
+
         } catch (SQLException ex) {
-         ex.printStackTrace();
+            ex.printStackTrace();
         }
         return null;
     }
-    
 
-    
 }

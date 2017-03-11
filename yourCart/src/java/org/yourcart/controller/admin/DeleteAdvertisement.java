@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.AdvertisementModel;
 
 /**
- *
+ * delete ads
  * @author OsamaPC
  */
 @WebServlet("/admin/DeleteAdvertisement")
@@ -26,13 +26,24 @@ public class DeleteAdvertisement extends HttpServlet {
         boolean x = model.deleteAdvertisment(id);
         
         if (x) {
-            //redirect to Success
-            request.getSession().setAttribute("message", "ADS Deleted Successfully");
-            response.sendRedirect("../Success.jsp");
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "ADS Deleted Successfully");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "success");
+            response.sendRedirect("ShowAdvertisement");
+            
+            
         } else {
+            
             //can't add product
-           request.getSession().setAttribute("message", "can't Delete ADS ..An Error occure");
-           response.sendRedirect("../Failed.jsp");
+            
+            //set alert message
+            request.getSession().setAttribute("AlertMessage", "canot Delete ADS ..An Error occure");
+            //set alert type
+            request.getSession().setAttribute("AlertType", "danger");
+            response.sendRedirect("ShowAdvertisement");
+            
+      
         }
 
     }

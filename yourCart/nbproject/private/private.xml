@@ -2,10 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/OsamaPC/Desktop/projectt/yourCart/yourCart/web/login.jsp</file>
             <file>file:/C:/Users/OsamaPC/Desktop/projectt/yourCart/yourCart/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/OsamaPC/Desktop/projectt/yourCart/yourCart/src/java/org/yourcart/controller/Signin.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
     </open-files>
 </project-private>

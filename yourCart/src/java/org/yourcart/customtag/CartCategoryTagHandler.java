@@ -29,7 +29,7 @@ public class CartCategoryTagHandler extends SimpleTagSupport {
             for (Category category : AllCategoriess) {
                 out.print("<div class='panel panel-default'>\n" +
 "                            <div class='panel-heading'>\n" +
-"                                <h4 class='panel-title'><a href='Shop?cate="+category.getId()+"'>"+category.getName()+"</a></h4>\n" +
+"                                <h4 class='panel-title'><a href='Shop?page=1&cate="+category.getId()+"'>"+category.getName()+"</a></h4>\n" +
 "                            </div>\n" +
 "                        </div>");
             }

@@ -4,7 +4,7 @@
     Author     : Nesmaa
 --%>
 
-<%@ page import="org.yourcart.controller.AdminCategoryServlet" %> 
+<%@ page import="org.yourcart.controller.admin.AdminCategoryServlet" %> 
 <%@include file="header.jsp" %>
 
 <%-- include slidebar file --%> 
@@ -57,3 +57,5 @@
 
 <%-- include footer file --%> 
 <%@include file="footer.jsp" %>
+<%-- include notify file --%> 
+<%@include file="notify.jsp" %>

@@ -2,12 +2,38 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>SearchForProduct</servlet-name>
-        <servlet-class>org.yourcart.controller.SearchForProduct</servlet-class>
+        <servlet-class>org.yourcart.controller.user.SearchForProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <!-- Missing login -->
+        <error-code>401</error-code>
+        <location>/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Forbidden directory listing -->
+        <error-code>403</error-code>
+        <location>/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Uncaught exception -->
+        <error-code>500</error-code>
+        <location>/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Unsupported servlet method -->
+        <error-code>503</error-code>
+        <location>/error.html</location>
+    </error-page>
+    
     <session-config>
         <session-timeout>
             30
@@ -19,4 +45,3 @@
     </error-page> 
 
 </web-app>
-

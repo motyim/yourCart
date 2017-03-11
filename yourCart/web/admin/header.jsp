@@ -64,14 +64,15 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href=""><img src="../images/home/logo.png" alt="" /></a>
+                                <a href="index.jsp"><img src="../images/home/logo.png" alt="" /></a>
                             </div>
 
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+                                    <li><a href="../"><i class="fa fa-ravelry"></i> Site</a></li>
+                                    <li><a href="logout"><i class="fa fa-lock"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="admin.html" class="active">Panel</a></li>
+                                    <li><a href="index.jsp" class="active">Panel</a></li>
                                 </ul>
                             </div>
                         </div>

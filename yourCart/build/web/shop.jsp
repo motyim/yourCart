@@ -3,8 +3,7 @@
     Created on : Feb 28, 2017, 10:51:25 PM
     Author     : MotYim
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="org.yourcart.controller.Shop" %> 
+<%@ page import="org.yourcart.controller.user.Shop" %> 
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
 
@@ -35,7 +34,7 @@
                                 <div class="overlay-content">
                                     <h2>$${product.price}</h2>
                                     <p>${product.name}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="#" id="${product.productId}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -53,18 +52,42 @@
 
         <!-- End Sara features_items-->
 
-       
-
-
-
-        
     </div><!--features_items-->
+
+
+
+
+
+
     <ul class="pagination">
-            <li class="active"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">&raquo;</a></li>
-        </ul>
+        <%--handel Category--%>
+        <c:if test="${not empty query}">
+            <c:set var="stringQuery" value="&cate=${query}"/>
+        </c:if>
+        
+        <%--to display Previous arrow except for the 1st page --%>
+        <c:if test="${currentPage != 1}">
+             <li><a href="Shop?page=${currentPage - 1}${stringQuery}">&laquo;</a></li>
+	</c:if>
+        
+        <%--to displaying Page numbers--%>
+        <c:forEach begin="1" end="${noOfPages}" var="i">
+            <c:choose>
+                <c:when test="${currentPage == i}">
+                    <li class="active"><a href="">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                    <li><a href="Shop?page=${i}${stringQuery}">${i}</a></li>
+
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+
+        <%--to display Next arrow --%>
+        <c:if test="${currentPage lt noOfPages}">
+            <li><a href="Shop?page=${currentPage + 1}${stringQuery}">&raquo;</a></li>
+	</c:if>
+    </ul>
 </div>
 </div>
 </div>

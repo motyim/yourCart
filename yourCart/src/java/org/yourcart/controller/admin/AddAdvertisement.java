@@ -13,6 +13,7 @@ import org.yourcart.model.AdvertisementModel;
 import org.yourcart.utilize.FileUpload;
 
 /**
+ * to add Advertisement
  *
  * @author OsamaPC
  */
@@ -24,35 +25,39 @@ public class AddAdvertisement extends HttpServlet {
     AdvertisementModel model;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+
         model = new AdvertisementModel();
         String url = request.getParameter("url");
-        
+
         Part filePart = request.getPart("image");
         if (filePart.getSize() != 0) {      //if photo uploaded
             String path = request.getServletContext().getRealPath("");
 
             try {
                 String uploadedpath = FileUpload.uploadImage(filePart, path);
-                model.addAdvertisment(uploadedpath,url);
+                model.addAdvertisment(uploadedpath, url);
             } catch (Exception ex) {
                 ex.printStackTrace();
-                request.setAttribute("message", "please choose image only");
-                request.getRequestDispatcher("/Failed.jsp").forward(request, response);
+                //set alert message
+                request.getSession().setAttribute("AlertMessage", "please choose image only");
+                //set alert type
+                request.getSession().setAttribute("AlertType", "danger");
+                response.sendRedirect("ShowAdvertisement");
+
                 return;
             }
 
         } else {                          //no photo uploaded
-            model.addAdvertisment(request.getParameter("photo"),url);
+            model.addAdvertisment(request.getParameter("photo"), url);
         }
+        
+        //set alert message
+        request.getSession().setAttribute("AlertMessage", "ADS Added Successfully");
+        //set alert type
+        request.getSession().setAttribute("AlertType", "success");
+        response.sendRedirect("ShowAdvertisement");
 
     }
 

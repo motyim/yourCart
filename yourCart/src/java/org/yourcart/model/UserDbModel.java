@@ -4,6 +4,7 @@ package org.yourcart.model;
 import org.yourcart.beans.User;
 import java.sql.*;
 import java.util.ArrayList;
+import org.yourcart.utilize.SHA;
 
 
 /**
@@ -24,10 +25,13 @@ public class UserDbModel{
             con = db.openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from users where (username=?)");
             pst.setString(1, usrName);
+            System.out.println("name :::::: "+ usrName);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
+                System.out.println("return true");
                 b = true;
             } else {
+                System.out.println("return false");
                 b = false;
             }
             db.closeConnection();
@@ -54,7 +58,7 @@ public class UserDbModel{
                 pst1.setString(1, bean.getUserName());
                 pst1.setString(2, bean.getEmail());
                 pst1.setString(3, bean.getAddress());
-                pst1.setString(4, bean.getPassword());
+                pst1.setString(4, SHA.encrypt(bean.getPassword()));
                 pst1.setString(5, bean.getJob());
                 pst1.setString(6, bean.getCreditCard());
                 pst1.setDouble(7, bean.getCash());
@@ -85,7 +89,7 @@ public class UserDbModel{
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("SELECT * from users where (username=?) and (PASSWORD=?)");
                 pst.setString(1, username);
-                pst.setString(2, password);
+                pst.setString(2, SHA.encrypt(password));
                 ResultSet rs = pst.executeQuery();
                 System.out.println("osaamaa       "+rs);
                 if (rs.next()) {
@@ -94,7 +98,7 @@ public class UserDbModel{
                     userSinIn.setUserName(rs.getString("username"));
                     userSinIn.setEmail(rs.getString("email"));
                     userSinIn.setAddress(rs.getString("address"));
-                    userSinIn.setPassword(rs.getString("password"));
+                    userSinIn.setPassword("");
                     userSinIn.setJob(rs.getString("job"));
                     userSinIn.setCreditCard(rs.getString("creaditCard"));
                     userSinIn.setCash(rs.getInt("cash"));
@@ -117,12 +121,23 @@ public class UserDbModel{
     public boolean updateUser(User updateUser ,String path) {
 
         try {
+            System.out.println("Start");
             if (search(updateUser.getUserName())) {
+<<<<<<< HEAD
+=======
+                System.out.println("########## in method");
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
                 User temp=getUser(updateUser.getUserId());
                 if (!temp.getPhoto().equalsIgnoreCase(updateUser.getPhoto()))
                 {
                      boolean deleteFile = org.yourcart.utilize.FileUpload.deleteFile(temp.getPhoto(), path);
+<<<<<<< HEAD
                 }
+=======
+                     System.out.println("--=-=-=-=-=-=-=-=-=-==-0" + deleteFile);
+                }
+                System.out.println("-=-=-=-=-= 0 -=-=-=-=-= ");
+>>>>>>> e0454714ccfc8acc2c0a99e4e7b55a232946658b
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("update users set username=?,password=?,email=?,job=?,address=?,creaditCard=?,cash=?,role=? ,photo=? where id=? ");
                 pst.setString(1, updateUser.getUserName());
@@ -135,8 +150,9 @@ public class UserDbModel{
                 pst.setString(8, updateUser.getRole());
                 pst.setString(9, updateUser.getPhoto());
                 pst.setInt(10, updateUser.getUserId());
-                
+                System.out.println("--=-=-=-=-=-=-=-=-=-==-1");
                 pst.executeUpdate();
+                System.out.println("--=-=-=-=-=-=-=-=-=-==-2");
                 db.closeConnection();
                 return true;
             }
@@ -146,6 +162,7 @@ public class UserDbModel{
         }
         return false;
     }
+
 
     public ArrayList<User> getAllUsers() {
         con = db.openConnection();
@@ -161,7 +178,7 @@ public class UserDbModel{
                 user.setUserName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setAddress(rs.getString("address"));
-                user.setPassword(rs.getString("password"));
+                user.setPassword("");
                 user.setJob(rs.getString("job"));
                 user.setCreditCard(rs.getString("creaditCard"));
                 user.setCash(rs.getInt("cash"));
@@ -192,7 +209,7 @@ public class UserDbModel{
                 user.setUserName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setAddress(rs.getString("address"));
-                user.setPassword(rs.getString("password"));
+                user.setPassword("");
                 user.setJob(rs.getString("job"));
                 user.setCreditCard(rs.getString("creaditCard"));
                 user.setCash(rs.getInt("cash"));
@@ -207,5 +224,21 @@ public class UserDbModel{
         }
         return user ; 
         
+    }
+    
+    public boolean updateUserBalance(User updateUser) throws SQLException {
+
+       
+            if (search(updateUser.getUserName())) {
+                con = db.openConnection();
+                PreparedStatement pst = con.prepareStatement("update users set cash=? where id=?");
+                pst.setDouble(1, updateUser.getCash());
+                pst.setInt(2, updateUser.getUserId());       
+                pst.executeUpdate();
+                db.closeConnection();
+                return true;
+            }
+       
+        return false;
     }
 }

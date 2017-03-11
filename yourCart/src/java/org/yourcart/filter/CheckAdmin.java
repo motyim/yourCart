@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.beans.User;
 
 /**
- *
+ * 
  * @author MotYim
  */
-@WebFilter(filterName = "CheckAdmin", urlPatterns = {"/Me"})
+@WebFilter(filterName = "CheckAdmin",urlPatterns = {"/admin/*"})
 public class CheckAdmin implements Filter {
 
     public CheckAdmin() {
@@ -36,12 +36,12 @@ public class CheckAdmin implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
 
-        User user = (User) ((HttpServletRequest) request).getSession().getAttribute("User");
-        if (user.getRole().equalsIgnoreCase("admin")) {
+        User user = (User) ((HttpServletRequest) request).getSession().getAttribute("LoginUser");
+
+        if (user != null && user.getRole().equalsIgnoreCase("admin")) {
             chain.doFilter(request, response);
         } else {
-
-            ((HttpServletResponse) response).sendRedirect("login.jsp");
+            ((HttpServletResponse) response).sendRedirect("../login.jsp");
         }
 
     }

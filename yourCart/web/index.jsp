@@ -3,7 +3,7 @@
     Created on : Feb 28, 2017, 10:25:09 PM
     Author     : MotYim
 --%>
-<%@ page import="org.yourcart.controller.IndexProductServlet" %> 
+<%@ page import="org.yourcart.controller.user.IndexProductServlet" %> 
 <%--<jsp:include page="/IndexProductServlet"/> --%> 
 <%-- include header file --%> 
 <%@include file="header.jsp" %>
@@ -31,13 +31,13 @@
                                 <img src=${product.photo} alt="" />
                                 <h2>$${product.price}</h2>
                                 <p>${product.name}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <a class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                             <div class="product-overlay">
                                 <div class="overlay-content">
                                     <h2>$${product.price}</h2>
                                     <p>${product.name}</p>
-                                    <a href="#" id="${product.productId}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a  id="${product.productId}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                             <img src="images/home/new.png" class="new" alt="" />

@@ -5,12 +5,7 @@
 --%>
 <section id="cart_items">
     <div class="container">
-        <div class="breadcrumbs">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Admin Panel</li>
-            </ol>
-        </div>
+       
         <div class="row">
 
             <div class="col-sm-3">
@@ -48,11 +43,19 @@
                             </div>
                         </div>
                         
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="charge.jsp">Scratch Cards</a></h4>
+                            </div>
+                        </div>
+                        
                          <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title"><a href="ShowAdvertisement">Ads</a></h4>
                             </div>
                         </div>
+                        
+                        
                     </div><!--/category-products-->
 
 

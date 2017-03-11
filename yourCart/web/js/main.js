@@ -37,6 +37,10 @@ $(document).ready(function () {
     $("#image").change(function () {
         readURL(this);
     });
+    
+   //change active class
+    activeClass();
+    
 });
 
 /*price range*/
@@ -46,3 +50,18 @@ $(document).ready(function () {
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 };
+
+ //change class active 
+    function activeClass(){
+        var link = window.location.href;
+        if(link.includes("Shop")){
+            $("#shopBtn").addClass("active");
+            $("#homeBtn").removeClass("active");
+        }else if(link.includes("index.jsp") || link.endsWith("yourCart/")){
+            $("#homeBtn").addClass("active");
+            $("#shopBtn").removeClass("active");
+        }else{
+            $("#homeBtn").removeClass("active");
+            $("#shopBtn").removeClass("active");
+        }
+    }

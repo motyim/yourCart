@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.yourcart.model.AdvertisementModel;
 
 /**
- *
+ * get new random ads to display in sliderbar
  * @author MotYim
  */
 @WebServlet(name = "Ads", urlPatterns = {"/Ads"})

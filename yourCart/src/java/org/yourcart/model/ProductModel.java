@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,7 +17,7 @@ public class ProductModel {
     ResultSet rs;
     PreparedStatement pst = null;
     DbConnection db = new DbConnection();
-    
+    private int noOfRecords ; 
 
     Connection con;
 
@@ -268,6 +269,134 @@ public class ProductModel {
         }
         System.out.println(getItem.size());
         return getItem;
+    }
+    
+       public boolean updateProductQauntity(Product product) throws SQLException {
+        
+            con = db.openConnection();
+            int i = 0;
+            pst = con.prepareStatement("update product set quantity=? where id=?");
+
+            pst.setInt(1, product.getQuantity());
+            pst.setInt(2, product.getProductId());
+           
+            i = pst.executeUpdate();
+
+            db.closeConnection();
+            if (i > 0) {
+                return true;
+            }
+
+        
+        return false;
+
+    }
+       
+    public ArrayList<Product> getAllProductByPrice(double priceStart, double priceEnd) {
+             ArrayList<Product> getAllProductByPrice = new ArrayList();
+         try {
+            
+             con = db.openConnection();
+             pst = con.prepareStatement("select * from product where  price BETWEEN ? AND ?");
+ 
+             pst.setDouble(1, priceStart);
+             pst.setDouble(2, priceEnd);
+ 
+             Product product;
+             rs = pst.executeQuery();
+             while (rs.next()) {
+                 product = new Product(rs.getString("name"), rs.getDouble("price"),
+                         rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                         rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                         rs.getInt("category_id"));
+                 getAllProductByPrice.add(product);
+ 
+            }
+ 
+         } catch (SQLException ex) {
+             db.closeConnection();
+             ex.printStackTrace();
+         }
+         System.out.println(getAllProductByPrice.size());
+         return getAllProductByPrice;
+    }
+    
+    /**
+     * make paging for product with no category
+     * @param start offset to start from
+     * @param limit limit per one 
+     * @return all product with in start and limit
+     */
+    public ArrayList<Product> getAllProduct(int start , int limit) {
+        ArrayList<Product> list = new ArrayList();
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product ORDER BY id DESC LIMIT ? , ?");
+            pst.setInt(1, start);
+            pst.setInt(2, limit);
+            Product p;
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                list.add(p);
+
+            }
+            
+            //get number of record in DB 
+            rs = con.prepareStatement("SELECT count(*) FROM product").executeQuery();
+            if(rs.next()){
+                this.noOfRecords = rs.getInt(1);
+            }
+                
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(list.size());
+        return list;
+    }
+
+    public List<Product> getAllProductByCategoryId(int categoryId, int start , int limit) {
+        ArrayList<Product> list = new ArrayList();
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from product where category_id=? ORDER BY id DESC LIMIT ? , ?");
+            pst.setInt(1, categoryId);
+            pst.setInt(2, start);
+            pst.setInt(3, limit);
+            Product p;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("model"), rs.getString("date"), rs.getString("photo"),
+                        rs.getString("descriptin"), rs.getInt("quantity"), rs.getInt("id"),
+                        rs.getInt("category_id"));
+                list.add(p);
+            }
+            
+            //get number of record in DB 
+            pst = con.prepareStatement("SELECT count(*) FROM product where category_id=?");
+            pst.setInt(1, categoryId);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                this.noOfRecords = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        System.out.println(list.size());
+        return list;
+    }
+    
+    public int getNoOfRecords() {
+        return noOfRecords;
     }
 
 }

@@ -19,6 +19,9 @@
  
 !function( $ ) {
 
+
+ var from ;
+ var to;
 	var Slider = function(element, options) {
 		this.element = $(element);
 		this.picker = $('<div class="slider">'+
@@ -228,7 +231,8 @@
 			}
 
 			this.inDrag = true;
-			var val = this.calculateValue();
+			var val = this.calculateValue
+                        
 			this.element.trigger({
 					type: 'slideStart',
 					value: val
@@ -296,6 +300,20 @@
 				})
 				.data('value', val)
 				.prop('value', val);
+                     //  console.log("nesma");
+                        console.log(val[0]);
+                       console.log(val[1]);
+                    document.getElementById("downValue").value=val[0];
+                    document.getElementById("upValue").value=val[1];
+//  
+//  $.get("SearchForProduct?from="+val[0]+"&to="+val[1], function(response) {
+                           // out.print("nesma")
+                       
+                         
+                        //   });
+                       
+                        
+                       
 			return false;
 		},
 
@@ -311,9 +329,14 @@
 				val = (this.min + Math.round((this.diff * this.percentage[0]/100)/this.step)*this.step);
 				this.value = [val, this.value[1]];
 			}
+                
+               
+                    //console.log("nesma from"+from);
 			return val;
-		},
-
+		} ,
+                
+               
+                 
 		getPercentage: function(ev) {
 			if (this.touchCapable) {
 				ev = ev.touches[0];
@@ -325,8 +348,10 @@
 
 		getValue: function() {
 			if (this.range) {
+            
 				return this.value;
 			}
+                       //console.log("getlue"+value[0])
 			return this.value[0];
 		},
 
@@ -351,11 +376,26 @@
 				(this.value[1]-this.min)*100/this.diff,
 				this.step*100/this.diff
 			];
+                   
 			this.layout();
+                      
 		}
+                
 	};
-
+              /*   var slider = new Slider("#sl2");
+                slider.on("slide", function(slideEvt) {
+                 console.log(slider.getValue() );
+                });
+                */
+               /*
+               var slider = new Slider("#sl2");
+                    slider.on("slide", function(slideEvt) {
+                     console.log(slider.getValue() );
+                    });*/
+                    
+              
 	$.fn.slider = function ( option, val ) {
+            
 		return this.each(function () {
 			var $this = $(this),
 				data = $this.data('slider'),
@@ -365,9 +405,11 @@
 			}
 			if (typeof option == 'string') {
 				data[option](val);
+                             
 			}
 		})
 	};
+
 
 	$.fn.slider.defaults = {
 		min: 0,
@@ -379,9 +421,11 @@
 		tooltip: 'show',
 		handle: 'round',
 		formater: function(value) {
-			return value;
+		return value;
 		}
 	};
+//var min = $('#rbSlider').data('slider').options.value[0];
+//var max = $('#rbSlider').data('slider').options.value[1];
 
 	$.fn.slider.Constructor = Slider;
 
