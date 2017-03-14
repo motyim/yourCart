@@ -78,7 +78,9 @@
                                   
                                     <a  href="DeleteCart?id=${cart.cartId}"><i class="fa fa-times"></i></a>
                          
-
+                                     <INPUT type="hidden" id="hiddenCart" value="${cart.cartId}"/>
+                                  
+                                    <a  href="ReduceQuantity?id=${cart.cartId}"><i class="fa fa-times"></i></a>
                                 </td>
                                 <c:set var="total" value="${total+(cart.price*cart.quantity)}"/>
                             </tr>

@@ -4,6 +4,10 @@
         <servlet-name>SearchForProduct</servlet-name>
         <servlet-class>org.yourcart.controller.user.SearchForProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReduceQuantity</servlet-name>
+        <servlet-class>org.yourcart.controller.user.ReduceQuantity</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchForProduct</servlet-name>
         <url-pattern>/SearchForProduct</url-pattern>
@@ -33,7 +37,10 @@
         <error-code>503</error-code>
         <location>/error.html</location>
     </error-page>
-    
+    <servlet-mapping>
+        <servlet-name>ReduceQuantity</servlet-name>
+        <url-pattern>/ReduceQuantity</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
