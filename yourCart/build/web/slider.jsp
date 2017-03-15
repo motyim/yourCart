@@ -33,7 +33,7 @@
                                 <div class="col-sm-6 slide-height">
                                     <h1>${slide.title}</h1>
                                     <h2>${slide.subTitle}</h2>
-                                    <p>${slide.description}</p>
+                                    
                                     <a href="Product?id=${slide.productId}" class="btn btn-default get">Get it now</a>
                                 </div>
                                 <div class="col-sm-6">

@@ -20,9 +20,8 @@ public class Ads extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        double d = new ProductModel().getMaxProductByPrice(); 
-        System.out.println(d);
-        request.setAttribute("maxPrice", new ProductModel().getMaxProductByPrice());
+ 
+        request.setAttribute("maxPrice", (int)(new ProductModel().getMaxProductByPrice()));
         Advertisement randomAds = new AdvertisementModel().getRandomAds();
         if(randomAds != null )
             request.setAttribute("ads", randomAds);

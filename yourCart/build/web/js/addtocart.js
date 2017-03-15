@@ -82,7 +82,7 @@ $(document).ready(function () {
                     window.location.href = data.redirect;
                 }else{
                     $("#number").html(data);
-                    showNotification('product Delete from your cart','success');
+                    showNotification('product Quantity decrease from your cart','success');
                     reCalculateDecrease(id);
                 }
                 
@@ -102,7 +102,7 @@ $(document).ready(function () {
                     window.location.href = data.redirect;
                 }else{
                     $("#number").html(data);
-                    showNotification('product add to your cart','success');
+                    showNotification('product Quantity increase to your cart','success');
                     reCalculateIncrease(id);
                 }
                 

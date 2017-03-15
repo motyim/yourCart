@@ -48,7 +48,7 @@
                                     <a href=""><img src="${cart.photo}" alt=""></a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href="">${cart.discriptin}</a></h4>
+                                   
                                     <p>Product ID: ${cart.productId}</p>
                                 </td>
                                 <td class="cart_price">

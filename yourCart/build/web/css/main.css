@@ -2539,6 +2539,8 @@ textarea{
 .productinfo img{
     max-width: 255px;
     max-height: 191px;
+    min-width: 255px;
+    min-height: 191px;
 }
 
 .slide-height{

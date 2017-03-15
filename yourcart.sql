@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2017 at 01:18 PM
+-- Generation Time: Mar 15, 2017 at 09:35 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,8 +37,8 @@ CREATE TABLE `ads` (
 --
 
 INSERT INTO `ads` (`id`, `image`, `url`) VALUES
-(2, 'upload/1488842019089shipping.jpg', 'https://www.google.com.eg/'),
-(3, 'upload/1488842050196Nokia-3310_Front_Full_2.jpg', 'https://www.google.com.eg/');
+(1, 'upload/14895648520311489174392739shipping.jpg', 'https://www.google.com.eg/'),
+(2, 'upload/14895648625391488650374437Nokia-3310_Front_Full_2.jpg', 'https://www.google.com.eg/?gfe_rd=cr&ei=qvTIWIr7AbPCXpbCovgD');
 
 -- --------------------------------------------------------
 
@@ -52,17 +52,6 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`) VALUES
-(8, 5, 659, 2),
-(9, 5, 660, 2),
-(12, 10, 660, 2),
-(13, 10, 658, 1),
-(14, 10, 661, 1);
 
 -- --------------------------------------------------------
 
@@ -82,9 +71,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Mobile'),
 (2, 'labtop'),
-(3, 'Man Clothes'),
-(4, 'Woman Clothes'),
-(5, 'new Cat');
+(5, 'watches');
 
 -- --------------------------------------------------------
 
@@ -105,23 +92,8 @@ CREATE TABLE `charge` (
 --
 
 INSERT INTO `charge` (`id`, `card_number`, `value`, `used`, `taken`) VALUES
-(4, '4e2c5f926c537288', 200, 1, 1),
-(5, '334e4b347e103232', 200, 0, 0),
-(6, '863a52a7a4472295', 500, 1, 1),
-(7, '759494455b892267', 500, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comments`
---
-
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `comment` text CHARACTER SET latin1 NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+(1, '665029584d93a21c', 500, 1, 1),
+(2, '48424c8427501939', 500, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -142,14 +114,7 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`id`, `user_id`, `product_id`, `date`, `quantity`) VALUES
-(1, 1, 13, '20-12-2017', 3),
-(2, 15, 660, '2017-03-09T01:50:27.776', 2),
-(3, 15, 660, '2017-03-09T01:52:26.675', 1),
-(4, 15, 661, '2017-03-09T02:05:27.348', 1),
-(5, 10, 659, '2017-03-09T02:26:24.112', 3),
-(6, 15, 659, '2017-03-09T02:26:31.573', 3),
-(7, 15, 660, '2017-03-09T13:49:12.357', 1),
-(8, 15, 660, '2017-03-09T15:24:50.399', 1);
+(1, 2, 3, '2017-03-15T10:24:43.477', 2);
 
 -- --------------------------------------------------------
 
@@ -174,13 +139,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `model`, `descriptin`, `date`, `photo`, `category_id`) VALUES
-(13, 'mohamed', 13, 3, 'nono', 'das', '13/12/2016', 'upload/yourCart.png', 1),
-(656, 'new Product', 12.6, 3, 'NoModel', 'Good', '2017-03-04', 'upload/1488585388828java.png', 2),
-(657, 'last', 13.5, 3, 'Nokia', 'mmm', '2017-03-04', 'upload/yourCart.png', 1),
-(658, 'test2', 12, 23, '543', 'sdsdv', '2017-03-04', 'upload/yourCart.png', 2),
-(659, 'sfa', 23, 17, '', '', '2017-03-04', 'upload/yourCart.png', 1),
-(660, 'nokia 3310 new', 120, 292, 'Nokia', 'good mobile new', '2017-03-04', 'upload/1488650753165Nokia-3310_Front_Full_2.jpg', 3),
-(661, '3', 3, 15, '3', '3', '2017-03-05', 'upload/1488696641611github-6-xxl.png', 1);
+(1, 'watch x500', 80, 3, 'x500', 'from swatch company', '2017-03-15', 'upload/1489563171202PinkWatch_big.png', 5),
+(2, 'Asus', 3000, 3, 'Asus', '6 GB  Rams\r\ni7\r\ntera', '2017-03-15', 'upload/148956338268578.png', 2),
+(3, 'Nokia HeadPhone', 50, 28, 'Nokia', 'Crystal clear calls with HD sound is what the TM010 Bluetooth Headphones are all about. The headphones are a combination of stylish design and modern technology. They are an ideal choice for people who like to enjoy their music wirelessly from their handsets or laptops. ', '2017-03-15', 'upload/1489563769035Redheadphones_big.png', 2),
+(4, 'HTC Desire 728 Ultra', 1000, 5, 'HTC', 'The HTC Desire 728 Ultra Dual SIM looks as good at the office as it does out on the town. Sleek, elegant and keeps your personal life separate from your work life. Featuring a beautiful 7.8mm thin design in black gold, this elegant HTC Desire 728 Ultra Dual SIM is designed ...', '2017-03-15', 'upload/1489564629111item_XL_11580536_28457068.jpg', 1),
+(5, 'Blue HeadPhone', 20, 30, 'Sony', 'Headphone blue ', '2017-03-15', 'upload/1489565006872BlueHeadphones_big.png', 2),
+(6, 'Infinix Hot S X521 Dual Sim', 50, 12, 'Infinix', 'Featuring a 5.2inch HD IPS display, the Infinix Hot S X521 Dual SIM smartphone is sure to pull you into an immersive entertainment experience. The screen, backed by 450MHz Mali T720 MP3 GPU, renders 1280 x 720 pixel resolution images and makes every movie scene come to life ...', '2017-03-15', 'upload/1489565200585item_XL_11183361_15522684.jpg', 1),
+(7, 'Infinix X601 Note 3', 300, 12, 'Infinix ', '6.0" IPS Capacitive Touch Screen16 GB Storage, MicroSD up to 128GB13MP Back Camera, 5MP Front CameraOcta-core 1.3 GHz CPU, 2GB RAMAndroid OS, v6.0 (Marshmallow)', '2017-03-15', 'upload/1489565625718infinix-1045-957775-1-zoom.jpg', 1),
+(8, 'Asus K540LA', 2000, 12, 'Asus', 'Asus K540LA-XX706D,RD,i3,4,500,Dos', '2017-03-15', 'upload/1489565840541coasuk540la-xx706d-444x325.jpg', 2),
+(9, 'HP 15-au101ne', 3335, 6, 'H', 'HP 15-au101ne', '2017-03-15', 'upload/1489565986899hp.jpg', 2),
+(10, 'Apple iMac ', 10000, 1, 'Apple', 'Apple iMac MK482AE/A,i5,8G,2T', '2017-03-15', 'upload/1489566081077apple.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -202,8 +170,9 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `title`, `subtitle`, `description`, `image`, `product_id`) VALUES
-(1, 'new Nokia', 'Arrive now to egypt', 'good mobile new', 'upload/1488650753165Nokia-3310_Front_Full_2.jpg', 660),
-(2, 'Hi slide', 'lorem lorem lorem ', 'lorem lorem lorem lorem lorem lorem ', 'upload/1488696641611github-6-xxl.png', 661);
+(1, 'Smart Headphone', 'TM010 Red Bluetooth Headphones', 'Crystal clear calls with HD sound is what the TM010 Bluetooth Headphones are all about. The headphones are a combination of stylish design and modern technology. They are an ideal choice for people who like to enjoy their music wirelessly from their handsets or laptops. ', 'upload/1489563769035Redheadphones_big.png', 3),
+(2, 'NEW HTC Moblie ', 'HTC Desire 728 Ultra Dual SIM - 32GB, 3GB RAM, 4G LTE, Black Gold', 'The HTC Desire 728 Ultra Dual SIM looks as good at the office as it does out on the town. Sleek, elegant and keeps your personal life separate from your work life. Featuring a beautiful 7.8mm thin design in black gold, this elegant HTC Desire 728 Ultra Dual SIM is designed ...', 'upload/1489564629111item_XL_11580536_28457068.jpg', 4),
+(3, 'Mac ', 'New MAC in Egypt', 'Apple iMac MK482AE/A,i5,8G,2T', 'upload/1489566081077apple.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -230,13 +199,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `address`, `job`, `password`, `creaditCard`, `cash`, `role`, `photo`) VALUES
 (1, 'mohamed', 'mohamed.motyim33@gmail.com', 'alexandria', 'java dev', 'c2a2c8637590d5dd61c457cc1724ecdfa2c47062ec9c584613c099caabbd1ea8d3e4116a8d62e9fe07722dbe6ff382bec09c10fa4019723ae3f1b1286a186684', '1234-1234-1234-1234', 500, 'admin', 'upload/profile.jpg'),
-(5, 'osama', 'osama@mos.com', 'giza', 'java dev', '123', '4444-4444-4444-4444', 0, 'user', 'upload/profile.jpg'),
-(10, 'motyim', 'mohamed.motyim@gmail.com', 'alexandria', 'java Developer', 'c2a2c8637590d5dd61c457cc1724ecdfa2c47062ec9c584613c099caabbd1ea8d3e4116a8d62e9fe07722dbe6ff382bec09c10fa4019723ae3f1b1286a186684', '8888-8888-8888-8888', 1034, 'user', 'upload/1488576281799logo.png'),
-(11, 'zzzz', 'zzzzzz@zcz.com', 'asf', 'asf', '1212', '2323-2323-2323-2323', 725, 'user', 'upload/profile.jpg'),
-(12, 'kasjfkl', 'sajdjsalk@asjkl.xom', 'asdsad', 'asdasd', '123', '4747-4747-4747-4747', 0, 'user', 'upload/1489086926042Capture.PNG'),
-(13, 'ahmed', 'ahmed@gmail.com', 'alexandria', 'asdasd', '123', '1478-1596-1235-1485', 488, 'user', 'upload/profile.jpg'),
-(14, 'ahmed2', 'ahmed2@gmail.com', 'alexandria', 'google', '123', '1596-6875-9856-5423', 899, 'user', 'upload/profile.jpg'),
-(15, 'omar', 'omar@google.com', 'alexandria', 'ad', '56b10badea2ca8551450c570fb7fd12ef475831ee050a9ba75920b529550fba7ad5366bc3e623cf3811e194887feb60a49470330b17fc438d7aa6866366e97e8', '1236-9874-8532-6521', 960, 'user', 'upload/profile.jpg');
+(2, 'sara', 'sarametwalli93@gmail.com', '18', 'programmer', 'c2a2c8637590d5dd61c457cc1724ecdfa2c47062ec9c584613c099caabbd1ea8d3e4116a8d62e9fe07722dbe6ff382bec09c10fa4019723ae3f1b1286a186684', '9090-9090-9090-9090', 400, 'user', 'upload/profile.jpg');
 
 --
 -- Indexes for dumped tables
@@ -268,14 +231,6 @@ ALTER TABLE `category`
 --
 ALTER TABLE `charge`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `history`
@@ -317,12 +272,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -332,32 +287,27 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `charge`
 --
 ALTER TABLE `charge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=662;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -368,13 +318,6 @@ ALTER TABLE `users`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `history`
