@@ -4,7 +4,6 @@
     Author     : Nesmaa
 --%>
 
-<%@page import="org.yourcart.model.changemodel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
@@ -14,7 +13,7 @@
 
 <%-- include slidebar file --%> 
 <%@include file="slidebar.jsp" %>
-
+<jsp:include page="ChargeServlet"/>
 
 
 <div class="col-sm-9 padding-right">
@@ -37,7 +36,6 @@
                 </tr>
             </thead>
             <tbody>
-                  <% changemodel model = new changemodel();%>
                         <tr>
                             <td class="cart_product">
                                  <p>50$</p>
@@ -46,7 +44,7 @@
                                
                             
                             <td class="cart_description">
-                                <p><%= model.getSumCardNumber(50)%></p>
+                                <p>${requestScope.SumCard50}</p>
                             </td>
                         </tr>
                         <tr>
@@ -54,7 +52,7 @@
                                  <p>100$</p>
                             </td>
                             <td class="cart_description">
-                                <p><%= model.getSumCardNumber(100)%></p>
+                                <p>${requestScope.SumCard100}</p>
                                 
                             </td>
                         </tr>
@@ -63,7 +61,7 @@
                                  <p>200$</p>
                             </td>
                             <td class="cart_description">
-                                <p><%= model.getSumCardNumber(200)%></p>
+                                <p>${requestScope.SumCard200}</p>
                                 
                             </td>
                         </tr>
@@ -72,7 +70,7 @@
                                  <p>500$</p>
                             </td>
                             <td class="cart_description">
-                                <p><%= model.getSumCardNumber(500)%></p>
+                                <p>${requestScope.SumCard500}</p>
                                 
                             </td>
                         </tr>

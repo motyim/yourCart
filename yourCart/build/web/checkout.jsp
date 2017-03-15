@@ -14,15 +14,6 @@
 <section id="cart_items">
     <div class="container">
 
-        <div class="breadcrumbs">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Check out</li>
-            </ol>
-        </div><!--/breadcrums-->
-
-
-
         <div class="review-payment">
             <h2>Review & Payment</h2>
         </div>
@@ -62,13 +53,21 @@
                                 </td>
                                 <td class="cart_price">
 
-                                    <p>$${cart.price}</p>
+                                    <p id="P_${cart.cartId}">$${cart.price}</p>
                                 </td>
-                                <td class="cart_price">
-                                    <p>${cart.quantity}</p>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <a class="cart_quantity_up" id="U_${cart.cartId}"> + </a>
+                                        <input class="cart_quantity_input" 
+                                               type="text" name="quantity" id="V_${cart.cartId}"
+                                               value="${cart.quantity}" autocomplete="off" 
+                                               size="2" disabled>
+<!--                                        <p>${cart.quantity}</p>-->
+                                        <a class="cart_quantity_down" id="D_${cart.cartId}" > - </a>
+                                    </div>
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">
+                                    <p class="cart_total_price"  id="T_${cart.cartId}">
                                             $${cart.price*cart.quantity}
                                     </p>
 
@@ -92,7 +91,7 @@
                             <table class="table table-condensed total-result">
                                 <tr>
                                     <td>Cart Sub Total</td>
-                                    <td>$${total}</td>
+                                    <td id="subTotal">$${total}</td>
                                 </tr>
                                 <tr class="shipping-cost">
                                     <td>Shipping Cost</td>
@@ -100,7 +99,7 @@
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td><span>$${total}
+                                    <td><span id="total">$${total}
                                         </span></td>
                                 </tr>
                             </table>

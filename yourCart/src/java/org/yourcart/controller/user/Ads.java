@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.yourcart.beans.Advertisement;
 import org.yourcart.model.AdvertisementModel;
+import org.yourcart.model.ProductModel;
 
 /**
  * get new random ads to display in sliderbar
@@ -18,7 +20,12 @@ public class Ads extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("ads", new AdvertisementModel().getRandomAds());
+        double d = new ProductModel().getMaxProductByPrice(); 
+        System.out.println(d);
+        request.setAttribute("maxPrice", new ProductModel().getMaxProductByPrice());
+        Advertisement randomAds = new AdvertisementModel().getRandomAds();
+        if(randomAds != null )
+            request.setAttribute("ads", randomAds);
     }
 
    

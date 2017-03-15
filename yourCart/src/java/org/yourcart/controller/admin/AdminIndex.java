@@ -1,4 +1,4 @@
-package org.yourcart.controller.user;
+package org.yourcart.controller.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,17 +6,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.yourcart.model.changemodel;
 
 /**
- * handle logout process
+ *
  * @author MotYim
  */
-@WebServlet(name = "logout", urlPatterns = {"/logout","/admin/logout"})
-public class logout extends HttpServlet {
+@WebServlet(name = "AdminIndex", urlPatterns = {"/admin/AdminIndex"})
+public class AdminIndex extends HttpServlet {
 
-    
+   
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -28,13 +28,13 @@ public class logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //destory session
-        request.getSession(false).invalidate();
-        response.sendRedirect("login.jsp");
+        
+        request.setAttribute("onlineUser", SessionHandler.getOnlineUsers());
+        request.setAttribute("profit", new changemodel().getProfit());
+        
     }
 
-    
-
+  
     /**
      * Returns a short description of the servlet.
      *

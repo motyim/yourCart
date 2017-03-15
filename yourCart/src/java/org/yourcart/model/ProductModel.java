@@ -400,4 +400,31 @@ public class ProductModel {
         return noOfRecords;
     }
 
+    public double getMaxProductByPrice( ) {
+          double highestprice=0;
+
+        try {
+            con = db.openConnection();
+
+            pst = con.prepareStatement("SELECT MAX(price) AS HighestPrice FROM product");
+
+        
+            rs = pst.executeQuery();
+            if (rs.next()) {
+             
+               highestprice = rs.getDouble("HighestPrice");
+                    
+                db.closeConnection();
+              
+            }
+
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        return  highestprice;
+
+        //return null;
+
+    }
 }

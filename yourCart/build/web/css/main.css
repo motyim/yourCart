@@ -1635,6 +1635,7 @@ h2.title {
     text-align: center;
     width: 35px;
     float: left;
+    cursor: pointer;
 }
 
 

@@ -25,13 +25,10 @@ public class UserDbModel{
             con = db.openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from users where (username=?)");
             pst.setString(1, usrName);
-            System.out.println("name :::::: "+ usrName);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                System.out.println("return true");
                 b = true;
             } else {
-                System.out.println("return false");
                 b = false;
             }
             db.closeConnection();
@@ -134,7 +131,7 @@ public class UserDbModel{
                 con = db.openConnection();
                 PreparedStatement pst = con.prepareStatement("update users set username=?,password=?,email=?,job=?,address=?,creaditCard=?,cash=?,role=? ,photo=? where id=? ");
                 pst.setString(1, updateUser.getUserName());
-                pst.setString(2, updateUser.getPassword());
+                pst.setString(2, SHA.encrypt(updateUser.getPassword()));
                 pst.setString(3, updateUser.getEmail());
                 pst.setString(4, updateUser.getJob());
                 pst.setString(5, updateUser.getAddress());

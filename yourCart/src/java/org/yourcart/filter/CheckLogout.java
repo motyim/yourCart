@@ -41,11 +41,11 @@ public class CheckLogout implements Filter {
         //SEE : when remove this line it work wrong
         //System.out.println(user.getUserName());
         if (user == null) { //if user logged out
-//            System.out.println("not login");
+            System.out.println("not login");
             chain.doFilter(request, response);
         } else {
             //redirect to index page
-//            System.out.println("loinnnnns");
+            System.out.println("loinnnnns");
             ((HttpServletResponse) response).sendRedirect("index.jsp");
         }
     }

@@ -17,10 +17,6 @@
                     <form action="Signin" id="SigninForm" method="post">
                         <input type="text" placeholder="username" id="SigninName" name="SigninName" required/>
                         <input type="password" placeholder="password" id="SigninPassword" name="SigninPassword" required/>
-                        <span>
-                            <input type="checkbox" class="checkbox" id="SigninCheckbox"> 
-                            Keep me signed in
-                        </span>
                         <button type="submit" class="btn btn-default">Login</button>
                     </form>
                 </div><!--/login form-->
